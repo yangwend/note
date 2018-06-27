@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>XMLHttpRequest上传文件</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript">
         /*
         三个参数
@@ -19,7 +20,10 @@
                 var re=this.result;
                 var img = document.createElement("img");
                 img.src = re;
-                document.getElementById("result").appendChild( img );
+                img.style.width = '200px';
+                img.style.height = '200px';
+                img.style.border = '1px solid #999';
+                document.getElementById("result").appendChild(img);
                 canvasDataURL(re,w,objDiv)
             }
         }
@@ -83,7 +87,7 @@
                 photoCompress(fileObj, {
                     quality: 0.2
                 }, function(base64Codes){
-                    console.log("压缩后：" + base64Codes.length / 1024 + " " + base64Codes);
+                    console.log("压缩后：" + base64Codes.length / 1024 + " ");
                     var bl = convertBase64UrlToBlob(base64Codes);
                     form.append("file", bl, "file_"+Date.parse(new Date())+".jpg"); // 文件对象
                     xhr = new XMLHttpRequest();  // XMLHttpRequest 对象
