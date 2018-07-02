@@ -23,4 +23,15 @@
 1. [前端必备HTTP技能](https://www.jianshu.com/c/47c604fe47af)
 
 ### eslint 语法检查
-1. [eslint rule 规则](https://eslint.org/docs/rules/)
+1. [eslint rule 规则](https://eslint.org/docs/rules/)  
+
+### ant design 相关
+1. 
+
+### flex 布局
+1. [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
+
+2. [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)  
+
+### git 常用命令总结
+1. [Git 常用命令大全](https://blog.csdn.net/dengsilinming/article/details/8000622)
