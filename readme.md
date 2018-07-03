@@ -25,6 +25,10 @@
 ### eslint 语法检查
 1. [eslint rule 规则](https://eslint.org/docs/rules/)  
 
+2. [husky]()
+
+2. [用 husky 和 lint-staged 构建超溜的代码检查工作流](https://zhuanlan.zhihu.com/p/27094880?utm_source=itdadao&utm_medium=referral)
+
 
 ### ant design 相关
 1. [ant design 官方中文文档](http://ant-design.gitee.io/docs/react/introduce-cn)  
@@ -47,8 +51,6 @@
 
 10. [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)  
 
-11. [用 husky 和 lint-staged 构建超溜的代码检查工作流](https://zhuanlan.zhihu.com/p/27094880?utm_source=itdadao&utm_medium=referral)
-
 
 ### flex 布局
 1. [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
@@ -65,7 +67,9 @@
 
 3. [git 命令](https://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)  
 
-4. [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+4. [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)  
+
+5. [git commit -m 与 git commit -am 的区别](https://blog.csdn.net/yaomingyang/article/details/78788053)
 
 
 ### Rxjs 相关
@@ -78,3 +82,13 @@
 
 ### react 相关
 1. [react 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
+
+
+### 其他
+1. [js获取url传递参数，js获取url？号后面的参数](https://www.cnblogs.com/karila/p/5991340.html)  
+
+2. [chrome表单自动填充导致input文本框背景变成偏黄色问题解决](http://www.cnblogs.com/hailexuexi/p/6898433.html)  
+
+3. [音频文件在各浏览器上的兼容性](https://www.cnblogs.com/-rainbow-/p/8178385.html)  
+
+4. [js中函数参数arguments、callee、caller，值传递、重载](https://blog.csdn.net/luanpeng825485697/article/details/78009443?utm_source=gold_browser_extension)

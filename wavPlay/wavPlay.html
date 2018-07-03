@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>兼容chrome和ie的wav音乐播放(Ie7 Ie8 Ie9 均测试过 )</title>
+</head>
+<body>
+    <bgsound id='snd_ie' src="" loop=-1></loop>
+    <object id='snd_chrome' width="0px" height="0px" type="audio/x-wav" data=""></object>
+    <input type="button" value="开始" onclick="playSound()">
+    <input type="button" value="暂停" onclick="stopSound()">
+</body>
+<script type="text/javascript">
+    function playSound(){ // 放 背景音乐
+        // ie
+        // var snd_ie = document.getElementById('snd_ie');
+        // snd_ie.src = "./example.WAV";
+
+        // chrome
+        var snd_chrome = document.getElementById('snd_chrome');
+        snd_chrome.data = "./example.WAV";
+    }  
+    function stopSound(){
+        // ie
+        // var snd_ie = document.getElementById('snd_ie');
+        // snd_ie.src = "";
+
+        // chrome
+        var snd_chrome = document.getElementById('snd_chrome');
+        snd_chrome.data = "";
+    } 
+</script>
+</html>
