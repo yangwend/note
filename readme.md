@@ -18,20 +18,63 @@
 9. [FormData详解](https://blog.csdn.net/yezitoo/article/details/78339201)  
 
 
-
 ### http 有关
 1. [前端必备HTTP技能](https://www.jianshu.com/c/47c604fe47af)
+
 
 ### eslint 语法检查
 1. [eslint rule 规则](https://eslint.org/docs/rules/)  
 
+
 ### ant design 相关
-1. 
+1. [ant design 官方中文文档](http://ant-design.gitee.io/docs/react/introduce-cn)  
+
+2. [ant design pro 官方中文文档](http://ant-design-pro.gitee.io/docs/getting-started-cn)  
+
+3. [基于antd的react开发（后台管理系统、兼ant design 坑）](http://www.cnblogs.com/xiaoxiao666/p/8023697.html)  
+
+4. [dva 介绍](https://dvajs.com/guide/)  
+
+5. [DVA知识汇总](https://blog.csdn.net/m_review/article/details/75367104)  
+
+6. [JS中最容易被轻视的对象----location和history](https://segmentfault.com/a/1190000009384087)
+
+7. [path-to-regexp](https://segmentfault.com/a/1190000014161454)  
+
+8. [classNames](https://www.jianshu.com/p/9cf57787360d)  
+
+9. [fastclick.js](https://blog.csdn.net/zfy865628361/article/details/49512095)  
+
+10. [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)  
+
+11. [用 husky 和 lint-staged 构建超溜的代码检查工作流](https://zhuanlan.zhihu.com/p/27094880?utm_source=itdadao&utm_medium=referral)
+
 
 ### flex 布局
 1. [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
 
 2. [Flex 布局教程：实例篇](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)  
 
+3. [Flex 布局示例](http://static.vgee.cn/static/index.html)
+
+
 ### git 常用命令总结
-1. [Git 常用命令大全](https://blog.csdn.net/dengsilinming/article/details/8000622)
+1. [Git 中文文档](https://git-scm.com/book/zh/v2)  
+
+2. [Git 常用命令大全](https://blog.csdn.net/dengsilinming/article/details/8000622)  
+
+3. [git 命令](https://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)  
+
+4. [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+
+
+### Rxjs 相关
+1. [Rxjs 中文文档](https://cn.rx.js.org/manual/overview.html)
+
+
+### webpack 相关
+1. [webpack简介](https://zhuanlan.zhihu.com/p/26041084)
+
+
+### react 相关
+1. [react 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
