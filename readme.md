@@ -99,4 +99,6 @@
 
 7. [将图片转换base64格式，data:image/png;base64是什么？](https://blog.csdn.net/webxiaoma/article/details/70053444)  
 
-8. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)
+8. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)  
+
+9. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)

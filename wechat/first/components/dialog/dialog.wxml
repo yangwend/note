@@ -1,5 +1,12 @@
 <!-- 这是自定义组件的内部WXML结构 -->
-<view class="inner">
-    {{innerText}}
-    <slot></slot>
+<view class="dialog">
+    <view class="dialog-mask"></view>
+    <view class="dialog-container">
+        <view wx:if="{{showClose}}" class="dialog-close" bindtap="closeDialog"></view>
+        <view class="dialog-title">{{title}}</view>
+        <view class="btn-group">
+            <span class="btn-item btn-left" bindtap="closeDialog">{{cancelText}}</span>
+            <span class="btn-item btn-right" bindtap="confirmDialog">{{sureText}}</span>
+        </view>
+    </view>
 </view>

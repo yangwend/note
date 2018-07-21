@@ -1,10 +1,21 @@
 Component({
     properties: {
-        // 这里定义了innerText属性，属性值可以在组件使用时指定
-        innerText: {
+        showClose: { // 是否显示 X
+            type: Boolean,
+            value: false
+        },
+        title: { // 标题
             type: String,
-            value: 'default value',
-        }
+            value: ''
+        },
+        cancelText: { // 取消的文案
+            type: String,
+            value: '取消'
+        },
+        sureText: { // 确定的文案
+            type: String,
+            value: '确定'
+        },
     },
     data: {
         // 这里是一些组件内部数据
