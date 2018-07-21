@@ -93,4 +93,10 @@
 
 4. [js中函数参数arguments、callee、caller，值传递、重载](https://blog.csdn.net/luanpeng825485697/article/details/78009443?utm_source=gold_browser_extension)  
 
-5. [webpack开发和生产两个环境的配置详解](https://blog.csdn.net/itkingone/article/details/70331783)
+5. [webpack开发和生产两个环境的配置详解](https://blog.csdn.net/itkingone/article/details/70331783)  
+
+6. [CSS will-change 属性](https://www.cnblogs.com/yuzhongwusan/p/4186405.html)  
+
+7. [将图片转换base64格式，data:image/png;base64是什么？](https://blog.csdn.net/webxiaoma/article/details/70053444)  
+
+8. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)

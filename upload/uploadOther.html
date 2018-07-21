@@ -90,6 +90,9 @@
                     url: 'http://172.30.3.67:7300/mock/5b30e519538393549ec185ef/pay/p/deposit/changeBankCard.htm',
                     type: 'post',
                     dataType: 'json',
+                    data: {
+                        myFile: '11111'
+                    },
                     beforeSubmit: () => {
                         console.log('beforeSubmit');
                         return true;
