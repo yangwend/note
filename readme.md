@@ -101,4 +101,6 @@
 
 8. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)  
 
-9. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)
+9. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)  
+
+10. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)

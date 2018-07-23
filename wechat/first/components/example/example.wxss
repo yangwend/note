@@ -1,0 +1,10 @@
+.example {
+    width: 200rpx;
+    height: 200rpx;
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -100rpx;
+    margin-top: -100rpx;
+}

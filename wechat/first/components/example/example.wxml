@@ -1,0 +1,4 @@
+<view wx:if="{{showExample}}" class="example" bindtap="closeExample">
+    {{innerText}}
+    <slot></slot>
+</view>

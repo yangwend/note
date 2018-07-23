@@ -17,4 +17,7 @@
             </view>
         </view>
     </view>
+    <example inner-text="tell what you know">
+        <view>tell me</view>
+    </example>
 </view>
