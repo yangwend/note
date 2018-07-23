@@ -83,6 +83,22 @@
 ### react 相关
 1. [react 技术栈系列教程](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
 
+### nginx 相关
+1. [nginx 官网](http://nginx.org/)  
+
+2. [windows下nginx的安装及使用方法入门](https://www.cnblogs.com/saysmy/p/6609796.html)
+
+3. [Nginx 的配置系统](http://wiki.jikexueyuan.com/project/nginx/configuration-system.html)
+
+### IntelliJ IDEA 相关
+1. [IntelliJ IDEA官网](http://www.jetbrains.com/idea/)  
+
+2. [IntelliJ IDEA下载及安装教程](https://jingyan.baidu.com/article/25648fc16db2909191fd0082.html)  
+
+3. [IntelliJ Idea 2017 注册码 免费激活方法](https://blog.csdn.net/gaokao2011/article/details/75213008)  
+
+4. [IntelliJ IDEA2017.3/2018 激活](https://blog.csdn.net/zx110503/article/details/78734428)
+
 
 ### 其他
 1. [js获取url传递参数，js获取url？号后面的参数](https://www.cnblogs.com/karila/p/5991340.html)  
@@ -103,4 +119,5 @@
 
 9. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)  
 
-10. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)
+10. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)  
+
