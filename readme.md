@@ -77,7 +77,9 @@
 
 
 ### webpack 相关
-1. [webpack简介](https://zhuanlan.zhihu.com/p/26041084)
+1. [webpack简介](https://zhuanlan.zhihu.com/p/26041084)  
+
+2. [webpack开发和生产两个环境的配置详解](https://blog.csdn.net/itkingone/article/details/70331783)  
 
 
 ### react 相关
@@ -90,6 +92,7 @@
 
 3. [Nginx 的配置系统](http://wiki.jikexueyuan.com/project/nginx/configuration-system.html)
 
+
 ### IntelliJ IDEA 相关
 1. [IntelliJ IDEA官网](http://www.jetbrains.com/idea/)  
 
@@ -98,6 +101,14 @@
 3. [IntelliJ Idea 2017 注册码 免费激活方法](https://blog.csdn.net/gaokao2011/article/details/75213008)  
 
 4. [IntelliJ IDEA2017.3/2018 激活](https://blog.csdn.net/zx110503/article/details/78734428)
+
+
+### VUE 相关
+1. [VUEX 官方文档](https://vuex.vuejs.org/zh/guide/state.html)  
+
+2. [VUE 官方文档](https://cn.vuejs.org/v2/guide/transitions.html)  
+
+3. [VUE图片懒加载-vue lazyload插件的简单使用](https://www.cnblogs.com/xyyt/p/7650539.html)  
 
 
 ### 其他
@@ -109,15 +120,20 @@
 
 4. [js中函数参数arguments、callee、caller，值传递、重载](https://blog.csdn.net/luanpeng825485697/article/details/78009443?utm_source=gold_browser_extension)  
 
-5. [webpack开发和生产两个环境的配置详解](https://blog.csdn.net/itkingone/article/details/70331783)  
+5. [CSS will-change 属性](https://www.cnblogs.com/yuzhongwusan/p/4186405.html)  
 
-6. [CSS will-change 属性](https://www.cnblogs.com/yuzhongwusan/p/4186405.html)  
+6. [将图片转换base64格式，data:image/png;base64是什么？](https://blog.csdn.net/webxiaoma/article/details/70053444)  
 
-7. [将图片转换base64格式，data:image/png;base64是什么？](https://blog.csdn.net/webxiaoma/article/details/70053444)  
+7. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)  
 
-8. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)  
+8. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)  
 
-9. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)  
+9. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)  
 
-10. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)  
+10. [微信公众平台 JSSDK 发送给朋友 分享到朋友圈 onMenuShareTimeline onMenuShareAppMessage](http://www.cnblogs.com/txw1958/p/weixin-js.html)
 
+11. [微信jssdk ios下自定义onMenuShareAppMessage 分享失效，Android分享成功](https://segmentfault.com/q/1010000009380695)  
+
+12. [微信JSSDK分享接口教程，wechat，share ,onMenuShareAppMessage wx.onMenuShareTimeline](https://blog.csdn.net/lanmanck/article/details/53282976)  
+
+13. [微信JS-SDK说明文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)
