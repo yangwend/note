@@ -51,6 +51,10 @@
 
 10. [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)  
 
+11. [use wrappedComponentRef instead of withRef after rc-form@1.4.0](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)  
+
+12. [[Form] use the wrappedComponentRef to get instance is different from withRef](https://github.com/ant-design/ant-design/issues/6545)
+
 
 ### flex 布局
 1. [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
@@ -69,7 +73,9 @@
 
 4. [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)  
 
-5. [git commit -m 与 git commit -am 的区别](https://blog.csdn.net/yaomingyang/article/details/78788053)
+5. [git commit -m 与 git commit -am 的区别](https://blog.csdn.net/yaomingyang/article/details/78788053)  
+
+6. [git 子模块](https://stackoverflow.com/questions/4873980/git-diff-says-subproject-is-dirty)
 
 
 ### Rxjs 相关
@@ -110,6 +116,26 @@
 
 3. [VUE图片懒加载-vue lazyload插件的简单使用](https://www.cnblogs.com/xyyt/p/7650539.html)  
 
+4. [Vue Router官方文档](https://router.vuejs.org/zh/guide/#html)  
+
+5. [vue-loader官方文档](https://vue-loader-v14.vuejs.org/zh-cn/start/spec.html)  
+
+6. [VUE-CLI搭建及其简单介绍](https://blog.csdn.net/weixin_38788947/article/details/76709257)  
+
+7. [vue-loader学习笔记](https://blog.csdn.net/weixin_38788947/article/details/76718402)  
+
+8. [vue-router1](https://blog.csdn.net/weixin_38788947/article/details/76735705)  
+
+9. [vue-router2](https://blog.csdn.net/weixin_38788947/article/details/76986283)  
+
+10. [vue中的 ref 和 $refs](https://www.cnblogs.com/xumqfaith/p/7743387.html)  
+
+11. [当 better-scroll 遇见 Vue](https://www.imooc.com/article/18232)  
+
+### sequelize 相关
+1. [sequelize官方文档](https://itbilu.com/nodejs/npm/V1PExztfb.html)  
+
+2. 
 
 ### 其他
 1. [js获取url传递参数，js获取url？号后面的参数](https://www.cnblogs.com/karila/p/5991340.html)  
@@ -136,4 +162,12 @@
 
 12. [微信JSSDK分享接口教程，wechat，share ,onMenuShareAppMessage wx.onMenuShareTimeline](https://blog.csdn.net/lanmanck/article/details/53282976)  
 
-13. [微信JS-SDK说明文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)
+13. [微信JS-SDK说明文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)  
+
+14. [fetch，终于认识你](https://segmentfault.com/a/1190000011433064)  
+
+15. [nvm-windows 安装](https://github.com/coreybutler/nvm-windows)  
+
+16. [压缩图片](https://tinypng.com/)  
+
+17. [history.pushState无刷新改变url](https://blog.csdn.net/helloxiaoliang/article/details/73850428)
