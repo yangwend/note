@@ -170,4 +170,6 @@
 
 16. [压缩图片](https://tinypng.com/)  
 
-17. [history.pushState无刷新改变url](https://blog.csdn.net/helloxiaoliang/article/details/73850428)
+17. [history.pushState无刷新改变url](https://blog.csdn.net/helloxiaoliang/article/details/73850428)  
+
+18. [移动端的头部标签和 meta](https://blog.csdn.net/alex8046/article/details/50435523)
