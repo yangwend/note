@@ -141,6 +141,12 @@
 1. [Weex官方文档](http://weex.apache.org/cn/guide/)  
 
 
+### angularjs 相关
+1. [angularjs官方文档](http://www.angularjs.net.cn/tutorial/)  
+
+2. [angular js一$watch监控属性和对象](https://www.cnblogs.com/Tiboo/p/6753947.html)  
+
+
 
 ### 其他
 1. [js获取url传递参数，js获取url？号后面的参数](https://www.cnblogs.com/karila/p/5991340.html)  
@@ -177,4 +183,6 @@
 
 17. [history.pushState无刷新改变url](https://blog.csdn.net/helloxiaoliang/article/details/73850428)  
 
-18. [移动端的头部标签和 meta](https://blog.csdn.net/alex8046/article/details/50435523)
+18. [移动端的头部标签和 meta](https://blog.csdn.net/alex8046/article/details/50435523)  
+
+19. [BeyondCompare3密钥过期怎么办？不用再找新的密钥，一招帮你搞定！](https://blog.csdn.net/IAlexanderI/article/details/80692409)
