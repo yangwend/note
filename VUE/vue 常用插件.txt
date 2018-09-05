@@ -36,26 +36,22 @@ clipboard.js 的封装。更具体的可以查看clipboard.js
         import VueClipboard from 'vue-clipboard2';
         Vue.use(VueClipboard);
     d. 写法：
-    <button type="button" class="copy-btn" v-clipboard:copy="message"
+    <button type="button" class="copy" v-clipboard:copy="message"
         v-clipboard:success="onCopy"
         v-clipboard:error="onError"
-        >去关注</button>
+        >xxx</button>
 
     data() {
         return {
-            text: '微信号已复制成功，是否继续跳转到微信进行关注',
-            message: 'youjinsuo-yyfax'
+            message: '需要复制的文案'
         }
     },
     methods: {
         onCopy: function(e) {
-            if (!this.isAndroid && !this.isIos) {
-                this.text = '微信号已复制成功，请您到微信进行关注';
-                return;
-            }
+            // 复制成功
         },
         onError: function(e) {
-            this.text = '请手动复制微信号并打开微信进行关注';
+            // 不支持
         }
     }
 

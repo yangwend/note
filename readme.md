@@ -53,7 +53,9 @@
 
 11. [use wrappedComponentRef instead of withRef after rc-form@1.4.0](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)  
 
-12. [[Form] use the wrappedComponentRef to get instance is different from withRef](https://github.com/ant-design/ant-design/issues/6545)
+12. [[Form] use the wrappedComponentRef to get instance is different from withRef](https://github.com/ant-design/ant-design/issues/6545)  
+
+13. [怎样在 dva 中写轮询逻辑](https://github.com/frontend9/fe9-library/issues/25)
 
 
 ### flex 布局

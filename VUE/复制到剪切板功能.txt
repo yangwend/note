@@ -1,0 +1,30 @@
+复制到剪切板功能：
+相关链接：
+（1） 浏览器Range,Selection等选中文本对象（https://www.cnblogs.com/btgyoyo/p/6214911.html）
+（2）JavaScript 实现复制到剪贴板的总结（https://www.cnblogs.com/dodocie/p/7210253.html）
+（3）【原】js实现复制到剪贴板功能，兼容所有浏览器（https://www.cnblogs.com/PeunZhang/p/3324727.html）
+
+1. 采用原生方法：（https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand）
+
+    var inputText = document.getElementById('inputText');
+    inputText.select();
+    inputText.setSelectionRange(0, inputText.value.length);
+    try {
+        var bool = document.execCommand('copy');
+        if (!bool) {
+            // 不支持复制
+        }
+    } catch (error) {
+        // 不支持复制
+    }
+
+命令若未被支持或启用，execCommand 会抛出异常，而不是返回 false。所以需要使用 try catch 进行捕获。
+
+2. 采用 vue-clipboard2 插件（vue项目中）
+
+3. clipboard.js
+相关链接：
+（1）clipboard.js 介绍（https://www.cnblogs.com/yunser/p/7628031.html）
+（2）github地址（https://github.com/zenorocha/clipboard.js）
+（3）例子见 clipboard.html
+
