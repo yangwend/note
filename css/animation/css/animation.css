@@ -1,0 +1,138 @@
+/* animation start */
+.container {
+    margin: 100px;
+    padding: 0;
+}
+
+.animation {
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.animation-fir {
+    display: block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background: url(https://p3.ssl.qhimg.com/t01539d86c446cfd22b.png) no-repeat center;
+    background-size: 100% 100%;
+    -webkit-animation: shanshan 5s linear infinite backwards;
+    animation: shanshan 5s linear infinite backwards;
+}
+/* 放大加左右闪动 */
+@-webkit-keyframes shanshan {
+    5% {
+        -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+    }
+    6%, 8%, 10%, 12% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg);
+    }
+    7%, 9%, 11% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg);
+    }
+    13% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes shanshan {
+    5% {
+        -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+        transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+    }
+    6%, 8%, 10%, 12% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg);
+    }
+    7%, 9%, 11% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg);
+    }
+    13% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.animation-sec {
+    display: block;
+    position: relative;
+    width: 100px;
+    height: 60px;
+    background-color: #92B901;
+    color: #fff;
+    border-radius: 8px;
+    -webkit-animation: tiaoyue 4s linear infinite backwards;
+    animation: tiaoyue 5s linear 1s infinite backwards;
+}
+/* 旋转跳跃 */
+@-webkit-keyframes tiaoyue {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 0px;
+    }
+    25% {
+        -webkit-transform: rotate(20deg);
+        transform: rotate(20deg);
+        left: 0px;
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    55% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    70% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+        background-color: #1ec7e6;
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        left: 0px;
+    }
+}
+
+@keyframes tiaoyue {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 0px;
+    }
+    25% {
+        -webkit-transform: rotate(20deg);
+        transform: rotate(20deg);
+        left: 0px;
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    55% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+    }
+    70% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        left: 500px;
+        background-color: #1ec7e6;
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        left: 0px;
+    }
+}

@@ -1,0 +1,90 @@
+.container {
+    margin: 100px;
+    padding: 0;
+    display: block;
+}
+
+.animation {
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.leaf-title {
+    text-align: center;
+}
+
+.leaf-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.animation-make {
+    display: block;
+    width: 300px;
+    height: 225px;
+    background: -webkit-linear-gradient(to right, #fdc946 0%, #fdd55a 50%, #fdc946 100%);
+    background: linear-gradient(to right, #fdc946 0%, #fdd55a 50%, #fdc946 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.make-title {
+    color: #e9a324;
+    margin-top: 52px;
+    height: 29px;
+    text-align: center;
+}
+
+.make-container {
+    position: relative;
+    display: block;
+    width: 228px;
+    height: 49px;
+    margin: 0 auto;
+    margin-top: 18px;
+    background-color: #fce196;
+    border-radius: 30px;
+    padding: 6px;
+}
+
+.container-bg {
+    width: 216px;
+    height: 37px;
+    border-radius: 30px;
+    position: relative;
+    display: block;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.bg-con {
+    width: 10%;
+    height: 100%;
+    background-color: #ffa800;
+}
+
+.container-fan {
+    position: absolute;
+    display: block;
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background-color: #fdcf50;
+    top: 0;
+    right: 0;
+    z-index: 20;
+}
+
+.img-fan {
+    width: 35px;
+    height: 35px;
+    background-image: url(../images/fengshan.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    display: block;
+    top: 4px;
+    right: 4px;
+    z-index: 25;
+}

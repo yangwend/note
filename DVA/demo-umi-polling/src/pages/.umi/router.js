@@ -4,7 +4,7 @@ import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/_renderRoutes';
 
 
-let Router = DefaultRouter;
+let Router = require('dva/router').routerRedux.ConnectedRouter;
 
 let routes = [
   {
@@ -13,7 +13,7 @@ let routes = [
     "component": require('../index.js').default
   },
   {
-    "component": () => React.createElement(require('E:/codeAndNote/note/note/DVA/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'pages', hasRoutesInConfig: false })
+    "component": () => React.createElement(require('E:/codeAndNote/note/note/DVA/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: false })
   }
 ];
 
