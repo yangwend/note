@@ -190,4 +190,10 @@
 
 19. [BeyondCompare3密钥过期怎么办？不用再找新的密钥，一招帮你搞定！](https://blog.csdn.net/IAlexanderI/article/details/80692409)  
 
-20. [如何优雅的选择字体(font-family)](https://segmentfault.com/a/1190000006110417)
+20. [如何优雅的选择字体(font-family)](https://segmentfault.com/a/1190000006110417)  
+
+21. [Date.now()和Date.parse()的解释](https://blog.csdn.net/shaleilei/article/details/78375906)  
+
+22. [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
+
+23. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
