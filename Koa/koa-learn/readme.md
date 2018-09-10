@@ -125,4 +125,32 @@ ctx.cookies.set(name, value, [options]) 在上下文中写入cookie
 设置 cookie 或者读取 cookie，是针对于浏览器的 cookie 进行的操作。
 ```
 
-2. 
+2. [koa-session学习笔记](https://www.jianshu.com/p/8f4cc45d712e)
+```
+在使用koa-session的时候用户可以传一个自定义的config，包括：
+app.use(session(CONFIG, app));
+
+1. maxAge,这个是确定cookie的有效期，默认是一天。
+2. rolling, renew，这两个都是涉及到cookie有效期的更新策略
+3. httpOnly，表示是否可以通过javascript来修改，设成true会更加安全
+4. signed，这个涉及到cookie的安全性，下面再讨论
+5. store，可以传入一个用于session的外部存储(***)
+
+
+koa-session的基本流程非常简单
+
+1. 根据cookie或者外部存储初始化cookie。
+2. 调用next()执行后面的业务逻辑，其中可以读取和写入新的session内容。
+3. 调用commit()把更新后的session保存下来。
+
+
+保存session的情况包括
+
+1. 如果session有变动;
+2. 在config里设置了rolling为true，也就是每次都更新session;
+3. 在config里设置了renew为true，且有效期已经过了一半，需要更新session;
+一旦满足任何一个条件，就会调用save()操作来保存cookie.
+
+```
+
+3. [从koa-session中间件源码学习cookie与session](https://segmentfault.com/a/1190000012412299)

@@ -150,6 +150,8 @@
 2. [angular js一$watch监控属性和对象](https://www.cnblogs.com/Tiboo/p/6753947.html)  
 
 
+### 任务调度相关
+1. [轻量级分布式任务调度平台](http://www.xuxueli.com/xxl-job/#/)
 
 ### 其他
 1. [js获取url传递参数，js获取url？号后面的参数](https://www.cnblogs.com/karila/p/5991340.html)  
