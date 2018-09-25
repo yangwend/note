@@ -198,4 +198,17 @@
 
 22. [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)  
 
-23. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+23. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)  
+
+24. [SSO单点登录的知识储备](https://segmentfault.com/a/1190000000652488)  
+
+25. [前端安全之XSS攻击](https://www.cnblogs.com/unclekeith/p/7750681.html)  
+
+26. [JSON.parse()与JSON.stringify()的区别](https://www.cnblogs.com/goatling/p/6293692.html)  
+
+27. [怎么判断一个对象是不是数组类型？](https://www.cnblogs.com/leaf930814/p/6659996.html)  
+
+28. [compass 雪碧图报错](https://www.imooc.com/qadetail/100080)  
+
+29. 如何获取页面web服务器时间？  
+`new Date($.ajax({async: false}).getResponseHeader('Date'));`

@@ -154,3 +154,7 @@ koa-session的基本流程非常简单
 ```
 
 3. [从koa-session中间件源码学习cookie与session](https://segmentfault.com/a/1190000012412299)
+
+4. [koa-session2](https://www.npmjs.com/package/koa-session2)
+
+5. [数据字典](https://blog.csdn.net/qq_37023388/article/details/79061881)
