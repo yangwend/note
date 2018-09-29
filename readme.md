@@ -212,3 +212,36 @@
 
 29. 如何获取页面web服务器时间？  
 `new Date($.ajax({async: false}).getResponseHeader('Date'));`
+
+30. [日期和时间组件文档 - layui.laydate](https://www.layui.com/doc/modules/laydate.html)  
+
+31. [js 禁止用户使用Ctrl+鼠标滚轮缩放网页](https://www.cnblogs.com/wwlhome/p/5439483.html)
+```
+<html>
+<head>
+<title>测试</title>
+<script language="javascript">
+ var scrollFunc=function(e){
+  e=e || window.event;
+  if(e.wheelDelta && event.ctrlKey){//IE/Opera/Chrome
+   event.returnValue=false;
+  }else if(e.detail){//Firefox
+   event.returnValue=false;
+  }
+ } 
+   
+ /*注册事件*/
+ if(document.addEventListener){
+ document.addEventListener('DOMMouseScroll',scrollFunc,false);
+ }//W3C
+ window.onmousewheel=document.onmousewheel=scrollFunc;//IE/Opera/Chrome/Safari
+    
+</script>
+</head>
+  
+<body style="font-size:30px;">
+ <br>SCRIPT脚本控制页面不随ctrl+鼠标滚轮而缩放。<br>
+ <br>CSS可以控制页面文字大小不随浏览器设置而改变。
+</body>
+</html>
+```
