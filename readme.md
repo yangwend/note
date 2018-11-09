@@ -111,6 +111,8 @@
 
 4. [IntelliJ IDEA2017.3/2018 激活](https://blog.csdn.net/zx110503/article/details/78734428)
 
+5. [IntelliJ IDEA2017.3.4 离线激活到 2099](https://blog.csdn.net/qq_28867949/article/details/79380218)
+
 
 ### VUE 相关
 1. [VUEX 官方文档](https://vuex.vuejs.org/zh/guide/state.html)  
