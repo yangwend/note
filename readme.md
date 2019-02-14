@@ -56,7 +56,11 @@
 
 12. [[Form] use the wrappedComponentRef to get instance is different from withRef](https://github.com/ant-design/ant-design/issues/6545)  
 
-13. [怎样在 dva 中写轮询逻辑](https://github.com/frontend9/fe9-library/issues/25)
+13. [怎样在 dva 中写轮询逻辑](https://github.com/frontend9/fe9-library/issues/25)  
+
+14. [Redux 中文文档](http://cn.redux.js.org/)  
+
+15. [Redux-saga 中文文档](https://redux-saga-in-chinese.js.org/)
 
 
 ### flex 布局
@@ -248,5 +252,7 @@
 </html>
 ```
 
-32. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
+32. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)  
+
+33. [工厂函数](https://www.cnblogs.com/yangguoe/p/9268315.html)
 
