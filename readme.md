@@ -60,7 +60,11 @@
 
 14. [Redux 中文文档](http://cn.redux.js.org/)  
 
-15. [Redux-saga 中文文档](https://redux-saga-in-chinese.js.org/)
+15. [Redux-saga 中文文档](https://redux-saga-in-chinese.js.org/)  
+
+16. [ant design pro v1](https://v1.pro.ant.design/docs/getting-started-cn)  
+
+17. [聊一聊我对 React Context 的理解以及应用](https://www.jianshu.com/p/eba2b76b290b)
 
 
 ### flex 布局
@@ -87,6 +91,14 @@
 
 ### Rxjs 相关
 1. [Rxjs 中文文档](https://cn.rx.js.org/manual/overview.html)
+
+
+### lodash 相关
+1. [lodashjs 文档](https://www.lodashjs.com/)  
+
+2. [lodash api](http://lodash.think2011.net/chunk)  
+
+3. [Lodash 简书](https://www.jianshu.com/p/7436e40ac5d1)  
 
 
 ### webpack 相关
@@ -154,6 +166,10 @@
 1. [angularjs官方文档](http://www.angularjs.net.cn/tutorial/)  
 
 2. [angular js一$watch监控属性和对象](https://www.cnblogs.com/Tiboo/p/6753947.html)  
+
+
+### babel 相关
+1. [Babel 用户手册](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/user-handbook.md)
 
 
 ### 任务调度相关
@@ -252,7 +268,14 @@
 </html>
 ```
 
-32. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)  
+32. [工厂函数](https://www.cnblogs.com/yangguoe/p/9268315.html)
 
-33. [工厂函数](https://www.cnblogs.com/yangguoe/p/9268315.html)
+33. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)  
 
+34. [ScriptOJ 练习开发](http://scriptoj.mangojuice.top/)
+
+35. [chrome 浏览器低版本下载](https://www.chromedownloads.net/chrome64win/)
+
+36. [前端面试题](https://github.com/zhongxia245/blog/blob/master/InterviewQuestion/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+
+37. [技术小计](https://zhuanlan.zhihu.com/miya393)
