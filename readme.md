@@ -279,3 +279,5 @@
 36. [前端面试题](https://github.com/zhongxia245/blog/blob/master/InterviewQuestion/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98.md)
 
 37. [技术小计](https://zhuanlan.zhihu.com/miya393)
+
+38. [浅析前端开发中的 MVC/MVP/MVVM 模式](https://juejin.im/post/593021272f301e0058273468#heading-11)
