@@ -29,4 +29,31 @@ filter(), concat() 和 slice() ：这些不会改变原始数组，但总是返�
 7. 事件修饰符：<br/>
 详见 [vue 事件修饰符](https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6)
 
-8. 
+8. 组件：<br/>
+（1）推荐：自定义组件名 (字母全小写且必须包含一个连字符)。<br/>
+（2）使用组件时，驼峰的写法等价于小写加 - 的写法。<br/>
+（3）自定义组件中的 prop 使用了驼峰的写法，在使用组件时，prop 推荐用小写加 - ，若采用了 vue-cli3 ，可以写为驼峰式：<br/>
+通过 webpack 打包，.vue 文件会被编译，其中的 template 会编译为 render 函数，所以使用驼峰的写法也没问题。<br/>
+
+9. Prop 传值为一个对象的所有属性时：<br/>
+![prop 传值](./images/prop传值.png)
+
+10. 非 Prop 特性：<br/>
+即组件中没有定义这个 prop ，但是在使用时传入了这个 prop ，此时会被渲染在组件的根元素上。
+
+11. 自定义 prop ：<br/>
+    ```
+    @Component({
+        name: 'my-com',
+        model: {
+            prop: 'checked',
+            event: 'change'
+        }
+    })
+    ```
+
+12. 插槽 prop 允许我们将插槽转换为可复用的模板，这些模板可以基于输入的 prop 渲染出不同的内容：<br/>
+![具名插槽-解构插槽](./images/具名插槽-解构插槽.png)
+详见[其他示例](https://cn.vuejs.org/v2/guide/components-slots.html#%E5%85%B6%E5%AE%83%E7%A4%BA%E4%BE%8B)
+
+13. 

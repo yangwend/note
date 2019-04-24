@@ -1,0 +1,22 @@
+{
+  "name": "rollup-demo",
+  "version": "1.0.0",
+  "description": "my-rollup-project",
+  "main": "rollup.config.js",
+  "devDependencies": {
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yangwend",
+  "license": "ISC",
+  "dependencies": {
+    "sam-test-data": "^0.0.5",
+    "sam-test-data-cjs": "^0.0.1"
+  }
+}
