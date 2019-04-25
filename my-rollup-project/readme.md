@@ -18,3 +18,12 @@ ES模块的tree-shaking机制：动态地清除没有被使用过的代码，使
 CommonJS模块不能支持tree-shaking特性，建议大家使用rollup.js打包时，尽量使用ES模块，以获得更精简的代码。<br/>
 UMD模块与CommonJS类似，也是不能够支持tree-shaking特性的<br/>
 在 package.json 文件的 main 属性中指向当前编译的版本。如果你的 package.json 也具有 module 字段，像 Rollup 和 webpack 2 这样的 ES6 感知工具(ES6-aware tools)将会直接导入 ES6 模块版本。<br/>
+
+rollup-plugin-node-resolve：集成外部模块<br/>
+rollup-plugin-commonjs：支持CommonJS模块，将 CommonJS 转换成 ES2015 模块<br/>
+rollup-plugin-babel：编译ES6语法，使低版本浏览器可以识别<br/>
+rollup-plugin-uglify：代码最小化打包（不支持ES模块）<br/>
+rollup-plugin-terser：代码压缩，取代uglify，支持ES模块。<br/>
+rollup-plugin-alias插件：替换模块路径中的别名；<br/>
+rollup-plugin-flow-no-whitespace插件：去除flow静态类型检查代码；<br/>
+rollup-plugin-replace插件：替换代码中的变量为指定值；<br/>
