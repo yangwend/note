@@ -281,3 +281,5 @@
 37. [技术小计](https://zhuanlan.zhihu.com/miya393)
 
 38. [浅析前端开发中的 MVC/MVP/MVVM 模式](https://juejin.im/post/593021272f301e0058273468#heading-11)
+
+39. [addEventListener() 方法，事件监听](https://www.cnblogs.com/baiyangyuanzi/p/6627401.html)
