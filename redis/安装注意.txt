@@ -2,3 +2,18 @@ https://www.cnblogs.com/seekdream/p/7942347.html
 
 如果本地已经安装了 需要先卸载  
 然后点击 vc_redist.x86.exe   然后报错，再根据上面的文档进行操作即可 
+
+启动 redis 之前需要安装 redis
+(1)安装：
+https://www.runoob.com/redis/redis-install.html
+
+1. redis 安装：解压 Redis-x64-3.2.100.zip
+2. 进入 redis 解压目录，cmd 命令：redis-server.exe redis.windows.conf
+
+
+(2)Windows下安装Redis并设置开机自动启动
+https://blog.csdn.net/hkhhkb/article/details/79167880
+
+1. 进入 redis 解压目录，cmd 命令：redis-server –service-install redis.windows.conf
+2. 打开cmd窗口并输入：services.msc，找到Redis点击启动即可。
+
