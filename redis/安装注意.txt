@@ -1,0 +1,4 @@
+https://www.cnblogs.com/seekdream/p/7942347.html
+
+如果本地已经安装了 需要先卸载  
+然后点击 vc_redist.x86.exe   然后报错，再根据上面的文档进行操作即可 
