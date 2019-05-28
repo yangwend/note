@@ -283,3 +283,19 @@
 38. [浅析前端开发中的 MVC/MVP/MVVM 模式](https://juejin.im/post/593021272f301e0058273468#heading-11)
 
 39. [addEventListener() 方法，事件监听](https://www.cnblogs.com/baiyangyuanzi/p/6627401.html)
+
+40. [执行上下文与执行栈，变量对象](https://segmentfault.com/a/1190000017890535)
+
+41. [栈、堆、队列、内存空间](https://segmentfault.com/a/1190000017896749)
+
+42. [从作用域走进闭包](https://segmentfault.com/a/1190000017948999)
+
+43. [略知函数式编程](https://segmentfault.com/a/1190000017966670)
+
+44. [学会函数柯里化（curry)](https://segmentfault.com/a/1190000017981474)
+
+45. [知否知否，须知this](https://segmentfault.com/a/1190000018059411)
+
+46. [走进面向对象，原型与原型链，继承方式](https://segmentfault.com/a/1190000018196125)
+
+47. [浅谈函数防抖与节流](https://segmentfault.com/a/1190000018383955)
