@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用 jquery.media.js 脚本预览 pdf 内容</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery.media.js"></script>
+</head>
+<body>
+    以下是使用 jquery.media.js 脚本预览 pdf 内容：<br>
+	<a class="pdfViewer" href="./demo.pdf"></a>  
+    <script type="text/javascript">
+        $(function() {
+            $('.pdfViewer').media({
+                'width': '100%',
+                'height': '400px'
+            });
+        });
+    </script>
+</body>
+</html>

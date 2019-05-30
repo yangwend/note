@@ -71,7 +71,7 @@ if (PDFObject.supportsPDFs) {
 注意：PDFObject.embed 不支持中文字符串，需要做下处理todo：<br/>
 ```html
 <script type="text/javascript">
-    // 不支持中文，谷歌浏览器能运行,ie浏览器下embed方法则不能正确的找到pdf文件。
+    // 不支持中文，谷歌浏览器能运行,ie浏览器下embed方法则不能正确的找到pdf文件。todo
     var pdfurl = "/我.pdf";
     PDFObject.embed(pdfurl, "#demo_viewer" );
 
@@ -118,20 +118,128 @@ if (PDFObject.supportsPDFs) {
 
 ## jquery.media.js
 
+使用 jquery.media.js 插件也可以实现 pdf 预览功能（基于 jquery 脚本）。该插件支持多种类型的多媒体播放器包括：Flash、Quicktime、Windows Media Player、Microsfot Silverlight、Real Player、iframe。其他支持的类型文件包括 bmp、html、pdf、psd、qif、qtif、qti、tif、tiff、xaml。具体 API 详见 [jquery.media.js 官方文档](http://jquery.malsup.com/media/)。
+
+该插件主要是将标签（通常为 a 标签）转化为 div 标签，同时生成适合于当前浏览器展示的 object/embed/iframe 标签，达到渲染 pdf 的效果。由于转化过程在客户端浏览器中，因此渲染速度无法很快。这是一个不大好的体验。
+
+另外，该插件兼容性不太好，不支持 H5 端打开，在 ie 上无法预览，但会询问是否打开，可使用 pdf 预览器打开 pdf 文档（前提是安装了 pdf 预览器）。（网上部分文档说可以支持 h5，不可以 ie 打开/(ㄒoㄒ)/~~）
+
+### 使用方式
+
+1. 引入 js 脚本(需要 jquery 和 jquery.media.js 两个)<br/>
+```html
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script type="text/javascript" src="./jquery.media.js"></script>
+```
+其中，jquery 版本需为 1.1.2 及以上，jquery.media.js [下载地址](https://github.com/malsup/media/tree/master)
+
+2. 指定位置展示 pdf
+```html
+<script type="text/javascript">
+    $(function() {
+        $('.pdfViewer').media({
+            'width': '100%',
+            'height': '400px'
+        });
+    });
+</script>
+```
+
+### 完整示例
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用 jquery.media.js 脚本预览 pdf 内容</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery.media.js"></script>
+</head>
+<body>
+    以下是使用 jquery.media.js 脚本预览 pdf 内容：<br>
+	<a class="pdfViewer" href="./demo.pdf"></a>  
+    <script type="text/javascript">
+        $(function() {
+            $('.pdfViewer').media({
+                'width': '100%',
+                'height': '400px'
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+
+## jsPDF
+
+根据 [jsPDF 官方文档](http://raw.githack.com/MrRio/jsPDF/master/docs/index.html) 介绍，jsPDF 是一个使用 JavaScript 语言生成 pdf 的开源库。通过引入 jsPDF 库，调用提供的内置方法就可以很方便的生成 各种类型的 pdf 文件。
+
+浏览器兼容性：IE 10, Firefox 3+, Chrome, Safari 3+, Opera，未来将兼容 IE 10 以下版本，对于 IE10 以下的版本会使用 Downloadify 来实现文件下载功能。
+
+示例1--生成文本：
+```javascript
+var doc = new jsPDF();
+doc.text(20, 20, 'This is the default font.');
+doc.setFont("courier");
+doc.setFontType("normal");
+doc.text(20, 30, 'This is courier normal.');
+doc.setFont("times");
+doc.setFontType("italic");
+doc.text(20, 40, 'This is times italic.');
+doc.setFont("helvetica");
+doc.setFontType("bold");
+doc.text(20, 50, 'This is helvetica bold.');
+doc.setFont("courier");
+doc.setFontType("bolditalic");
+doc.text(20, 60, 'This is courier bolditalic.');
+```
+
+示例2--生成图片：
+```javascript
+var imgData = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4ge....../2Q==';
+var doc = new jsPDF();
+doc.setFontSize(40);
+doc.text(35, 25, "Octonyan loves jsPDF");
+doc.addImage(imgData, 'JPEG', 15, 40, 180, 180);
+```
+
+[demo 地址](http://www.jq22.com/yanshi517)，具体使用方法可参见 [jsPDF 官方文档](http://raw.githack.com/MrRio/jsPDF/master/docs/index.html) 或者 [jsPDF – 基于 HTML5 的强大 PDF 生成工具](https://blog.csdn.net/ithomer/article/details/78884597)，此处不做详细解释。
+
+
+
+## jQuery Document Viewer
+
+根据 [jQuery Document Viewer 官方文档](https://codecanyon.net/item/jquery-document-viewer/1732515?ref=bogdan_sandu) 介绍，jQuery Document Viewer 是一个允许你在网页中查看不同类型的 jquery 插件。它支持四种文件格式：PDF Files、Images(png, jpg, jpeg, gif)、Audio(mp3, m4a, oga, webma, fla)、Video(m4v, ogv, ogg, webmv, flv)。该插件底层基于 pdf.js、jPlayer、Flowplayer、Google Code Prettify 四种第三方插件。顺便说一句，还要购买才能用...
+
+浏览器兼容性：IE9, IE10, IE11, Firefox, Safari, Opera, Chrome。
+
+[demo 地址](http://preview.codecanyon.net/item/jquery-document-viewer/full_screen_preview/1732515)，具体使用方法可参见 [jQuery Document Viewer 官方文档](https://codecanyon.net/item/jquery-document-viewer/1732515?ref=bogdan_sandu)。
 
 
 ## pdf.js
 
-pdf.js 支持在所有符合 HTML5 标准的浏览器上实现 PDF 在线预览、打印、下载等功能。
+[pdf.js](https://github.com/mozilla/pdf.js) 支持在所有符合 HTML5 标准的浏览器上实现 PDF 在线预览、打印、下载等功能，是一款开源的 pdf 文档读取解析插件，能将 pdf 文件渲染成Canvas。pdf.js 主要包含两个库文件，一个 pdf.js 和一个 pdf.worker.js，一个负责 API 解析，一个负责核心解析。
 
-1. 兼容性：<br>
+兼容性(兼容PC/H5，大部分浏览器都兼容)：
 ![pdf.js 兼容性](./pdfjs/pdf.js兼容性.png)
 
-2. [pdf.js github 地址](https://github.com/mozilla/pdf.js)
 
 3. [pdf.js online demo](https://mozilla.github.io/pdf.js/web/viewer.html)
 
 4. 
+
+
+## 总结
+
+以上说了这么多，总结一下：
+
+1. 
+
+2. 
 
 
 ## 参考链接
@@ -148,32 +256,27 @@ pdf.js 支持在所有符合 HTML5 标准的浏览器上实现 PDF 在线预览�
 
 6. [PDFObject 官方文档](https://pdfobject.com/)
 
+7. [jquery.media.js 官方文档](http://jquery.malsup.com/media/)
+
+8. [8 个 jQuery 的 PDF 浏览插件](https://www.oschina.net/news/35267/jquery-pdf-viewers)
+
+9. [jsPDF 官方文档](http://raw.githack.com/MrRio/jsPDF/master/docs/index.html)
+
+10. [jsPDF – 基于 HTML5 的强大 PDF 生成工具](https://blog.csdn.net/ithomer/article/details/78884597)
+
+11. [jQuery Document Viewer 官方文档](https://codecanyon.net/item/jquery-document-viewer/1732515?ref=bogdan_sandu)
+
+12. [pdf.js](https://github.com/mozilla/pdf.js)
+
+13. 
+
+14. 
 
 
-2. [8 个 jQuery 的 PDF 浏览插件](https://www.oschina.net/news/35267/jquery-pdf-viewers)
 
 
-
-
-https://mozilla.github.io/pdf.js/web/viewer.html
-
-https://github.com/mozilla/pdf.js
-
-https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions#file
-
-https://www.google.com.hk/search?safe=strict&hl=zh-CN&ei=wKzOXM_rF8TfmAWJiq7IDQ&q=%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A2%84%E8%A7%88pdf%E5%85%BC%E5%AE%B9%E6%80%A7&oq=%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A2%84%E8%A7%88pdf%E5%85%BC%E5%AE%B9%E6%80%A7&gs_l=psy-ab.3...0.0..2670609...0.0..0.0.0.......0......gws-wiz.gbf4kbonZKk
-
-https://blog.csdn.net/fade999/article/details/81327679
-
-https://www.cnblogs.com/zdz8207/p/html5-pdf-js.html
 
 https://1017401036.iteye.com/blog/2404819
-
-https://blog.csdn.net/qq_38584967/article/details/83784049
-
-https://blog.csdn.net/liuyaqi1993/article/details/77822946
-
-https://www.oschina.net/news/35267/jquery-pdf-viewers
 
 https://blog.csdn.net/qq_26173001/article/details/82783493#
 
