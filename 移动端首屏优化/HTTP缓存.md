@@ -73,13 +73,13 @@ Expires 的值为服务端返回的到期时间，即下一次请求时，请求
 
 Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。
 
-private:             客户端可以缓存
-public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）
-max-age=xxx:         缓存的内容将在 xxx 秒后失效
-no-cache:            需要使用对比缓存来验证缓存数据（后面介绍）
-no-store:            所有内容都不会缓存，强制缓存，对比缓存都不会触发
+private:             客户端可以缓存<br/>
+public:              客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）<br/>
+max-age=xxx:         缓存的内容将在 xxx 秒后失效<br/>
+no-cache:            需要使用对比缓存来验证缓存数据（后面介绍）<br/>
+no-store:            所有内容都不会缓存，强制缓存，对比缓存都不会触发<br/>
 
-![cache-control](./image/cache-control.png)
+![cache-control](./image/cache-control.png)<br/>
 图中Cache-Control仅指定了max-age，所以默认为private，缓存时间为31536000秒（365天）
 也就是说，在365天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。
 
@@ -127,6 +127,28 @@ If-None-Match：
 相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。<br/>
 ![If-None-Match](./image/If-None-Match.png)
 
+
+## 刷新浏览器区分
+假设对一个资源，浏览器第一次访问，获取资源内容和cache-control: max-age:600，Last_Modify: Wed, 10 Aug 2013 15:32:18 GMT于是浏览器把资源文件放到缓存中，并且决定下次使用的时候直接去缓存中取了。
+
+1. 浏览器中输入链接并回车：浏览器发现缓存中有这个文件，就不发送任何请求，直接去缓存中获取。（最快）
+
+2. F5 刷新：即检查If-Modify-since，对比确认是否返回304。
+
+3. ctrl + F5 强制刷新：即删除原缓存文件，重新获取完整数据。
+
+| 用户操作 | Expires/Cache-Control | Last-Modified/Etag
+| ------ | ------ | ------ |
+| 地址栏回车 | 有效 | 有效 |
+| 页面链接跳转 | 有效 | 有效 |
+| 新开窗口 | 有效 | 有效 |
+| 前进、后退 | 有效 | 有效 |
+| F5/按钮刷新 | 无效(BR重置max-age=0) | 有效 |
+| Ctrl+F5刷新 | 无效（重置CC=no-cache） | 无效（请求头丢弃该选项） |
+
+note：Etag 实际上很少人使用，因为它的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用 Etag 了。
+
+
 ## 总结
 1. HTTP 缓存根据是否需要重新向服务器发送请求获取数据可分为强制缓存和对比缓存。
 
@@ -139,18 +161,6 @@ If-None-Match：
 （2）Etag / If-None-Match：即客户端发送标识（客户端第一次请求时返回给客户端的标识）给服务器，服务器判断是否与请求资源的唯一标识一致，一致则响应304，不一致则响应资源。
 
 
-## 刷新浏览器区分
-假设对一个资源，浏览器第一次访问，获取资源内容和cache-control: max-age:600，Last_Modify: Wed, 10 Aug 2013 15:32:18 GMT于是浏览器把资源文件放到缓存中，并且决定下次使用的时候直接去缓存中取了。
-
-1. 浏览器中输入链接并回车：浏览器发现缓存中有这个文件，就不发送任何请求，直接去缓存中获取。（最快）
-
-2. F5 刷新：即检查If-Modify-since，对比确认是否返回304。
-
-3. ctrl + F5 强制刷新：即删除原缓存文件，重新获取完整数据。
-
-note：Etag 实际上很少人使用，因为它的计算是使用算法来得出的，而算法会占用服务端计算的资源，所有服务端的资源都是宝贵的，所以就很少使用 Etag 了。
-
-
 ## 参考链接
 1. [HTTP 缓存](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn)
 
@@ -159,3 +169,7 @@ note：Etag 实际上很少人使用，因为它的计算是使用算法来得�
 3. [彻底弄懂HTTP缓存机制及原理](https://www.cnblogs.com/chenqf/p/6386163.html)
 
 4. [图解 HTTP 的缓存机制 | 实用 HTTP](https://juejin.im/post/5b30d05ee51d45587c51d276)
+
+5. [详解web缓存](https://segmentfault.com/a/1190000006741200)
+
+6. [浏览器 HTTP 协议缓存机制详解](https://my.oschina.net/leejun2005/blog/369148)

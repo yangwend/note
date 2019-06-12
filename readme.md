@@ -299,3 +299,11 @@
 46. [走进面向对象，原型与原型链，继承方式](https://segmentfault.com/a/1190000018196125)
 
 47. [浅谈函数防抖与节流](https://segmentfault.com/a/1190000018383955)
+
+48. [mynane github 合集，资源不错哦](https://github.com/mynane)
+
+49. [github awesome](https://github.com/search?utf8=%E2%9C%93&q=awesome)
+
+50. [DATA URL简介及DATA URL的利弊](https://www.cnblogs.com/yzhihao/p/6400680.html)
+
+51. []
