@@ -14,3 +14,9 @@
 5. [manifest 使用方式](https://juejin.im/post/5ac8a89ef265da238440d60a)
 
 6. [给自己的网站加上robots.txt](https://blog.csdn.net/fanghua_vip/article/details/79535639)
+
+7. [vue-cli搭建项目中browserslist的作用讲解](https://blog.csdn.net/weixin_39936058/article/details/87523416)
+
+8. [vue-cli 3.x 中 browserslist 详解](https://github.com/browserslist/browserslist)
+
+9. [VUE CLI 3 默认端口修改](https://blog.csdn.net/github_38708644/article/details/86608493)
