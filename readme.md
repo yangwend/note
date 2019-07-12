@@ -64,7 +64,15 @@
 
 16. [ant design pro v1](https://v1.pro.ant.design/docs/getting-started-cn)  
 
-17. [聊一聊我对 React Context 的理解以及应用](https://www.jianshu.com/p/eba2b76b290b)
+17. [聊一聊我对 React Context 的理解以及应用](https://www.jianshu.com/p/eba2b76b290b)  
+
+18. [Introducing Hooks](https://reactjs.org/docs/hooks-intro.html)  
+
+19. [30分钟精通React Hooks](https://juejin.im/post/5be3ea136fb9a049f9121014)  
+
+20. [react hooks](https://github.com/idea100/rxjs-demo/blob/master/xx.md)  
+
+21. [react dva 的 connect 与 @connect](https://www.cnblogs.com/CyLee/p/9308604.html)
 
 
 ### flex 布局
