@@ -86,3 +86,7 @@ function scrollUpAndDown() {
 2. [CSS3动画那么强，requestAnimationFrame还有毛线用？](https://www.zhangxinxu.com/wordpress/2013/09/css3-animation-requestanimationframe-tween-%E5%8A%A8%E7%94%BB%E7%AE%97%E6%B3%95/)
 
 3. [你需要知道的requestAnimationFrame](https://juejin.im/post/5a82f0626fb9a06358657c9c)
+
+4. [用requestAnimationFrame和cancelAnimationFrame取代定时器setTimeout和clearTimeout](https://blog.csdn.net/zyz00000000/article/details/82759641)
+
+5. [理解requestAnimationFrame和cancelAnimationFrame](https://blog.csdn.net/lhjuejiang/article/details/80720394)
