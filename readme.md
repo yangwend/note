@@ -319,3 +319,7 @@
 52. [前端遇到的开发问题](https://github.com/fouber/blog)
 
 53. [vscode 插件推荐](https://segmentfault.com/a/1190000006697219?utm_source=tag-newest)
+
+54. [用 GitLab CI 进行持续集成](https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/)
+
+55. [git 命令大全](https://gist.github.com/guweigang/9848271)
