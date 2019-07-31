@@ -167,6 +167,93 @@ Vue.js 通过 [`Object.defineProperty()`](https://developer.mozilla.org/zh-CN/do
     ```
     此时需要注意，其中 C 中的 input 上的 v-model 是 vue 提供的表单的双向数据绑定。而 C 实现的与 B 的 v-model 双向数据绑定是属于自定义 v-model，两者不可混淆。
 
+### vue 多层次组件监听动作和属性
+vue 多层次组件监听动作和属性可以使用如下方式：
+```
+v-bind="$attrs" v-on="$listeners"
+```
+
+在 vue.js 文档中 [将原生事件绑定到组件](https://cn.vuejs.org/v2/guide/components-custom-events.html) 这一节提到，使用 v-on:focus.native="onFocus" 去监听一个组件的 focus事件，有时候无法触发（当该组件使用label元素包裹input元素时，你将无法监听input元素上的focus事件）。<br/>
+![vue-$listeners](./vue-$listeners.png)
+针对这个问题我们可知，使用 `$listeners` 属性，我们可以在父组件中绑定子组件中未声明的监听器，这些绑定的监听器会指向子组件中某个元素，在子组件中某个元素操作时会触发父组件对应绑定的监听器。
+
+另外一种使用场景为：使组件之间跨组件通信在不依赖vuex和事件总线时变得简洁明了。举例如下：<br/>
+A组件=>B组件=>C组件这种多层级组件，A组件向C组件传递数据或者C组件的事件要触发A组件中的事件
+
+```
+// B组件：
+<template>
+    <div>
+        <span>{{child1}}<span>
+        <!-- C组件中能直接触发test的原因在于 B组件调用C组件时 使用 v-on 绑定了$listeners 属性 -->
+        <!-- 通过v-bind 绑定$attrs属性，C组件可以直接获取到A组件中传递下来的props（除了B组件中props声明的） -->
+        <c v-bind="$attrs" v-on="$listeners"></c>
+    </div>
+</template>
+<script>
+    import c from './c.vue';
+    export default {
+        props: ['child1'],
+        data () {
+            return {};
+        },
+        inheritAttrs: false,
+        components: { c },
+        mounted () {
+            this.$emit('test1');
+        }
+    };
+</script>
+```
+```
+// C组件
+<template>
+    <div>
+        <span>{{child2}}<span>
+    </div>
+</template>
+<script>
+    export default {
+        props: [child2'],
+        data () {
+            return {};
+        },
+        inheritAttrs: false,
+        mounted () {
+            this.$emit('test2');
+        }
+    };
+</script>
+```
+```
+// A组件
+<template>
+    <div id="app">
+        <b :child1="child1" :child2="child2" @test1="test1" @test2="test2"></b>
+    </div>
+</template>
+<script>
+    import b from './b.vue';
+    export default {
+        data () {
+            return {
+                child1:'hello child1',
+                child2:'hello child2'
+            };
+        },
+        components: { b },
+        methods: {
+            test1 () {
+                console.log('test1');
+            },
+            test2 () {
+                console.log('test2');
+            }
+        }
+    };
+</script>
+```
+
 ### 参考文档
 1. [Vue.js 官方文档](https://cn.vuejs.org/v2/guide/)
 
@@ -177,3 +264,5 @@ Vue.js 通过 [`Object.defineProperty()`](https://developer.mozilla.org/zh-CN/do
 4. [vue的双向绑定原理及实现](https://www.cnblogs.com/libin-1/p/6893712.html)
 
 5. [剖析Vue实现双向数据绑定原理](https://blog.csdn.net/longzhoufeng/article/details/80987527)
+
+6. [vue项目技术随笔](https://juejin.im/post/5b349e0e518825749d2d66ee)

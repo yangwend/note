@@ -23,6 +23,27 @@ XLSX.utils.book_append_sheet(wb, ws, 'SheetJS');
 XLSX.writeFile(wb, 'out.xlsx');
 
 
+
 /**
  * 解析 xlsx
  */
+
+var XLSX = require('xlsx');
+
+// 读文件：只能在 node.js 环境下，浏览器下需要借助其他技术
+var workbook = XLSX.readFile('out.xlsx');
+
+// 读文件流
+var fs = require('fs');
+function process_RS(stream/* ReadStream */, cb/* (wb:Workbook)=>void */) {
+    var buffers = [];
+    stream.on('data', function(data) {
+        buffers.push(data);
+    });
+    stream.on('end', function() {
+        var buffer = Buffer.concat(buffers);
+        var workbook = XLSX.read(buffer, { type: 'buffer' });
+
+        cb(workbook);
+    });
+}
