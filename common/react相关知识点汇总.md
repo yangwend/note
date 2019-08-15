@@ -12,24 +12,24 @@ state，可被视为一个react组件UI中的可变状态数据的集合。可�
 
 #### 一个变量是否可以作为一个state
 前提条件：<br/>
-(1) state要能代表组件UI中数据的体现，即UI是随着state变化而变化的。<br/>
-(2) state只能代表组件UI中数据的体现，即state全部用来控制UI的展示。多余的状态或者通过计算得来的状态是不需要存在于state集合里面的。<br/>
+（1）state要能代表组件UI中数据的体现，即UI是随着state变化而变化的。<br/>
+（2）state只能代表组件UI中数据的体现，即state全部用来控制UI的展示。多余的状态或者通过计算得来的状态是不需要存在于state集合里面的。<br/>
 
 因此，一个变量是否可以作为一个state，可以由以下几种方式来判断：<br/>
-(1) 这个变量是否是通过props从父组件中获得的？如果是，那它就不适合作为state。<br/>
-(2) 这个变量是否在整个组件生命周期过程中都不变，即不会随着接口或者页面操作而触发改变？如果是，那它就不适合作为state。<br/>
-(3) 这个变量是否可以通过可变数据（state或者props）计算得到？比如说state中有个name和age属性，这个变量是通过state中的name属性和age属性拼接得到。如果是，那它就不适合作为state。<br/>
-(4) 这个变量是否同时在父组件和子组件中用到？如果是，请考虑将变量提升到父组件中使用。
-(5) 这个变量是否在组件的render方法中用于渲染页面？如果不是，那它就不适合作为state。<br/>
+（1）这个变量是否是通过props从父组件中获得的？如果是，那它就不适合作为state。<br/>
+（2）这个变量是否在整个组件生命周期过程中都不变，即不会随着接口或者页面操作而触发改变？如果是，那它就不适合作为state。<br/>
+（3）这个变量是否可以通过可变数据（state或者props）计算得到？比如说state中有个name和age属性，这个变量是通过state中的name属性和age属性拼接得到。如果是，那它就不适合作为state。<br/>
+（4）这个变量是否同时在父组件和子组件中用到？如果是，请考虑将变量提升到父组件中使用。<br/>
+（5）这个变量是否在组件的render方法中用于渲染页面？如果不是，那它就不适合作为state。<br/>
 
 #### state和props区别
 state和props都是普通的javascript对象，用于存放组件的信息，控制组件的渲染输出。而它们之间最重要的不同点就是：<br/>
-`state` 是在组件内部使用，不允许跨组件使用（类似于在一个函数内声明的变量）。可以通过调用setState来改变组件的state状态。<br/>
-`props` 用于传递给组件使用（不限制是父组件还是子组件，类似于函数的形参），子组件和父组件都可以改变props。
+（1）`state` 是在组件内部使用，不允许跨组件使用（类似于在一个函数内声明的变量）。可以通过调用setState来改变组件的state状态。<br/>
+（2）`props` 用于传递给组件使用（不限制是父组件还是子组件，类似于函数的形参），子组件和父组件都可以改变props。
 
 
 #### 如何修改state
-1. 不要直接给state赋值<br/>
+（1）不要直接给state赋值<br/>
 ```javascript
 // 错误，这样不会改变state，组件不会重新渲染
 this.state.name = 'xxx';
@@ -37,7 +37,7 @@ this.state.name = 'xxx';
 this.setState({ name: 'xxx' });
 ```
 
-2. state 更新是异步操作<br/>
+（2）state 更新是异步操作<br/>
 react将多个setState调用合并为一个调用来提高性能，因此它是异步更新的。不允许在setState后直接取获取最新的state。
 ```javascript
 // 错误，无法获取最新的state
@@ -96,11 +96,10 @@ handleSomething = () => {
 }
 ```
 在render方法里面打印一下 this.state.count，最终会得到几？<br/>
-答案是3。原因：addCount方法里面是通过 preState.count 执行加1操作。而根据上述所知，preState可捕获到最新的上一个state，因此最后一个addCount执行时拿到的 preState.count 是2，所以最后执行的时候是 2 + 1 为3。
+答案是3。原因：addCount方法里面是通过 preState.count 执行加1操作。而根据上述所知，preState可捕获到最新的上一个state，因此最后一个addCount执行时拿到的 preState.count 是2，所以最后执行的时候是 2 + 1 为3。<br/>
 
-3. setState的两种写法<br/>
-setState的写法可以分为两类：<br/>
-(1) setState(updater[, callback])：第一个参数是一个updater函数；第二个参数是个回调函数（可选）<br/>
+（3）setState的两种写法<br/>
+a. setState(updater[, callback])：第一个参数是一个updater函数；第二个参数是个回调函数（可选）<br/>
 ```javascript
 this.setState((prevState, props) => {
     // preState和props都能拿到最新的数据
@@ -108,17 +107,76 @@ this.setState((prevState, props) => {
 });
 ```
 
-(2) setState(stateChange[, callback])：第一个参数是一个对象；第二个参数同上（可选）<br/>
+b. setState(stateChange[, callback])：第一个参数是一个对象；第二个参数同上（可选）<br/>
 ```javascript
 this.setState({age: 2}, () => {
     // do something
 })
 ```
 
-4. state更新是一个浅合并的过程<br/>
+（4）state更新是一个浅合并的过程<br/>
 根据react源码可知，setState最终会执行一个更新state的过程，其中最新的state是由原来的state和收集到的state通过 [Object.assign](https://juejin.im/post/5a7418256fb9a0634d277e4e) 来实现合并的。因此它是一个浅合并的过程。
-因此，需要改变哪一个属性，直接传入改变后的属性值即可，其余属性值无需传入。
+因此，需要改变哪一个属性，直接传入改变后的属性值即可，其余属性值无需传入。<br/>
 
+（5）如何修改为数组类型的state<br/>
+```javascript
+/** 
+* 新增元素
+*/
+// 方法一：将state先赋值给另外的变量，然后使用concat创建新数组
+const books = this.state.books;
+this.setState({
+    books: books.concat(['React Guide']);
+});
+
+// 方法二：使用preState、concat创建新数组
+this.setState(preState => ({
+    books: preState.books.concat(['React Guide']);
+}));
+
+// 方法三：ES6数组扩展 spread syntax
+this.setState(preState => ({
+    books: [...preState.books, 'React Guide'];
+}))
+
+
+/** 
+* 截取元素
+*/
+// 方法一：将state先赋值给另外的变量，然后使用slice创建新数组
+const books = this.state.books;
+this.setState({
+    books: books.slice(1, 5);
+})
+// 方法二：使用preState、slice创建新数组
+this.setState(preState => ({
+    books: preState.books.slice(1, 5);
+}))
+
+
+/** 
+* 过滤元素
+*/
+// 方法一：将state先赋值给另外的变量，然后使用filter创建新数组
+const books = this.state.books;
+this.setState({
+    books: books.filter(item => {
+        return item != 'React';
+    });
+})
+// 方法二：使用preState、filter创建新数组
+this.setState(preState => ({
+    books: preState.books.filter(item => {
+        return item != 'React';
+    });
+}))
+```
+注意，不要使用push、pop、shift、unshift等方法修改数组类型的状态，因为这些方法都是在原数组的基础上修改，而concat、slice、filter能返回一个新的数组。
+
+
+### Component与PureComponent
+
+### react 性能优化技巧
 
 
 ### 参考链接
