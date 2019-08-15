@@ -1,8 +1,8 @@
 ## react相关知识点汇总
 
-这个文档主要作为我在平常项目开发过程中遇到的react相关的知识点汇总。文档会持续更新~
+这个文档主要作为在平常项目开发过程中遇到的react相关的知识点汇总。文档会持续更新~
 
-react中文文档：https://zh-hans.reactjs.org/docs/getting-started.html
+附上react中文文档地址：https://zh-hans.reactjs.org/docs/getting-started.html
 
 ### state与setState
 关于state和setState的详细介绍，大家可以直接访问react中文文档，里面有详细解释。
@@ -99,7 +99,7 @@ handleSomething = () => {
 答案是3。原因：addCount方法里面是通过 preState.count 执行加1操作。而根据上述所知，preState可捕获到最新的上一个state，因此最后一个addCount执行时拿到的 preState.count 是2，所以最后执行的时候是 2 + 1 为3。<br/>
 
 （3）setState的两种写法<br/>
-a. setState(updater[, callback])：第一个参数是一个updater函数；第二个参数是个回调函数（可选）<br/>
+setState(updater[, callback])：第一个参数是一个updater函数；第二个参数是个回调函数（可选）<br/>
 ```javascript
 this.setState((prevState, props) => {
     // preState和props都能拿到最新的数据
@@ -107,7 +107,7 @@ this.setState((prevState, props) => {
 });
 ```
 
-b. setState(stateChange[, callback])：第一个参数是一个对象；第二个参数同上（可选）<br/>
+setState(stateChange[, callback])：第一个参数是一个对象；第二个参数同上（可选）<br/>
 ```javascript
 this.setState({age: 2}, () => {
     // do something
@@ -115,8 +115,8 @@ this.setState({age: 2}, () => {
 ```
 
 （4）state更新是一个浅合并的过程<br/>
-根据react源码可知，setState最终会执行一个更新state的过程，其中最新的state是由原来的state和收集到的state通过 [Object.assign](https://juejin.im/post/5a7418256fb9a0634d277e4e) 来实现合并的。因此它是一个浅合并的过程。
-因此，需要改变哪一个属性，直接传入改变后的属性值即可，其余属性值无需传入。<br/>
+根据react源码可知，setState最终会执行一个更新state的过程，其中最新的state是由原来的state和收集到的state通过 [Object.assign](https://juejin.im/post/5a7418256fb9a0634d277e4e) 来实现合并的。因此它是一个浅合并的过程，无法进行深层次的合并。对于数组和对象等引用类型来说，如果更改时没有改变其引用地址，就无法触发组件的重新渲染。
+
 
 （5）如何修改为数组类型的state<br/>
 ```javascript
@@ -126,22 +126,22 @@ this.setState({age: 2}, () => {
 // 方法一：将state先赋值给另外的变量，然后使用concat创建新数组
 const books = this.state.books;
 this.setState({
-    books: books.concat(['React Guide']);
+    books: books.concat(['React']);
 });
 
 // 方法二：使用preState、concat创建新数组
 this.setState(preState => ({
-    books: preState.books.concat(['React Guide']);
+    books: preState.books.concat(['React']);
 }));
 
 // 方法三：ES6数组扩展 spread syntax
 this.setState(preState => ({
-    books: [...preState.books, 'React Guide'];
+    books: [...preState.books, 'React'];
 }))
 
 
 /** 
-* 截取元素
+* 截取元素（使用slice或者splice都可以返回一个新的数组）
 */
 // 方法一：将state先赋值给另外的变量，然后使用slice创建新数组
 const books = this.state.books;
@@ -171,10 +171,131 @@ this.setState(preState => ({
     });
 }))
 ```
-注意，不要使用push、pop、shift、unshift等方法修改数组类型的状态，因为这些方法都是在原数组的基础上修改，而concat、slice、filter能返回一个新的数组。
+注意，不要使用push、pop、shift、unshift等方法修改数组类型的状态，因为这些方法都是在原数组的基础上修改。concat、slice、splice、filter可以返回一个新的数组。
 
 
-### Component与PureComponent
+### Component、PureComponent、Stateless Functional Component
+Component、PureComponent、Stateless Functional Component是三种创建组件的方式。
+
+#### Component
+使用es6语法，我们可以这样来创建一个组件
+```javascript
+import React, { Component } from 'react';
+import { Button } from 'antd';
+
+export default class Demo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
+
+    // 使用箭头函数，可直接绑定this，无需使用bind来实现绑定
+    handleClick = () => {
+        const { count } = this.state;
+        this.setState({
+            count: count++
+        });
+    }
+    
+    render() {
+        return (
+            <div>
+                <p>最新的count为 {this.state.count}，父组件的name为 {this.props.name}</p>
+                <Button onClick={this.handleClick}>加1</Button>
+            </div>
+        );
+    }
+}
+```
+通过上述例子可以知道，组件继承自`React.Component`。组件的state可以在构造函数中进行赋值，而组件可以接收父组件传过来的props。当点击【加1】按钮时，count加1，触发组件重新渲染。
+
+使用Component创建组件时，生命周期函数 `shouldComponentUpdate` 默认返回true，因此当组件的props或者state发生改变时，会将当前的state和props与nextState和nextProps进行对比，如果改变，就会重新渲染。
+
+
+#### PureComponent
+有时，我们为了避免不必要的渲染，会对shouldComponentUpdate做一下处理，请看如下例子：
+```javascript
+import React, { Component } from 'react';
+import { Button } from 'antd';
+
+export default class Demo extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
+
+    // 修改生命周期函数，判断部分属性发生改变时才重新渲染，可以避免不必要的渲染
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.name !== nextProps.name) {
+            return true;
+        }
+        if (this.state.count !== nextState.count) {
+            return true;
+        }
+        return false;
+    }
+
+    // 使用箭头函数，可直接绑定this，无需使用bind来实现绑定
+    handleClick = () => {
+        const { count } = this.state;
+        this.setState({
+            count: count++
+        });
+    }
+    
+    render() {
+        return (
+            <div>
+                <p>最新的count为 {this.state.count}，父组件的name为 {this.props.name}</p>
+                <Button onClick={this.handleClick}>加1</Button>
+            </div>
+        );
+    }
+}
+```
+上面的例子使用shouldComponentUpdate对该组件进行了性能优化，只有当props.name和state.count发生改变时，才会触发页面的重新渲染，其余时候都不会发生变化，可以提供性能。然而，如果每个组件都这样去定义，会使得代码很臃肿。React提供了`PureComponent`来实现这部分性能处理，我们只需要实现组件的业务逻辑即可。
+
+但是，React提供的PureComponent只会对props和state进行浅比较，当props和state为嵌套对象或者数组等时，就无法重新渲染页面了。比如使用数组的push方法更新state，就无法达到预期效果。
+
+因此，要想解决上述的弊端，就要避免使用可变对象作为props和state，可以每次返回一个全新的对象，来进行props和state的更新，例如数组的concat、filter等。
+
+
+#### Stateless Functional Component
+对于Component和PureComponent而言，都是属于包含自身状态以及页面交互等的复杂型组件。React还为我们提供了一种无状态组件(Stateless Functional Component)，用来实现简单的页面展示的功能。
+```javascript
+import React from 'react';
+const Demo1 = ({ count, addCount }) => {
+    return (
+        <div>
+            <p>最新的count为 {count}</p>
+            <Button onClick={addCount}>加1</Button>
+        </div>
+    )
+}
+```
+上面的例子使用无状态组件实现一个加1的功能，count和addCount都由props提供，自身没有任何状态。因此，对于相同的props输入，必定有相同的页面展示。
+
+
+#### 三种方式比较
+1. Component：<br/>
+用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。
+适用场景：创建拥有内部state和交互的组件，不需要考虑性能的业务场景下。
+
+2. PureComponent：<br/>
+用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。组件内部实现了浅比较状态下的shouldComponentUpdate，可以提高性能。
+适用场景：创建拥有内部state和交互的组件，考虑性能，个人推荐使用这种方式。对于数组或者嵌套对象需要避免使用可变对象作为state和props。
+
+3. Stateless Functional Component：<br/>
+用来创建组件，自身没有状态和交互行为，全部由父组件的props来控制，属于纯渲染页面型组件。
+适用场景：创建没部无状态、纯展示型的组件。
+
+
+
+
 
 ### react 性能优化技巧
 
@@ -188,4 +309,4 @@ this.setState(preState => ({
 
 4. [你需要掌握的21个React性能优化技巧](https://mp.weixin.qq.com/s/iZqV6GAi5zyX5P48hR4VLA)
 
-5. [React setState实现机制](http://172.29.3.246:8888/i-front/doc/blob/master/%E5%B0%8F%E7%BB%84%E5%88%86%E4%BA%AB/React-setState%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6/page/setState.md)
+5. [谈一谈创建React Component的几种方式](https://segmentfault.com/a/1190000008402834)
