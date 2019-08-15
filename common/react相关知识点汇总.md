@@ -282,22 +282,88 @@ const Demo1 = ({ count, addCount }) => {
 
 #### 三种方式比较
 1. Component：<br/>
-用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。
+用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。<br/>
 适用场景：创建拥有内部state和交互的组件，不需要考虑性能的业务场景下。
 
 2. PureComponent：<br/>
-用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。组件内部实现了浅比较状态下的shouldComponentUpdate，可以提高性能。
+用来创建组件，组件继承它，拥有自身的状态和交互等，属于复杂型组件。组件内部实现了浅比较状态下的shouldComponentUpdate，可以提高性能。<br/>
 适用场景：创建拥有内部state和交互的组件，考虑性能，个人推荐使用这种方式。对于数组或者嵌套对象需要避免使用可变对象作为state和props。
 
 3. Stateless Functional Component：<br/>
-用来创建组件，自身没有状态和交互行为，全部由父组件的props来控制，属于纯渲染页面型组件。
+用来创建组件，自身没有状态和交互行为，全部由父组件的props来控制，属于纯渲染页面型组件。<br/>
 适用场景：创建没部无状态、纯展示型的组件。
 
 
 
-
-
 ### react 性能优化技巧
+
+#### 使用React.PureComponent
+由上一节可知，使用React.PureComponent可以对state和props进行浅比较，避免一些不必要的渲染，提升页面性能。
+
+#### 使用shouldComponentUpdate生命周期事件
+由上一节可知，在组件中使用shouldComponentUpdate生命周期事件，可以根据不同的业务场景，实现不一样的功能，屏蔽部分不需要再次渲染页面的场景，提升页面性能。
+
+#### 使用 React Fragments 避免额外标记
+在写组件过程中，会不可避免的写一些标签用来包裹一段内容。但是有时候可以使用React.Fragment来避免额外的标记数量。
+```javascript
+import React, { Fragment } from 'react';
+const Demo1 = ({ count, addCount }) => {
+    return (
+        <div>
+            <p>最新的count为 {count}</p>
+            <Button onClick={addCount}>加1</Button>
+        </div>
+    )
+}
+// 其中的最外层的div标签就只是用来包裹里面的内容，其实没有任何含义，可直接使用Fragment来代替
+const Demo2 = ({ count, addCount }) => {
+    return (
+        <Fragment>
+            <p>最新的count为 {count}</p>
+            <Button onClick={addCount}>加1</Button>
+        </Fragment>
+    )
+}
+```
+
+#### 避免componentWillMount()中的异步请求
+根据react生命周期执行顺序可知，componentWillMount 是在渲染组件之前调用的。在componentWillMount执行时，此时还没有挂载组件，无法访问DOM元素。
+```javascript
+import React, { PureComponent, Fragment } from "react";
+export default class Demo extends PureComponent {
+    constructor() {
+        this.state = {
+            userData: {}
+        };
+    }
+
+    componentWillMount() {
+        const { dispatch } = this.props;
+        dispatch({
+            type: 'xxx',
+            callback: (res) => {
+                this.setState({
+                    userData: res || {}
+                });
+            }
+        })
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <b>UserName: {this.state.userData.name}</b>
+                <b>UserAge: {this.state.userData.age}</b>
+            </Fragment>
+        )
+    }
+}
+```
+上述例子中，在componentWillMount生命周期里面调用异步API，在render初次渲染时，无法获取到对应的数据。等数据返回，setState后，需要重新渲染页面。对比直接在componentDidMount中调用API，多了一次渲染的操作。因此，尽可能避免在componentWillMount生命周期中调用异步API。
+
+
+#### 使用唯一键迭代
+
 
 
 ### 参考链接
