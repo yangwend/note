@@ -1,35 +1,35 @@
-## react相关知识点汇总
+## react 相关知识点汇总
 
-这个文档主要作为在平常项目开发过程中遇到的react相关的知识点汇总。文档会持续更新~
+这个文档主要作为在平常项目开发过程中遇到的 react 相关的知识点汇总。文档会持续更新~
 
-附上react中文文档地址：https://zh-hans.reactjs.org/docs/getting-started.html
+附上 react 中文文档地址：https://zh-hans.reactjs.org/docs/getting-started.html
 
-### state与setState
-关于state和setState的详细介绍，大家可以直接访问react中文文档，里面有详细解释。
+### state 与 setState
+关于 state 和 setState 的详细介绍，大家可以直接访问 react 中文文档，里面有详细解释。
 
-#### state定义
-state，可被视为一个react组件UI中的可变状态数据的集合。可变状态数据，即在当前组件中可以被改变的数据。因此，不变数据或者通过可变数据计算出来的数据就不需要作为state了。
+#### state 定义
+state，可被视为一个 react 组件 UI 中的可变状态数据的集合。可变状态数据，即在当前组件中可以被改变的数据。因此，不变数据或者通过可变数据计算出来的数据就不需要作为 state 了。
 
-#### 一个变量是否可以作为一个state
+#### 一个变量是否可以作为一个 state
 前提条件：<br/>
-（1）state要能代表组件UI中数据的体现，即UI是随着state变化而变化的。<br/>
-（2）state只能代表组件UI中数据的体现，即state全部用来控制UI的展示。多余的状态或者通过计算得来的状态是不需要存在于state集合里面的。<br/>
+（1）state 要能代表组件 UI 中数据的体现，即 UI 是随着 state 变化而变化的。<br/>
+（2）state 只能代表组件 UI 中数据的体现，即 state 全部用来控制 UI 的展示。多余的状态或者通过计算得来的状态是不需要存在于 state 集合里面的。<br/>
 
-因此，一个变量是否可以作为一个state，可以由以下几种方式来判断：<br/>
-（1）这个变量是否是通过props从父组件中获得的？如果是，那它就不适合作为state。<br/>
-（2）这个变量是否在整个组件生命周期过程中都不变，即不会随着接口或者页面操作而触发改变？如果是，那它就不适合作为state。<br/>
-（3）这个变量是否可以通过可变数据（state或者props）计算得到？比如说state中有个name和age属性，这个变量是通过state中的name属性和age属性拼接得到。如果是，那它就不适合作为state。<br/>
+因此，一个变量是否可以作为一个 state，可以由以下几种方式来判断：<br/>
+（1）这个变量是否是通过 props 从父组件中获得的？如果是，那它就不适合作为 state。<br/>
+（2）这个变量是否在整个组件生命周期过程中都不变，即不会随着接口或者页面操作而触发改变？如果是，那它就不适合作为 state。<br/>
+（3）这个变量是否可以通过可变数据（state 或者 props）计算得到？比如说 state 中有个 name 和 age 属性，这个变量是通过 state 中的 name 属性和 age 属性拼接得到。如果是，那它就不适合作为 state。<br/>
 （4）这个变量是否同时在父组件和子组件中用到？如果是，请考虑将变量提升到父组件中使用。<br/>
-（5）这个变量是否在组件的render方法中用于渲染页面？如果不是，那它就不适合作为state。<br/>
+（5）这个变量是否在组件的 render 方法中用于渲染页面？如果不是，那它就不适合作为 state。<br/>
 
-#### state和props区别
-state和props都是普通的javascript对象，用于存放组件的信息，控制组件的渲染输出。而它们之间最重要的不同点就是：<br/>
-（1）`state` 是在组件内部使用，不允许跨组件使用（类似于在一个函数内声明的变量）。可以通过调用setState来改变组件的state状态。<br/>
-（2）`props` 用于传递给组件使用（不限制是父组件还是子组件，类似于函数的形参），子组件和父组件都可以改变props。
+#### state 和 props 区别
+state 和 props 都是普通的 javascript 对象，用于存放组件的信息，控制组件的渲染输出。而它们之间最重要的不同点就是：<br/>
+（1）`state` 是在组件内部使用，不允许跨组件使用（类似于在一个函数内声明的变量）。可以通过调用 setState 来改变组件的 state 状态。<br/>
+（2）`props` 用于传递给组件使用（不限制是父组件还是子组件，类似于函数的形参），子组件和父组件都可以改变 props。
 
 
-#### 如何修改state
-（1）不要直接给state赋值<br/>
+#### 如何修改 state
+（1）不要直接给 state 赋值<br/>
 ```javascript
 // 错误，这样不会改变state，组件不会重新渲染
 this.state.name = 'xxx';
@@ -38,7 +38,7 @@ this.setState({ name: 'xxx' });
 ```
 
 （2）state 更新是异步操作<br/>
-react将多个setState调用合并为一个调用来提高性能，因此它是异步更新的。不允许在setState后直接取获取最新的state。
+react 将多个 setState 调用合并为一个调用来提高性能，因此它是异步更新的。不允许在 setState 后直接取获取最新的 state。
 ```javascript
 // 错误，无法获取最新的state
 this.setState({ name: 'xxx' });
@@ -73,8 +73,8 @@ handleSomething = () => {
     this.addCount();
 }
 ```
-在render方法里面打印一下 this.state.count，最终会得到几？<br/>
-答案是1，不是3。原因：addCount方法里面是通过 this.state.count 执行加1操作。而根据上述所知，setState是异步操作，拿到的 this.state.count 是0，所以最后执行的时候是 0 + 1 为1。
+在 render 方法里面打印一下 this.state.count，最终会得到几？<br/>
+答案是1，不是3。原因：addCount 方法里面是通过 this.state.count 执行加1操作。而根据上述所知，setState 是异步操作，拿到的 this.state.count 是0，所以最后执行的时候是 0 + 1 为1。
 
 看另外一个类似的例子：<br/>
 ```javascript
@@ -95,11 +95,11 @@ handleSomething = () => {
     this.addCount();
 }
 ```
-在render方法里面打印一下 this.state.count，最终会得到几？<br/>
-答案是3。原因：addCount方法里面是通过 preState.count 执行加1操作。而根据上述所知，preState可捕获到最新的上一个state，因此最后一个addCount执行时拿到的 preState.count 是2，所以最后执行的时候是 2 + 1 为3。<br/>
+在 render 方法里面打印一下 this.state.count，最终会得到几？<br/>
+答案是3。原因：addCount 方法里面是通过 preState.count 执行加1操作。而根据上述所知，preState 可捕获到最新的上一个 state，因此最后一个 addCount 执行时拿到的 preState.count 是2，所以最后执行的时候是 2 + 1 为3。<br/>
 
-（3）setState的两种写法<br/>
-setState(updater[, callback])：第一个参数是一个updater函数；第二个参数是个回调函数（可选）<br/>
+（3）setState 的两种写法<br/>
+setState(updater[, callback])：第一个参数是一个 updater 函数；第二个参数是个回调函数（可选）<br/>
 ```javascript
 this.setState((prevState, props) => {
     // preState和props都能拿到最新的数据
@@ -114,11 +114,11 @@ this.setState({age: 2}, () => {
 })
 ```
 
-（4）state更新是一个浅合并的过程<br/>
-根据react源码可知，setState最终会执行一个更新state的过程，其中最新的state是由原来的state和收集到的state通过 [Object.assign](https://juejin.im/post/5a7418256fb9a0634d277e4e) 来实现合并的。因此它是一个浅合并的过程，无法进行深层次的合并。对于数组和对象等引用类型来说，如果更改时没有改变其引用地址，就无法触发组件的重新渲染。
+（4）state 更新是一个浅合并的过程<br/>
+根据 react 源码可知，setState 最终会执行一个更新 state 的过程，其中最新的 state 是由原来的 state 和收集到的 state 通过 [Object.assign](https://juejin.im/post/5a7418256fb9a0634d277e4e) 来实现合并的。因此它是一个浅合并的过程，无法进行深层次的合并。对于数组和对象等引用类型来说，如果更改时没有改变其引用地址，就无法触发组件的重新渲染。
 
 
-（5）如何修改为数组类型的state<br/>
+（5）如何修改为数组类型的 state<br/>
 ```javascript
 /** 
 * 新增元素
@@ -171,11 +171,11 @@ this.setState(preState => ({
     });
 }))
 ```
-注意，不要使用push、pop、shift、unshift等方法修改数组类型的状态，因为这些方法都是在原数组的基础上修改。concat、slice、splice、filter可以返回一个新的数组。
+注意，不要使用 push、pop、shift、unshift 等方法修改数组类型的状态，因为这些方法都是在原数组的基础上修改。concat、slice、splice、filter 可以返回一个新的数组。
 
 
 ### Component、PureComponent、Stateless Functional Component
-Component、PureComponent、Stateless Functional Component是三种创建组件的方式。
+Component、PureComponent、Stateless Functional Component 是三种创建组件的方式。
 
 #### Component
 使用es6语法，我们可以这样来创建一个组件
@@ -291,7 +291,7 @@ const Demo1 = ({ count, addCount }) => {
 
 3. Stateless Functional Component：<br/>
 用来创建组件，自身没有状态和交互行为，全部由父组件的props来控制，属于纯渲染页面型组件。<br/>
-适用场景：创建没部无状态、纯展示型的组件。
+适用场景：创建内部无状态、纯展示型的组件。
 
 
 
@@ -363,6 +363,124 @@ export default class Demo extends PureComponent {
 
 
 #### 使用唯一键迭代
+当我们渲染一个列表时，一般会使用一个数组做循环处理。循环时需要一个键来识别被添加或者删除的列表子项。例如 ant design 提供的 Table 组件，使用时就需要声明一个 rowKey 作为表格行的 key 值。
+
+键应该是唯一的，一般使用 index 作为默认键（index 每个列表子项都是不一样的，具有唯一性）。当然也可以使用业务 id 等其他变量，只需要保持每个列表子项唯一即可。
+
+使用 index 作为唯一键的场景：<br/>
+1. 列表是静态的，列表数据不随着时间变化。
+2. 列表循环时，没有唯一id作为唯一键，可使用 index 代替。
+3. 列表在整个生命周期过程中，不会进行重新排序、从顶部或者中间添加或者删除某几项。
+
+```javascript
+import React, { PureComponent } from 'react';
+import { Button, Input } from 'antd';
+
+export default class Demo extends PureComponent {
+    state = {
+        inputName: '',
+        list: ['react', 'angular', 'vue', 'scss']
+    };
+
+    addListData = () => {
+        this.setState({
+            list: [this.state.inputName, ...this.state.list]
+        });
+    }
+
+    changeInput = (e) => {
+        this.setState({
+            inputName: e.target.value || ''
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <Input
+                    style={{width: '200px', marginBottom: '20px'}}
+                    placeholder="请输入"
+                    defaultValue={this.state.inputName}
+                    onChange={this.changeInput}
+                /><br/>
+                <Button type="primary" onClick={this.addListData}>添加list子项</Button>
+                <p>list 展示：</p>
+                {
+                    this.state.list.map((item, index) => (
+                        <div>{index + 1}. {item}</div>
+                    ))
+                }
+            </div>
+        );
+    }
+}
+```
+
+每当新元素添加到列表时，默认情况下 react 会同时遍历新列表和旧列表，并作对比。在上面这个例子中，每次输入再点击【添加list子项】，列表顶部就会增加一个元素。由于默认列表使用index作为唯一键。增加子项后，列表内每一项的index都发生变化，需要更新列表每一项。这无疑会拖累组件渲染，导致性能下降。
+
+列表渲染如此，列表渲染多个form表单亦是如此。因此可以使用业务id或者随机数作为唯一键进行渲染，如下面的例子所示：
+
+```javascript
+import React, { PureComponent } from 'react';
+import { Button, Input } from 'antd';
+
+export default class Demo extends PureComponent {
+    state = {
+        inputName: '',
+        list: [
+            { id: '12345', name: 'react' },
+            { id: 'wer45', name: 'angular' },
+            { id: '3ed4d', name: 'vue' },
+            { id: '2se42', name: 'scss' }
+        ]
+    };
+
+    randomString(length, charSet) {
+        const possibleStr = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; // 可能的随机数集合
+        let finStr = ''; // 最终生成的随机数
+
+        for (let i = 0; i < length; i++) {
+            finStr += possibleStr.charAt(Math.floor(Math.random() * possibleStr.length));
+        }
+
+        return finStr;
+    }
+
+    addListData = () => {
+        this.setState({
+            list: [{ id: this.randomString(5), name: this.state.inputName }, ...this.state.list]
+        });
+    }
+
+    changeInput = (e) => {
+        this.setState({
+            inputName: e.target.value || ''
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <Input
+                    style={{ width: '200px', marginBottom: '20px' }}
+                    placeholder="请输入"
+                    defaultValue={this.state.inputName}
+                    onChange={this.changeInput}
+                /><br />
+                <Button type="primary" onClick={this.addListData}>添加list子项</Button>
+                <p>list 展示：</p>
+                <ul>
+                    {
+                        this.state.list.map((item, index) => (
+                            <li key={item.id}>{item.id}. {item.name}</li>
+                        ))
+                    }
+                </ul>
+            </div>
+        );
+    }
+}
+```
 
 
 
@@ -376,3 +494,5 @@ export default class Demo extends PureComponent {
 4. [你需要掌握的21个React性能优化技巧](https://mp.weixin.qq.com/s/iZqV6GAi5zyX5P48hR4VLA)
 
 5. [谈一谈创建React Component的几种方式](https://segmentfault.com/a/1190000008402834)
+
+6. [对子节点进行递归](https://zh-hans.reactjs.org/docs/reconciliation.html)
