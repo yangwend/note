@@ -83,3 +83,28 @@ clipboard.js 的封装。更具体的可以查看clipboard.js
     b. slide.vue页面中：
         import BScroll from 'better-scroll';
         this.scroll = new BScroll('.wrapper');
+
+
+7. 滚轮组件（vue-awesome-picker）(https://www.npmjs.com/package/vue-awesome-picker)
+    a. npm install vue-awesome-picker --save
+    b. main.js
+        import AwesomePicker from 'vue-awesome-picker';
+        Vue.use(AwesomePicker);
+    c. xxx.vue
+        <awesome-picker
+            ref="picker"
+            :data="picker.data"
+            :anchor="picker.anchor"
+            :textTitle="picker.textTitle"
+            :textConfirm="picker.textConfirm"
+            :textCancel="picker.textCancel"
+            :colorTitle="picker.colorTitle"
+            :colorConfirm="picker.colorConfirm"
+            :colorCancel="picker.colorCancel"
+            :swipeTime="picker.swipeTime"
+            @cancel="handlePickerCancel"
+            @confirm="handlePickerConfirm">
+        </awesome-picker>
+    d. xxx.vue
+        this.$ref.picker.show();
+    
