@@ -292,3 +292,18 @@ https://www.cnblogs.com/zhanggf/p/8504317.html
 
 https://blog.csdn.net/u013379933/article/details/84622166
 
+
+
+[Vue中如何在线预览pdf文件](https://juejin.im/post/5c764fe3f265da2dcd79f21b)
+
+[前端处理后端传来的文件流实现下载或预览](https://blog.csdn.net/qq_33599109/article/details/86010190)
+
+[JS : Blob() 转换二进制下载文件流实例](https://juejin.im/post/5ba2486fe51d450e41154d15)
+
+[纯前端下载pdf链接文件,而不是打开预览的解决方案](https://www.cnblogs.com/jackson-yqj/p/11321275.html)
+
+[用JavaScript接收并显示字节流中的图片](https://blog.csdn.net/m0_38063172/article/details/83989639)
+
+[JavaScript 中 Blob 对象](https://juejin.im/entry/5937c98eac502e0068cf31ae)
+
+[Blob type 参数： MIME 参考手册](https://www.w3school.com.cn/media/media_mimeref.asp)
