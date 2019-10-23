@@ -329,3 +329,5 @@
 57. [关于chrome控制台警告：Synchronous XMLHttpRequest on the main thread终极解决办法](https://blog.csdn.net/xllily_11/article/details/51879420)
 
 58. [Service Worker 从入门到进阶](https://www.jianshu.com/p/08c0fdec31b4)
+
+59. [前端面试题总结](https://yukwan.cn/fronttech/front-end/)
