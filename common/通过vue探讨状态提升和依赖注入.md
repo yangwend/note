@@ -263,6 +263,12 @@ PortalVue is a set of two components that allow you to render a component's temp
     Vue.use(PortalVue);<br/>
 
 ```javascript
+// main.ts
+import PortalVue from 'portal-vue';
+Vue.use(PortalVue);
+```
+
+```javascript
 // basic demo
 <portal to="destination">
     <p>This slot content will be rendered wherever the <portal-target> with name 'destination' is located.</p>
@@ -391,12 +397,12 @@ export default class Content extends Vue {
 . 初始化被依赖的模块<br/>
 . 注入到依赖模块中<br/>
 
-例如：
+例如方案四，需要先将 portal-vue 引入并注入项目中：
 ```javascript
 // main.js
-import ElementUI from 'element-ui'; // 初始化了被依赖的模块
+import PortalVue from 'portal-vue'; // 初始化了被依赖的模块
 
-Vue.use(ElementUI); // 把被依赖的模块注入到依赖模块中
+Vue.use(PortalVue); // 把被依赖的模块注入到依赖模块中
 ```
 
 
@@ -409,7 +415,7 @@ Vue.use(ElementUI); // 把被依赖的模块注入到依赖模块中
     当然，具体情况具体分析，每种方案都有自己的适用场景。
 
 2. 依赖注入（降低耦合，提高扩展性）：<br/>
-    如上方案一至方案四， App 组件都是 Content 组件的父组件。而方案五反其道行之，互换了它们之间的关系，即依赖倒转，并通过配置插槽来实现控制效果，此时我们无须关心插槽具体是什么内容，它由每一个调用 App 的组件自己去实现。
+    如上方案四中，使用 portal-vue 组件时需要先将 portal-vue 组件注入到项目中，此时就用了依赖注入，使得我们不用关心 portal-vue 具体时间怎么实现的，我们只是用了这个组件里面提供的两个组件而已。
 
 
 ### 参考链接
