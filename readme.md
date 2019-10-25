@@ -331,3 +331,9 @@
 58. [Service Worker 从入门到进阶](https://www.jianshu.com/p/08c0fdec31b4)
 
 59. [前端面试题总结](https://yukwan.cn/fronttech/front-end/)
+
+60. [页适配 iPhoneX，就是这么简单](https://aotu.io/notes/2017/11/27/iphonex/index.html)
+
+61. [关于h5页面的普通屏和全面屏判断](https://blog.csdn.net/weixin_43278947/article/details/90376537)
+
+62. [JavaScript判断是否是iPhone X系列机型，H5和其他环境兼容](https://www.w3h5.com/post/235.html)

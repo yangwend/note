@@ -330,6 +330,19 @@ export default class Content extends Vue {
 因此，我们可以想象，如果我们提升整个 Content 组件，此时组件内的插槽内容就可以跟着组件一起提升。如下代码所示：
 
 ```javascript
+// App.vue
+<template>
+    <div>
+        <TitleBar>
+            <slot name="spec-titlebar"></slot>
+        </TitleBar>
+        // 此处提供一个插槽，可以渲染 Content 组件的任意内容
+        <slot />
+    </div>
+</template>
+```
+
+```javascript
 // Content.vue
 <template>
     <App>
@@ -342,18 +355,7 @@ export default class Content extends Vue {
     </App>
 </template>
 ```
-```javascript
-// App.vue
-<template>
-    <div>
-        <TitleBar>
-            <slot name="spec-titlebar"></slot>
-        </TitleBar>
-        // 此处插槽有奇妙的效果
-        <slot />
-    </div>
-</template>
-```
+
 上述代码渲染后，页面最终得到的效果是：
 ```javascript
 <div>
@@ -377,6 +379,26 @@ export default class Content extends Vue {
 缺点：<br/>
 按照以上所述， App 组件和 Content 组件需要打破原有的布局方式，这有可能导致更多的问题。<br/>
 
+### 依赖注入
+`依赖注入`是一个设计模式，因为它解决的是一类问题。
+
+依赖倒转原则(Dependence Inversion Priciple, DIP)：<br/>
+. 高层模块不应该依赖低层模块。两个都应该依赖抽象<br/>
+. 抽象不应该依赖细节，细节应该依赖抽象<br/>
+. 针对接口编程，不要针对实现编程<br/>
+
+依赖注入只做两件事：<br/>
+. 初始化被依赖的模块<br/>
+. 注入到依赖模块中<br/>
+
+例如：
+```javascript
+// main.js
+import ElementUI from 'element-ui'; // 初始化了被依赖的模块
+
+Vue.use(ElementUI); // 把被依赖的模块注入到依赖模块中
+```
+
 
 ### 总结
 1. 状态提升：<br/>
@@ -386,8 +408,8 @@ export default class Content extends Vue {
 
     当然，具体情况具体分析，每种方案都有自己的适用场景。
 
-2. 依赖注入：<br/>
-    如上方案一至方案四， App 组件都是 Content 组件的父组件。而方案五反其道行之，互换了它们之间的关系，并通过配置插槽来实现控制效果，这就是依赖注入。通过使用依赖注入，可以使得代码更加模块化和可配置。
+2. 依赖注入（降低耦合，提高扩展性）：<br/>
+    如上方案一至方案四， App 组件都是 Content 组件的父组件。而方案五反其道行之，互换了它们之间的关系，即依赖倒转，并通过配置插槽来实现控制效果，此时我们无须关心插槽具体是什么内容，它由每一个调用 App 的组件自己去实现。
 
 
 ### 参考链接
@@ -396,3 +418,5 @@ export default class Content extends Vue {
 2. [portal-vue 使用指南](https://linusborg.github.io/portal-vue/#/guide?id=what-is-portalvue)
 
 3. [javascript依赖注入详解](https://www.jianshu.com/p/d4e981ca074e)
+
+4. [前端解读控制反转(IOC)](https://juejin.im/post/5bd07377e51d457a58075974)
