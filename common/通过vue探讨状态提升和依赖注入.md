@@ -30,13 +30,37 @@ Props down，events up。即数据通过props传向子组件，子组件通过ev
 // App.vue
 <template>
     <div>
-        <TitleBar title="some title">
-            <component :is="slotContent" />
+        <TitleBar :title="title">
+            <component :is="slotContent"></component>
         </TitleBar>
-        <Content @slot-content="component => slotContent = component" />
+        <Content @slot-content="handleSlot" />
     </div>
 </template>
-// 父组件监听子组件触发的 slot-content 事件，并将 slotContent 设置为子组件传递的内容。
+
+<script lang="ts">
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import Content from './path/to/content.vue';
+// 需要在父组件中将所有可能的组件引入并注册
+import Demo from './path/to/demo.vue';
+
+@Component({
+    name: 'app',
+    components: {
+        Content,
+        Demo
+    }
+})
+export default class App extends Vue {
+    private slotContent: string = '';
+    private title: string = '';
+
+    // 父组件监听子组件触发的 slot-content 事件，并将 slotContent 和 title 设置为子组件传递的内容。
+    private handleSlot(component: string, title: string) {
+        this.slotContent = component;
+        this.title = title;
+    }
+}
+</script>
 ```
 ```javascript
 // Content.vue
@@ -48,15 +72,15 @@ Props down，events up。即数据通过props传向子组件，子组件通过ev
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import SlotContent from './SlotContent';
 
 @Component({
     name: 'content'
 })
 export default class Content extends Vue {
     public created() {
-        // 子组件往外触发 slot-content 事件，并传递 SlotContent 给到父组件。
-        this.$emit('slot-content', SlotContent);
+        // 子组件往外触发 slot-content 事件，并传递组件名字 'Demo' 和 title 给到父组件。
+        // 此处传递的是组件名字，不可直接传递组件过去
+        this.$emit('slot-content', 'Demo', '你好');
     }
 }
 </script>
@@ -64,10 +88,10 @@ export default class Content extends Vue {
 优点：<br/>
 子组件加载时，就可以触发 slot-content 事件，达到控制其他组件的目的。<br/>
 
-既可以控制其他组件状态，也可以控制其他组件插槽。<br/>
+既可以控制其他组件状态，也可以通过控制状态来控制其他组件的插槽。<br/>
 
 缺点：<br/>
-在这个例子中，子组件通过事件传递的是一个组件，看起来比较奇怪。一般事件传递的是一个值（对象、数组等），不建议事件传递的是一个组件。<br/>
+父组件必须监听子组件触发的事件，如果未监听则达不到任何效果。<br/>
 
 ### 2. vuex 状态管理
 
@@ -159,7 +183,7 @@ export default class Content extends Vue {
 优点：<br/>
 就像官方文档给出的描述：Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。使用 vuex 可以将多个组件中共同的状态提升到store中，并统一管理。<br/>
 
-可以直接控制其他组件状态以及管理状态的变化，但不可直接控制其他组件插槽。如果想要控制插槽，可以通过状态来动态渲染不同的插槽内容，如第一种方案所示。<br/>
+可以控制其他组件状态以及管理状态的变化，或者通过控制状态来动态渲染其他组件的插槽。<br/>
 
 缺点：<br/>
 如果是小型的项目，没必要引入 vuex 来进行状态管理，有点大材小用。
@@ -170,20 +194,20 @@ vue 混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件�
 
 ```javascript
 // mixin.js
+const titleInfo = {
+    title: 'default',
+    icon: 'icon-default'
+};
+
+// 只能更新里面的字段，不能直接整个 titleInfo 重新赋值
+const updateTitle = (title: string) => titleInfo.title = title;
+const updateIcon = (icon: string) => titleInfo.icon = icon;
+
 export default {
-    data: () => {
-        return {
-            title: 'default title',
-            icon: 'default-icon'
-        };
-    },
+    data: () => ({ titleInfo }),
     methods: {
-        // 更新 组件的共用状态
-        updateInfo(title: string, icon: string) {
-            const vm: any = this;
-            vm.title = title;
-            vm.icon = icon;
-        }
+        updateTitle,
+        updateIcon
     }
 };
 ```
@@ -191,51 +215,48 @@ export default {
 // App.vue
 <template>
     <div>
-        <TitleBar :title={title} :icon={icon}></TitleBar>
+        <TitleBar :title="titleInfo.title" :icon="titleInfo.icon"></TitleBar>
         <Content />
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import mixin from '/path/to/mixin.js';
+import demoMixin from './mixins/demo';
+import Content from './path/to/content.vue';
 
 @Component({
     name: 'app',
-    mixins: [mixin]
+    mixins: [demoMixin],
+    components: {
+        Content
+    }
 })
 export default class App extends Vue {
-    public created() {
-        ...
-    }
+    ...
 }
 </script>
 ```
 ```javascript
 // Content.vue
 <template>
-    <div id="content">
+    <div>
         ...
+        <button @click="updateTitle('我是更新后的title')">更新 title</button>
+        <button @click="updateIcon('icon-update')">更新 title</button>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import mixin from '/path/to/mixin.js';
+import demoMixin from './mixins/demo';
 
 @Component({
-    name: 'content',
-    mixins: [mixin]
+    name: 'child',
+    mixins: [demoMixin]
 })
-export default class Content extends Vue {
-    public created() {
-        ...
-    }
-
-    // 调用 mixin 中共用的方法来更新 title 和 icon 字段
-    private updateInfo() {
-        (this as any).updateInfo('content mixin', 'icon-diff');
-    }
+export default class Child extends Vue {
+    ...
 }
 </script>
 ```
@@ -243,7 +264,7 @@ export default class Content extends Vue {
 优点：<br/>
 就像官方文档给出的描述：vue 混入 (mixin) 提供了一种非常灵活的方式，来分发 Vue 组件中的可复用功能。vue mixin 脚本中声明不同组件共同的state和方法，在组件中调用公用方法来改变公用state，从而达到子组件改变父组件中其他组件的状态的目的。同时也达到复用效果。<br/>
 
-可以直接控制其他组件状态，但不可直接控制其他组件插槽。如果想要控制插槽，可以通过状态来动态渲染不同的插槽内容，如第一种方案所示。<br/>
+可以控制其他组件状态以及管理状态的变化，或者通过控制状态来动态渲染其他组件的插槽。<br/>
 
 缺点：<br/>
 需要区分不同组件和不同状态，分别放入不同的mixin中，防止不同组件改用公用方法影响其他组件使用。
