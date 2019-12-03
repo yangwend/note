@@ -51,3 +51,8 @@ if (document.referrer === '') {
 12. 跨域
 13. <meta content="never" name="referrer">
 ```
+
+
+### 参考链接
+
+1. [前端获取referrer可行性](https://bluest.xyz/f2e-get-referrer-feasibility.html)

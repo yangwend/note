@@ -284,15 +284,15 @@ https://blog.csdn.net/xiao_bin_shen/article/details/77778514
 
 https://blog.csdn.net/a973685825/article/details/81169689
 
-http://0313.name/archives/48
+
 
 https://www.cnblogs.com/kagome2014/p/kagome2014001.html
 
 https://www.cnblogs.com/zhanggf/p/8504317.html
 
-https://blog.csdn.net/u013379933/article/details/84622166
+[pdf.js 异步获取pdf流文件显示,支持移动端,微信](http://0313.name/archives/48)
 
-
+[移动端支持查看pdf文件](https://blog.csdn.net/u013379933/article/details/84622166)
 
 [Vue中如何在线预览pdf文件](https://juejin.im/post/5c764fe3f265da2dcd79f21b)
 
@@ -307,3 +307,7 @@ https://blog.csdn.net/u013379933/article/details/84622166
 [JavaScript 中 Blob 对象](https://juejin.im/entry/5937c98eac502e0068cf31ae)
 
 [Blob type 参数： MIME 参考手册](https://www.w3school.com.cn/media/media_mimeref.asp)
+
+[pdf.js使用教程](https://www.cnblogs.com/kagome2014/p/kagome2014001.html)
+
+[在线查看PDF文件,pdf.js使用方法](https://www.cnblogs.com/zhanggf/p/8504317.html)

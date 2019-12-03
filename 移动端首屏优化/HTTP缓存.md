@@ -189,3 +189,5 @@ note：Etag 实际上很少人使用，因为它的计算是使用算法来得�
 6. [浏览器 HTTP 协议缓存机制详解](https://my.oschina.net/leejun2005/blog/369148)
 
 7. [翻译：web制作、开发人员需知的Web缓存知识](https://www.zhangxinxu.com/wordpress/2013/05/caching-tutorial-for-web-authors-and-webmasters/)
+
+8. [浏览器缓存原理](https://www.cnblogs.com/wangpenghui522/p/5498427.html)

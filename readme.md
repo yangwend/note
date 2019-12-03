@@ -72,7 +72,15 @@
 
 20. [react hooks](https://github.com/idea100/rxjs-demo/blob/master/xx.md)  
 
-21. [react dva 的 connect 与 @connect](https://www.cnblogs.com/CyLee/p/9308604.html)
+21. [react dva 的 connect 与 @connect](https://www.cnblogs.com/CyLee/p/9308604.html)  
+
+22. [Ant Design of Vue](https://www.antdv.com/docs/vue/introduce-cn/)
+
+23. [在 React 中使用 react-router-dom](https://www.jianshu.com/p/8954e9fb0c7e)
+
+24. [Hooks FAQ](https://zh-hans.reactjs.org/docs/hooks-faq.html)
+
+25. [react 中文文档](https://zh-hans.reactjs.org/docs/getting-started.html)
 
 
 ### flex 布局
@@ -107,6 +115,8 @@
 2. [lodash api](http://lodash.think2011.net/chunk)  
 
 3. [Lodash 简书](https://www.jianshu.com/p/7436e40ac5d1)  
+
+4. [lodash api 介绍](https://lodash.com/docs/4.17.14#debounce)
 
 
 ### webpack 相关
@@ -337,3 +347,172 @@
 61. [关于h5页面的普通屏和全面屏判断](https://blog.csdn.net/weixin_43278947/article/details/90376537)
 
 62. [JavaScript判断是否是iPhone X系列机型，H5和其他环境兼容](https://www.w3h5.com/post/235.html)
+
+63. [input file 文件上传,js控制上传文件的大小和格式](https://www.haorooms.com/post/js_inputfileupload)
+
+64. [HTML5的 input:file上传类型控制](https://www.haorooms.com/post/input_file_leixing)
+
+65. [如何解决input type="file"在IE11里无法获取文件的type属性](https://blog.csdn.net/joyvonlee/article/details/91975452)
+
+66. [js清空input file的值](https://blog.csdn.net/lihefei_coder/article/details/76850498)
+
+67. [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+
+68. [number-precision](https://github.com/nefe/number-precision)
+
+```javascript
+import NP from 'number-precision';
+
+export default class Helper {
+    public static centToYuan(cent) {
+        cent = Number(cent);
+        if (isNaN(cent)) {
+            return null;
+        }
+
+        return NP.round(NP.divide(cent, 100), 2);
+    }
+}
+```
+
+69. [每个 JavaScript 工程师都应懂的33个概念](https://github.com/stephentian/33-js-concepts)
+
+70. [滴滴 短信验证码弹窗](https://didi.github.io/mand-mobile/#/zh-CN/docs/components/business/captcha)
+
+71. [vue实现验证码输入框组件](https://www.jb51.net/article/130619.htm)
+
+73. [vue-router如何在返回时返回到上次滚动位置](https://blog.csdn.net/zjl516088421/article/details/77937440)
+
+74. [Vue路由的$router.back(-1)回退时如何判断有没有上一个路由](https://segmentfault.com/q/1010000010714863)
+
+75. [PNG、JPEG、GIF、SVG应该用哪个？](https://www.jianshu.com/p/c66f52d875d9)
+
+76. [ios的input属性Disabled默认样式问题](https://www.jianshu.com/p/7747636f7cb6)
+
+77. [移动端总结](https://www.jianshu.com/nb/16348523)
+
+78. [vue组件之间的通信以及如何在父组件中调用子组件的方法和属性](https://www.cnblogs.com/heshan1992/p/6905452.html)
+
+79. [由设计稿一键生成代码](https://imgcook.taobao.org/)
+
+78. [JavaScript 浮点数陷阱及解法](https://blog.csdn.net/VhWfR2u02Q/article/details/78237132)
+
+78. [学习 git 使用方法平台](https://learngitbranching.js.org/)
+
+78. [单页应用动态设置页面title](https://www.cnblogs.com/zifayin/p/7797991.html)
+
+78. [第十五课：奇葩的元素节点iframe](https://www.cnblogs.com/chaojidan/p/4146412.html)
+
+78. [Chrome-devtools：ios 真机调试](https://github.com/gs3170981/chrome_ios_safari_ios-webkit-debug-proxy)
+
+78. [[JS] 查找对象数组中某属性的最大最小值](https://blog.csdn.net/cargelzhong/article/details/81458610)
+
+78. [【转】40条常见的移动端Web页面问题解决方案](https://www.cnblogs.com/zhanggf/p/5923890.html)
+
+78. [vue中禁止ios浏览器页面滚动的橡皮筋效果](https://blog.csdn.net/m0_37068028/article/details/80183781)
+
+78. [麻袋财富](https://www.madailicai.com/web/passport/home)
+
+78. [Shiny, Simulating Reflections for Mobile Websites](https://github.com/rikschennink/shiny)
+
+78. [node环境：Error listen EADDRINUSE :::3000](https://blog.csdn.net/liwenfei123/article/details/80199601)
+
+78. [超酷炫css3 loading 加载效果](https://www.cnblogs.com/lhb25/p/loading-spinners-animated-with-css3.html)
+
+78. [30 seconds of code](https://github.com/30-seconds/30-seconds-of-code#ary)
+
+78. [在线编辑](https://codepen.io/pen/)
+
+78. [凹凸实验室 UI](https://aotu.io/notes/2018/08/27/the-birth-of-taro-ui/)
+
+79. [Node.js API 文档](http://nodejs.cn/api/path.html)
+
+79. [nodejs 前端项目编译时内存溢出问题的原因及解决方案](https://blog.csdn.net/qq_35624642/article/details/81084331)
+
+79. [安装VC++2015运行库时出现0x80240037错误](https://www.cnblogs.com/seekdream/p/7942347.html)
+
+79. [神策数据分析文档](https://www.sensorsdata.cn/manual/js_sdk_spa.html)
+
+79. [Lavas，基于 Vue 的 PWA 解决方案](https://cloud.tencent.com/developer/section/1489940)
+
+79. [photopea](https://www.photopea.com/)
+
+79. [福昕云编辑](http://edit.foxitcloud.cn/)
+
+79. [道招-web 前端知识库](https://www.daozhao.com/)
+
+79. [区分slice,splice和split方法](https://www.cnblogs.com/webjoker/p/5218114.html)
+
+79. [npm和yarn的淘宝镜像添加](https://www.jianshu.com/p/79d61e27f3f4)
+
+79. [教你实现首行及首列固定 Table](https://github.com/sunmengyuan)
+
+79. [express的使用以及express.static的使用](https://blog.csdn.net/weixin_42476799/article/details/89296873)
+
+79. [express框架中的express.static()和app.use()](https://blog.csdn.net/mimikuer/article/details/78919349)
+
+79. [JS获取URL中参数值的4种方法](https://www.cnblogs.com/wang98/p/7688186.html)
+
+79. [原生 JS 获取元素的尺寸和位置](https://segmentfault.com/a/1190000007687940)
+
+79. [Arrays, symbols, and realms](https://jakearchibald.com/2017/arrays-symbols-realms/)
+
+80. [(sequelize)bulkCreate函数中的updateOnDuplicate参数怎么使用](https://juejin.im/post/5cf4dfe7f265da1bc14b1371)
+
+80. [拖放库中 React 性能的优化](https://juejin.im/post/5ac31b096fb9a028bc2dedfc)
+
+80. [MYSQL ERROR CODE 错误编号的意义](https://blog.csdn.net/jason0539/article/details/9278407)
+
+80. [js判断多个区间是否有交叉重叠](https://blog.csdn.net/weixin_41190571/article/details/88039717)
+
+80. [移动端H5实现图片上传](https://segmentfault.com/a/1190000010034177)
+
+80. [web css 苹方字体设置](https://blog.csdn.net/weixin_39888214/article/details/95957775)
+
+80. [兼容性之IOS下label 无法点击](https://www.bbsmax.com/A/Ae5RX2MMzQ/)
+
+80. [office 所有后缀对应的 content-type](https://blog.csdn.net/xiaoranzhizhu/article/details/70473734)
+
+80. [深入探究iOS下fixed定位导致的问题](https://segmentfault.com/a/1190000010510291)
+
+80. [js 去掉字符串前后空格实现代码集合](https://www.jb51.net/article/109526.htm)
+
+80. [原来 CSS 与 JS 是这样阻塞 DOM 解析和渲染的](https://juejin.im/post/59c60691518825396f4f71a1)
+
+80. [vue-focus](https://github.com/simplesmiler/vue-focus)
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+80. []()
+
+

@@ -53,3 +53,9 @@
 
 2. [Node读写Excel文件探究实践](https://aotu.io/notes/2016/04/07/node-excel/index.html)
 
+3. [使用xlsx-style设置表格的宽高等样式](https://www.jianshu.com/p/877631e7e411)
+
+4. [纯前端利用 js-xlsx 实现 Excel 文件导入导出功能示例](https://www.jianshu.com/p/74d405940305)
+
+5. [SheetJS js-xlsx](https://github.com/SheetJS/sheetjs)
+
