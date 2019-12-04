@@ -372,6 +372,14 @@ export default class Helper {
 
         return NP.round(NP.divide(cent, 100), 2);
     }
+
+    public static centToYuanOther(cent) {
+        cent = Number(cent);
+        if (isNaN(cent)) {
+            return null;
+        }
+        return parseFloat((cent * 100 / 10000).toPrecision(12));
+    }
 }
 ```
 
@@ -481,23 +489,32 @@ export default class Helper {
 
 80. [vue-focus](https://github.com/simplesmiler/vue-focus)
 
-80. []()
+80. [邮箱/邮件地址的正则表达式及分析](https://juejin.im/post/5aa637146fb9a028d663d09d)
 
-80. []()
+80. [把一串数字表示成千位分隔形式](https://www.jianshu.com/p/555db411b6a3)
 
-80. []()
+80. [JS字符串反转](https://www.cnblogs.com/hcxwd/p/9350604.html)
 
-80. []()
+另外一种思路：<br/>
+```javascript
+var string = 'hello world';
+var formatStr = '';
+for (const i of string) {
+    formatStr = i + formatStr;
+}
+```
 
-80. []()
+80. [laydate 日期与时间控件](https://www.layui.com/laydate/)
 
-80. []()
+80. [jquery二维码生成插件jquery.qrcode.js](http://www.jq22.com/jquery-info294)
 
-80. []()
+80. [jQuery+three.js雪花飘落动画效果](http://www.jq22.com/jquery-info18011)
 
-80. []()
+80. [NodeJS 基于redis的分布式锁的实现（Redlock算法）](https://blog.csdn.net/Seraphimon/article/details/84944693)
 
-80. []()
+80. [Nodejs定时任务（node-schedule)](https://www.jianshu.com/p/8d303ff8fdeb)
+
+80. [Node Schedule](https://github.com/node-schedule/node-schedule)
 
 80. []()
 
