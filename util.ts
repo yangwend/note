@@ -113,9 +113,10 @@ function toFixed(num, precision) {
     return (Math.round((+num + 'e' + precision) as any) / Math.pow(10, precision)).toFixed(precision);
 }
 
-// 判断是否是 IOS
+// 判断是否是 IOS/安卓
 const u = window.navigator.userAgent;
 const isIOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+const isAndroid = -1 < u.indexOf('Android') || -1 < u.indexOf('Adr');
 
 // 深拷贝
 function deepCopy(obj) {

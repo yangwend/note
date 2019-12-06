@@ -156,8 +156,8 @@ CSRF(Cross-site request forgery)，中文名为跨站请求伪造，也被称为
 
 4. 设置cookie信息：httpOnly为true(不允许被js访问)、sign为true(对cookie进行签名)、encrypt为true(对cookie进行加密)。
 
-5. 不让第三方网站访问用户的cookie信息：对cookie设置`SameSite`属性，值可为`Strict`或`Lax`。
-具体设置方式可参见[Cookie 的 SameSite 属性](http://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
+5. 不让第三方网站访问用户的cookie信息：对cookie设置`SameSite`属性，值可为`Strict`或`Lax`。<br/>
+具体设置方式可参见[Cookie 的 SameSite 属性](http://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)。（Chrome 51 开始，浏览器的 Cookie 新增加了一个 SameSite 属性，用来防止 CSRF 攻击和用户追踪。）
 
 
 ## 网络劫持攻击
@@ -218,7 +218,9 @@ $('body').append(`<div><script>alert(1)</script></div>`);
 
 这种钓鱼攻击是比较难以防御的，我们没办法将所有页面链接都通过脚本打开。而且也没办法控制用户点击哪些链接。真正可以做的是：提高自己的网络安全意识，不随便点击奇怪的链接。
 
-[前端黑魔法之远程控制地址栏](https://www.leavesongs.com/PENETRATION/use-target-to-spoof-fishing.html)
+附带两个钓鱼攻击的例子：<br/>
+[target="_blank"：新打开的页面可以通过window.opener来控制源页面的URL，进行钓鱼攻击](https://www.leavesongs.com/HTML/opener-fishing.html)<br/>
+[前端黑魔法之远程控制地址栏](https://www.leavesongs.com/PENETRATION/use-target-to-spoof-fishing.html)<br/>
 
 
 ## 总结

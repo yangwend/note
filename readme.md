@@ -516,11 +516,11 @@ for (const i of string) {
 
 80. [Node Schedule](https://github.com/node-schedule/node-schedule)
 
-80. []()
+80. [微信H5页面前端开发，大多数人都会遇到的几个兼容性坑](https://mp.weixin.qq.com/s/TQfENpzCuKgzzEBs2i5dxQ)
 
-80. []()
+80. [安全技术Paper](https://paper.seebug.org/)
 
-80. []()
+80. [[译] 跨站请求伪造已死！](https://juejin.im/post/58c669b6a22b9d0058b3c630)
 
 80. []()
 
