@@ -522,7 +522,7 @@ for (const i of string) {
 
 80. [[译] 跨站请求伪造已死！](https://juejin.im/post/58c669b6a22b9d0058b3c630)
 
-80. []()
+80. [nvm安装后node生效但是npm不生效](https://blog.csdn.net/Deleven_Blog/article/details/100077732)
 
 80. []()
 
