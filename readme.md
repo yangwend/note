@@ -524,12 +524,124 @@ for (const i of string) {
 
 80. [nvm安装后node生效但是npm不生效](https://blog.csdn.net/Deleven_Blog/article/details/100077732)
 
-80. []()
+80. [JavaScript中的原型与原型链](https://segmentfault.com/a/1190000018895543)
 
-80. []()
+80. [JavaScript 中 call()、apply()、bind() 的用法](https://www.runoob.com/w3cnote/js-call-apply-bind.html)
 
-80. []()
+80. [JavaScript六种非常经典的对象继承方式](https://segmentfault.com/a/1190000016242916)
 
-80. []()
+80. [JS-继承(es5,es6)](https://segmentfault.com/a/1190000016441558)
+
+81. [关于面试题 Array.indexof() 方法的实现及思考](https://www.cnblogs.com/nzbin/p/6033363.html)
 
 
+### js 实现Object的clone方法（深度克隆）
+```javascript
+function deepClone(origin, target) {
+    var target = target || {};
+    var toStr = Object.prototype.toString;
+    var arrStr = '[object Array]';
+
+    for (var prop in origin) {
+        if (origin.hasOwnProperty(prop)) {
+            if (origin[prop] != null && typeof(origin[prop]) == 'object') {
+                target[prop] = toStr.call(origin[prop]) === arrStr ? [] : {};
+                deepClone(origin[prop], target[prop]);
+            } else {
+                target[prop] = origin[prop];
+            }
+        }
+    }
+}
+
+var funObj1 = {
+    name: 'xxxx',
+    age: 10,
+    arr: [1, 2, 3, 4]
+};
+var funObj2 = {};
+deepClone(funObj1, funObj2);
+console.log(funObj2);
+```
+
+
+82. [Js下的StringBuilder](https://www.cnblogs.com/McJeremy/archive/2010/10/25/1860185.html)
+
+82. [关于 JSON.parse(JSON.stringify(obj)) 实现深拷贝的一些坑](https://segmentfault.com/a/1190000020297508)=
+
+82. [深拷贝的终极探索（99%的人都不知道）---超难的的的的的的的的的的的](https://segmentfault.com/a/1190000016672263)
+
+82. [深入理解JS闭包](https://blog.csdn.net/cauchy6317/article/details/81167572)
+
+82. [前端技能解读](https://github.com/qq449245884/xiaozhi)
+
+82. [js中的事件委托或是事件代理详解](https://www.cnblogs.com/liugang-vip/p/5616484.html)
+
+82. [函数防抖和节流](https://www.jianshu.com/p/c8b86b09daf0)
+
+82. [require和import的区别](https://blog.csdn.net/bye_cherry/article/details/90414563)
+
+82. [require和import区别](https://blog.csdn.net/qq_35087256/article/details/84144647?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
+
+### import与require的区别
+requires
+   1、通过module.export进行导出  require进行导入
+   2、属于commonJS规范
+   3、赋值过程中才会执行
+   4、require可以在文件任何地方进行使用
+   5、common的require是同步的
+   6、require相当于值拷贝
+import
+    1、通过ES6的export export default进行导出 import进行导入
+    2、属于ES6的模块规范
+    3、导出的对象与模块进行解构赋值
+    4、解构过程中并且编译时才会执行
+    5、import必须放在文件的最开始地方
+    6、import相当于值引用
+
+
+
+
+82. [彻底搞清楚javascript中的require、import和export(js模块加载规范的前世今生)](https://www.cnblogs.com/fps2tao/p/10823468.html)
+
+82. [js promise看这篇就够了](https://www.cnblogs.com/superSmile/p/8406037.html)
+
+82. [js处理异步的几种方式](https://blog.csdn.net/weixin_42519137/article/details/98467707)
+
+82. [JS实现异步编程的4种方法](https://www.cnblogs.com/goloving/p/9393541.html)
+
+82. [前端面试题整理—Webpack+Git篇](https://www.cnblogs.com/theblogs/p/10781273.html)
+
+82. [js 面试题（1）](https://blog.csdn.net/github_38186390/article/details/94439062)
+
+82. [js 面试题（2）](https://blog.csdn.net/github_38186390/article/details/95940705)
+
+82. [面试中的那些 Git 问题 - 基础部分](https://blog.csdn.net/weixin_33733810/article/details/91420050)
+
+82. [前端面试题必考（一）- 浏览器（HTTP与HTTPS）工作流程/渲染过程](https://blog.csdn.net/alanfancy/article/details/88350324)
+
+82. [面试题，http和https的区别是什么，跟TCP/IP四层模型有什么关系](https://segmentfault.com/q/1010000015582096)
+
+82. [Web前端面试——HTTP部分](https://blog.csdn.net/u012194956/article/details/79110212)
+
+82. [js---JSONP原理及使用](https://www.cnblogs.com/lanyueff/p/7771075.html)
+
+82. [JS CORS通信](https://www.jianshu.com/p/24c10d3cd659)
+
+82. [web前端面试100题](https://blog.csdn.net/lvyang251314/article/details/80688651)
+
+82. []()
+
+82. []()
+
+82. []()
+
+82. []()
+
+82. []()
+
+82. []()
+
+82. []()
+
+82. []()
