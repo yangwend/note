@@ -32,3 +32,9 @@ vue create vue2-all
 
 目录结构：
 
+https://zhuanlan.zhihu.com/p/133383201
+
+https://blog.csdn.net/weixin_39876634/article/details/106875596
+
+vue 3 项目创建：
+
