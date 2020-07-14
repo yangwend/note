@@ -32,9 +32,40 @@ vue create vue2-all
 
 目录结构：
 
-https://zhuanlan.zhihu.com/p/133383201
 
-https://blog.csdn.net/weixin_39876634/article/details/106875596
+vue3特性：
+1. vue3.0是一个全新的框架，框架代码实现全部采用typescript编写。
+2. 使用Proxy支持数据响应式处理。
+3. 向下兼容，支持Vue2.x风格的写法。这种Vue2.x风格的写法就叫做Composition API(组合式API)。
+一般我们在创建组件的时候，都会传入data、computed、methods、created、mounted等生命周期函数，用这些来声明一个组件。这种可选项集合就是Composition API(组合式API)。
+
+
+
+
+
+
 
 vue 3 项目创建：
 
+
+vite 创建时：
+yarn add vue-router@4.0.0-alpha.12 --save
+yarn add sass sass-loader --dev
+
+
+## 参考链接
+1. [vue-next](https://github.com/vuejs/vue-next)
+
+2. [vite](https://github.com/vitejs/vite)
+
+3. [Vuex 4](https://github.com/vuejs/vuex/tree/4.0)
+
+4. [vue-router-next](https://github.com/vuejs/vue-router-next)
+
+5. [vue-cli-plugin-vue-next](https://github.com/vuejs/vue-cli-plugin-vue-next)
+
+6. [vue-next学习](https://gitee.com/kennana/vue_next_learning/tree/master)
+
+https://zhuanlan.zhihu.com/p/133383201
+
+https://blog.csdn.net/weixin_39876634/article/details/106875596
