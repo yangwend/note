@@ -8,22 +8,33 @@
   </div>
 </template>
 <script>
-import { computed } from "vue";
+import { computed, getCurrentInstance } from "vue";
 import store from "../store";
 
 export default {
   name: "about",
   setup() {
+    const { ctx } = getCurrentInstance()
+    console.log('ctx', ctx);
+    console.log('ctx.$store', ctx.$store);
+    console.log('ctx.$store.state', ctx.$store.state);
+    console.log('ctx.$router', ctx.$router);
+
     const count = computed(() => store.state.count);
+    // const count = computed(() => ctx.$store.state.count);
     const doubleCount = computed(() => store.getters.double);
+    // const doubleCount = computed(() => ctx.$store.getters.double);
     const halfCount = computed(() => store.getters.half);
+    // const halfCount = computed(() => ctx.$store.getters.half);
 
     const add = () => {
       store.commit("addCount", 1);
+      // ctx.$store.commit("addCount", 1);
     };
 
     const minus = () => {
       store.commit("minusCount", 1);
+      // ctx.$store.commit("minusCount", 1);
     };
 
     return {
