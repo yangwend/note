@@ -8,21 +8,40 @@ export default new Vuex.Store({
     count: 0
   },
   getters: {
-    double(state) {
+    doubleCount(state) {
       return state.count * 2;
     },
-    half(state) {
+    halfCount(state) {
       return state.count / 2;
     }
   },
   mutations: {
+    add(state) {
+      state.count += 1;
+    },
     addCount(state, n) {
       state.count += n;
+    },
+    minus(state) {
+      state.count -= 1;
     },
     minusCount(state, n) {
       state.count -= n;
     }
   },
-  actions: {},
+  actions: {
+    addAsync(context) {
+      // context：与 store 实例具有相同的方法和属性
+      setTimeout(() => {
+        context.commit("add");
+      }, 1000);
+    },
+    minusAsync({ commit }) {
+      setTimeout(() => {
+        // 参数解构
+        commit("minus");
+      }, 1000);
+    }
+  },
   modules: {}
 });

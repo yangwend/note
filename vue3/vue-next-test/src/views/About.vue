@@ -15,8 +15,8 @@ export default {
   name: "about",
   setup() {
     const count = computed(() => store.state.count);
-    const doubleCount = computed(() => store.getters.double);
-    const halfCount = computed(() => store.getters.half);
+    const doubleCount = computed(() => store.getters.doubleCount);
+    const halfCount = computed(() => store.getters.halfCount);
 
     const add = () => {
       store.commit("addCount", 1);

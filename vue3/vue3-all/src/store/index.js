@@ -5,10 +5,10 @@ const store = createStore({
     count: 0
   },
   getters: {
-    double(state) {
+    doubleCount(state) {
       return state.count * 2;
     },
-    half(state) {
+    halfCount(state) {
       return state.count / 2;
     }
   },

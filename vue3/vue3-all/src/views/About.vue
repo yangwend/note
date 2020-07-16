@@ -22,10 +22,10 @@ export default {
 
     const count = computed(() => store.state.count);
     // const count = computed(() => ctx.$store.state.count);
-    const doubleCount = computed(() => store.getters.double);
-    // const doubleCount = computed(() => ctx.$store.getters.double);
-    const halfCount = computed(() => store.getters.half);
-    // const halfCount = computed(() => ctx.$store.getters.half);
+    const doubleCount = computed(() => store.getters.doubleCount);
+    // const doubleCount = computed(() => ctx.$store.getters.doubleCount);
+    const halfCount = computed(() => store.getters.halfCount);
+    // const halfCount = computed(() => ctx.$store.getters.halfCount);
 
     const add = () => {
       store.commit("addCount", 1);
@@ -61,6 +61,7 @@ export default {
     cursor: pointer;
     border: none;
     margin-right: 20px;
+    outline: none;
   }
 }
 </style>
