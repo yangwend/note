@@ -17,6 +17,11 @@ const router = createRouter({
       path: "/test",
       name: "test",
       component: () => import("../views/Test.vue") // 懒加载
+    },
+    {
+      path: "/mouse",
+      name: "mouse",
+      component: () => import("../views/Mouse.vue") // 懒加载
     }
   ]
 });

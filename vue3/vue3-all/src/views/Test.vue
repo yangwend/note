@@ -14,7 +14,7 @@ export default {
   name: "test",
   // 初始化状态
   setup() {
-    // 定义状态：类似 react hooks
+    // 定义一个可变更的普通的状态：类似 react hooks
     const count = ref(0);
 
     // 定义计算属性
