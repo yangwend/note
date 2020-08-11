@@ -3,6 +3,7 @@
 （1） 浏览器Range,Selection等选中文本对象（https://www.cnblogs.com/btgyoyo/p/6214911.html）
 （2）JavaScript 实现复制到剪贴板的总结（https://www.cnblogs.com/dodocie/p/7210253.html）
 （3）【原】js实现复制到剪贴板功能，兼容所有浏览器（https://www.cnblogs.com/PeunZhang/p/3324727.html）
+（4）https://stackoverflow.com/questions/34045777/copy-to-clipboard-using-javascript-in-ios/34046084
 
 1. 采用原生方法：（https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand）
 
