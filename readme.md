@@ -634,9 +634,9 @@ import
 
 82. [pwa]()
 
-82. []()
+82. [Yeoman](https://www.jianshu.com/p/e12cab6ab852)
 
-82. []()
+82. [前端学习资源汇总](https://www.yuque.com/docs/share/fac122b7-7ea2-478b-bd59-b6647c030f76?#)
 
 82. []()
 
