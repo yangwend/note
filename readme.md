@@ -91,19 +91,6 @@
 3. [Flex 布局示例](http://static.vgee.cn/static/index.html)
 
 
-### git 常用命令总结
-1. [Git 中文文档](https://git-scm.com/book/zh/v2)  
-
-2. [Git 常用命令大全](https://blog.csdn.net/dengsilinming/article/details/8000622)  
-
-3. [git 命令](https://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)  
-
-4. [Git 工具 - 子模块](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)  
-
-5. [git commit -m 与 git commit -am 的区别](https://blog.csdn.net/yaomingyang/article/details/78788053)  
-
-6. [git 子模块](https://stackoverflow.com/questions/4873980/git-diff-says-subproject-is-dirty)
-
 
 ### Rxjs 相关
 1. [Rxjs 中文文档](https://cn.rx.js.org/manual/overview.html)
@@ -118,11 +105,6 @@
 
 4. [lodash api 介绍](https://lodash.com/docs/4.17.14#debounce)
 
-
-### webpack 相关
-1. [webpack简介](https://zhuanlan.zhihu.com/p/26041084)  
-
-2. [webpack开发和生产两个环境的配置详解](https://blog.csdn.net/itkingone/article/details/70331783)  
 
 
 ### react 相关
@@ -209,8 +191,6 @@
 7. [javascript的window.ActiveXObject对象，区别浏览器的方法](https://blog.csdn.net/u011020012/article/details/51209443)  
 
 8. [jQuery的deferred对象详解](https://blog.csdn.net/ligang2585116/article/details/51589073)  
-
-9. [ECMAScript 6 入门](http://es6.ruanyifeng.com/)  
 
 10. [微信公众平台 JSSDK 发送给朋友 分享到朋友圈 onMenuShareTimeline onMenuShareAppMessage](http://www.cnblogs.com/txw1958/p/weixin-js.html)
 
@@ -332,8 +312,6 @@
 
 54. [用 GitLab CI 进行持续集成](https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/)
 
-55. [git 命令大全](https://gist.github.com/guweigang/9848271)
-
 56. [版本号管理策略&&使用npm管理项目版本号](http://buzhundong.com/post/%E7%89%88%E6%9C%AC%E5%8F%B7%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5-%E4%BD%BF%E7%94%A8npm%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E7%89%88%E6%9C%AC%E5%8F%B7.html)
 
 57. [关于chrome控制台警告：Synchronous XMLHttpRequest on the main thread终极解决办法](https://blog.csdn.net/xllily_11/article/details/51879420)
@@ -404,8 +382,6 @@ export default class Helper {
 79. [由设计稿一键生成代码](https://imgcook.taobao.org/)
 
 78. [JavaScript 浮点数陷阱及解法](https://blog.csdn.net/VhWfR2u02Q/article/details/78237132)
-
-78. [学习 git 使用方法平台](https://learngitbranching.js.org/)
 
 78. [单页应用动态设置页面title](https://www.cnblogs.com/zifayin/p/7797991.html)
 
@@ -530,8 +506,6 @@ for (const i of string) {
 
 80. [JavaScript六种非常经典的对象继承方式](https://segmentfault.com/a/1190000016242916)
 
-80. [JS-继承(es5,es6)](https://segmentfault.com/a/1190000016441558)
-
 81. [关于面试题 Array.indexof() 方法的实现及思考](https://www.cnblogs.com/nzbin/p/6033363.html)
 
 
@@ -610,13 +584,9 @@ import
 
 82. [JS实现异步编程的4种方法](https://www.cnblogs.com/goloving/p/9393541.html)
 
-82. [前端面试题整理—Webpack+Git篇](https://www.cnblogs.com/theblogs/p/10781273.html)
-
 82. [js 面试题（1）](https://blog.csdn.net/github_38186390/article/details/94439062)
 
 82. [js 面试题（2）](https://blog.csdn.net/github_38186390/article/details/95940705)
-
-82. [面试中的那些 Git 问题 - 基础部分](https://blog.csdn.net/weixin_33733810/article/details/91420050)
 
 82. [前端面试题必考（一）- 浏览器（HTTP与HTTPS）工作流程/渲染过程](https://blog.csdn.net/alanfancy/article/details/88350324)
 

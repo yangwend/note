@@ -105,8 +105,10 @@ web站点一般都可以在新式浏览器中正常运行。如果用户使用�
 
 ### 参考链接
 1. [前端工程师面试题(性能优化)](https://www.jianshu.com/p/a2d054c58797)
-2. [ECMAScript 6 入门教程](https://es6.ruanyifeng.com)
-
+80. [JS-继承(es5,es6)](https://segmentfault.com/a/1190000016441558)
+2. [前端面试题2021及答案](https://blog.csdn.net/qq_33277654/article/details/112758362)
+4. [作用域主要分为哪几类？](https://blog.csdn.net/weixin_45079657/article/details/118604522)
+5. [不使用var声明变量，和使用var声明区别](https://blog.csdn.net/weixin_51109349/article/details/110083542)
 
 
 
