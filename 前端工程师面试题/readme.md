@@ -109,6 +109,7 @@ web站点一般都可以在新式浏览器中正常运行。如果用户使用�
 2. [前端面试题2021及答案](https://blog.csdn.net/qq_33277654/article/details/112758362)
 4. [作用域主要分为哪几类？](https://blog.csdn.net/weixin_45079657/article/details/118604522)
 5. [不使用var声明变量，和使用var声明区别](https://blog.csdn.net/weixin_51109349/article/details/110083542)
+6. [JavaScript六种非常经典的对象继承方式](https://blog.csdn.net/weixin_33966095/article/details/88737103)
 
 
 

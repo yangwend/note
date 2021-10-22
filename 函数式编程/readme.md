@@ -34,6 +34,8 @@ class Functor {
 2. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
 3. [JavaScript函数式编程（一）\（二）\（三）](https://blog.csdn.net/5hongbing/article/details/80149519)
 4. [前端进击的巨人（五）：学会函数柯里化（curry)](https://segmentfault.com/a/1190000017981474)
+5. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)
+6. [略知函数式编程](https://segmentfault.com/a/1190000017966670)
 
 #### 解析
 1. 本质上，函数式编程只是范畴论的运算方法，跟数理逻辑、微积分、行列式是同一类东西，都是数学方法，只是碰巧它能用来写程序。

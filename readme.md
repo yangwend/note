@@ -268,8 +268,6 @@
 
 32. [工厂函数](https://www.cnblogs.com/yangguoe/p/9268315.html)
 
-33. [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/)  
-
 34. [ScriptOJ 练习开发](http://scriptoj.mangojuice.top/)
 
 35. [chrome 浏览器低版本下载](https://www.chromedownloads.net/chrome64win/)
@@ -287,10 +285,6 @@
 41. [栈、堆、队列、内存空间](https://segmentfault.com/a/1190000017896749)
 
 42. [从作用域走进闭包](https://segmentfault.com/a/1190000017948999)
-
-43. [略知函数式编程](https://segmentfault.com/a/1190000017966670)
-
-44. [学会函数柯里化（curry)](https://segmentfault.com/a/1190000017981474)
 
 45. [知否知否，须知this](https://segmentfault.com/a/1190000018059411)
 
