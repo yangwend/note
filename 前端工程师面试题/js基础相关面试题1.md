@@ -814,7 +814,7 @@ var example2 = new SubType();
 alert(example.colors); //"red,blue,green,black"
 ```
 
-__缺点__：
+__缺点__：  
 （1）原型链继承多个实例的引用类型属性指向相同，一个实例改了原型属性，其他实例的原型属性也会被修改。  
 （2）不能传递参数。  
 （3）继承单一。  
