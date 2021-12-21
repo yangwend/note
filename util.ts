@@ -118,9 +118,8 @@ const u = window.navigator.userAgent;
 const isIOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 const isAndroid = -1 < u.indexOf('Android') || -1 < u.indexOf('Adr');
 
-// 深拷贝
+// 深拷贝--lodash
 function deepCopy(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
 
-// 
