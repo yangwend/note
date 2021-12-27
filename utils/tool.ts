@@ -1,37 +1,53 @@
-
 /**
- * @description 向下取整截取小数点后2位
- * @param {number} num
- * @returns
+ * 工具类
  */
-export const mathFloor = (num: number) => {
-  if (!num) {
-    return 0;
-  }
-  return Math.floor(num * 100) / 100;
+
+interface ICity {
+  label?: string; // 名称
+  value?: string; // 编码
+  children?: ICity[];
 }
 
 /**
- * @description 向上取整截取小数点后2位
- * @param {number} num
+ * @description 根据特定城市/区获取对应的省市区数组
+ * https://openx.yifengx.com/china.region.json
+ * @param {*} cityList 所有的省市区列表
+ * @param {*} city 特定城市
  * @returns
  */
-export const mathCeil = (num: number) => {
-  if (!num) {
-    return 0;
+export const getCurrCityArrByCity = (cityList: ICity[], city: string) => {
+  if (!city || cityList.length === 0) {
+    return undefined;
   }
-  return Math.ceil(num * 100) / 100;
-}
 
-/**
- * @description 四舍五入截取小数点后2位
- * @param {number} num
- * @returns
- */
-export const mathRound = (num: number) => {
-  if (!num) {
-    return 0;
+  let currCityArr = undefined;
+  for (let i = 0; i < cityList.length; i++) {
+    const item = cityList[i];
+    if (item.label === city) {
+      currCityArr = [city];
+      break;
+    }
+
+    if (item.children && item.children.length > 0) {
+      for (let j = 0; j < item.children.length; j++) {
+        const childItem = item.children[j];
+        if (childItem.label === city) {
+          currCityArr = [item.label, childItem.label];
+          break;
+        }
+
+        if (childItem.children && childItem.children.length > 0) {
+          for (let k = 0; k < childItem.children.length; k++) {
+            const childChildItem = childItem.children[k];
+            if (childChildItem.label === city) {
+              currCityArr = [item.label, childItem.label, childChildItem.label];
+              break;
+            }
+          }
+        }
+      }
+    }
   }
-  return Math.round(num * 100) / 100;
-}
 
+  return currCityArr;
+};
