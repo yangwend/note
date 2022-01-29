@@ -472,3 +472,7 @@ export default {
 3. [toPrecision](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision)
 
 4. [number-precision](https://github.com/nefe/number-precision)
+
+5. [关于 JavaScript 的 精度丢失 与 近似舍入](https://www.cnblogs.com/xjnotxj/p/12639408.html)
+
+6. [JavaScript 中精度问题以及解决方案](https://www.runoob.com/w3cnote/js-precision-problem-and-solution.html)

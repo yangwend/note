@@ -1,0 +1,48 @@
+{
+  "name": "@pluve/taro-plugin-mars",
+  "version": "1.1.1",
+  "description": "Taro 性能优化插件 - Mars",
+  "main": "index.js",
+  "scripts": {
+    "build": "yarn run clean && yarn run prod",
+    "dev": "tsc -w",
+    "prod": "tsc",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "test:dev": "jest --watch",
+    "release": "yarn publish",
+    "release:next": "yarn publish --tag=next",
+    "release:beta": "yarn publish --tag=beta"
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://codeup.aliyun.com/yifeng/plugin/taro-plugin-mars.git"
+  },
+  "keywords": [
+    "Taro"
+  ],
+  "author": "luckyadam",
+  "license": "MIT",
+  "homepage": "https://codeup.aliyun.com/yifeng/plugin/taro-plugin-mars#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.1",
+    "@types/jest": "^25.1.4",
+    "jest": "^25.2.4",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
+}
