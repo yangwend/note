@@ -22,3 +22,5 @@
 1. [Git 大全](https://gitee.com/all-about-git)
 
 3. [前端面试题整理—Webpack+Git篇](https://www.cnblogs.com/theblogs/p/10781273.html)
+
+4. [图解git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
