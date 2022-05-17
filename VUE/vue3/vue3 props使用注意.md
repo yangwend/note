@@ -1,17 +1,12 @@
 ## vue3 props 使用注意
 
+### props 使用
 
-### props使用
 ```vue
 // 父组件
-<template>
-<Table
-  :list="list"
-  :canceling="canceling"
-  // ...
-/>
-</template>
+<template><Table :list="list" :canceling="canceling" // ... /></template>
 ```
+
 ```vue
 // 子组件
 <script lang="ts" setup>
@@ -20,7 +15,7 @@ const props = withDefaults(
     list: IRecordTableListModel;
     canceling: boolean;
   }>(),
-  { canceling: false },
+  { canceling: false }
 );
 
 const currentPage = computed(() => props.list.pageNum);
@@ -54,8 +49,8 @@ const currentPage = computed(() => props.list.pageNum);
 如上述代码所示，在 script 脚本里面使用 props 时，需要 `props.list`
 在 template 里面使用，既可以用 `props.list.total` `props.canceling`，也可以使用 `list.total` `list.pageSize`
 
+### props 传值后如何赋值给子组件
 
-### props传值后如何赋值给子组件
 ```vue
 <template>
   <el-dialog
@@ -96,17 +91,23 @@ const INIT_VALUES = {
   nlms: '',
 };
 
-const props = withDefaults(defineProps<{ visible?: boolean; okLoading?: boolean; desc?: string; nlms?: string; status?: IStrategyStatusType }>(), {
-  visible: false,
-  okLoading: false,
-  desc: '',
-  nlms: '',
-  status: undefined,
-});
+const props = withDefaults(
+  defineProps<{ visible?: boolean; okLoading?: boolean; desc?: string; nlms?: string; status?: IStrategyStatusType }>(),
+  {
+    visible: false,
+    okLoading: false,
+    desc: '',
+    nlms: '',
+    status: undefined,
+  }
+);
 
 const emit = defineEmits(['ok', 'close']);
 
-const { queryModel, setQueryModel } = useSearchQuery({ initialValue: INIT_VALUES }) as Omit<ReturnType<typeof useSearchQuery>, 'queryModel'> & {
+const { queryModel, setQueryModel } = useSearchQuery({ initialValue: INIT_VALUES }) as Omit<
+  ReturnType<typeof useSearchQuery>,
+  'queryModel'
+> & {
   queryModel: typeof INIT_VALUES;
 };
 
@@ -125,4 +126,95 @@ const onClose = () => {
 };
 </script>
 ```
-如上述代码所示，传值给当前组件，当前组件需要默认填入props中的某个字段时，可以在 `onOpen` 方法里面，进行赋值（前提是当前组件需要先设置查询条件） 
+
+如上述代码所示，传值给当前组件，当前组件需要默认填入 props 中的某个字段时，可以在 `onOpen` 方法里面，进行赋值（前提是当前组件需要先设置查询条件）
+
+### 监听 props 变化
+
+1. 直接监听这个 props
+
+```ts
+export default defineComponent({
+  props: {
+    isOpen: Boolean,
+  },
+  emits: {
+    'close-modal': null,
+  },
+  setup(props, context) {
+    watch(props, (newProps) => {
+      console.log(newProps.isOpen); //这里看到新值
+    });
+    const closeModal = () => {
+      context.emit('close-modal');
+    };
+    return {
+      closeModal,
+    };
+  },
+});
+```
+
+2. 监听里边的某一个属性
+
+   ```ts
+   export default defineComponent({
+     props: {
+       isOpen: Boolean,
+     },
+     emits: {
+       'close-modal': null,
+     },
+     setup(props, context) {
+       watch(
+         () => props.isOpen,
+         (newProps) => {
+           console.log(newProps); //查看新值
+         }
+       );
+       const closeModal = () => {
+         context.emit('close-modal');
+       };
+       return {
+         closeModal,
+       };
+     },
+   });
+   ```
+
+3. 监听 props 做数据回显
+
+```vue
+<template></template>
+<script>
+import { defineComponent, reactive, watch } from 'vue';
+export default defineComponent({
+  name: 'from',
+  props: {
+    record: {
+      type: Object,
+      default: null,
+    },
+  },
+  setup: function (props, context) {
+    const formState = reactive({
+      headPic: '',
+      nickname: '',
+      password: '',
+      username: '',
+      roleDomainList: [],
+    });
+    /*监听props*/
+    watch(props, (nweProps, oldProps) => {
+      for (let item in formState) {
+        formState[item] = nweProps.record[item];
+      }
+    });
+    return {
+      formState,
+    };
+  },
+});
+</script>
+<style scoped></style>
+```
