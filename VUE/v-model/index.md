@@ -266,3 +266,6 @@ A组件=>B组件=>C组件这种多层级组件，A组件向C组件传递数据�
 5. [剖析Vue实现双向数据绑定原理](https://blog.csdn.net/longzhoufeng/article/details/80987527)
 
 6. [vue项目技术随笔](https://juejin.im/post/5b349e0e518825749d2d66ee)
+
+https://zhuanlan.zhihu.com/p/390466860
+https://blog.csdn.net/gtLBTNq9mr3/article/details/109475151

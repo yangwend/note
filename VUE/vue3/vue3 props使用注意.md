@@ -51,6 +51,7 @@ const currentPage = computed(() => props.list.pageNum);
 
 ### props 传值后如何赋值给子组件
 
+#### vue3+element-plus的项目中
 ```vue
 <template>
   <el-dialog
@@ -127,7 +128,13 @@ const onClose = () => {
 </script>
 ```
 
-如上述代码所示，传值给当前组件，当前组件需要默认填入 props 中的某个字段时，可以在 `onOpen` 方法里面，进行赋值（前提是当前组件需要先设置查询条件）
+如上述代码所示，传值给子组件，子组件需要默认填入 props 中的某个字段时，可以在 `onOpen` 方法里面，进行赋值（前提是当前组件需要先设置查询条件）
+
+#### vue3+ant design vue的项目中
+```vue
+```
+
+
 
 ### 监听 props 变化
 
@@ -218,3 +225,58 @@ export default defineComponent({
 </script>
 <style scoped></style>
 ```
+
+4. 监听一个 getter 函数：
+
+```js
+const state = reactive({ count: 0 });
+watch(
+  () => state.count,
+  (count, prevCount) => {
+    /* ... */
+  }
+);
+```
+
+5. 监听一个 ref：
+
+```js
+const count = ref(0);
+watch(count, (count, prevCount) => {
+  /* ... */
+});
+```
+
+6. 当侦听多个来源时，回调函数接受两个数组，分别对应来源数组中的新值和旧值：
+
+```js
+watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) => {
+  /* ... */
+});
+```
+
+7. 当使用 getter 函数作为源时，回调只在此函数的返回值变化时才会触发。如果你想让回调在深层级变更时也能触发，你需要使用 { deep: true } 强制侦听器进入深层级模式。在深层级模式时，如果回调函数由于深层级的变更而被触发，那么新值和旧值将是同一个对象。
+
+```js
+const state = reactive({ count: 0 });
+watch(
+  () => state,
+  (newValue, oldValue) => {
+    // newValue === oldValue
+  },
+  { deep: true }
+);
+```
+
+当直接侦听一个响应式对象时，侦听器会自动启用深层模式：
+
+```js
+const state = reactive({ count: 0 });
+watch(state, () => {
+  /* 深层级变更状态所触发的回调 */
+});
+```
+
+### 参考链接
+
+1. [vue3 watch](https://cn.vuejs.org/api/reactivity-core.html#watch)
