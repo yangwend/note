@@ -1,9 +1,12 @@
 # 用 markdown 做 PPT，so easy
-todo
+首先，请大家看一下之前震哥给大家分享的[前端技术]()
+大家还记得不久前自己编写的述职报告PPT嘛？有没有觉得，有时候写PPT真难
 
 ## Slidev
 >`Slidev(slide + dev, /slʌɪdɪv/)`，是基于 `Web` 的幻灯片制作和演示工具。它旨在让开发者专注在 `Markdown` 中编写内容，同时拥有支持 `HTML` 和 `Vue` 组件的能力，并且能够呈现像素级完美的布局，还在你的演讲稿中内置了互动的演示样例。<br/>
 它使用了功能丰富的 `markdown` 文件来生成精美的幻灯片，具有即时重载的体验。它还拥有很多内置的集成功能，如实时编码、导出 `PDF`、演讲录制等。由于 `Slidev` 是由 `web` 驱动的，因此你可以使用它进行任何操作——具有无限的可能性。
+
+汇总一下，`Slidev` 就是一个基于 `nodejs`、支持 `HTML` 和 `Vue`，内置代码高亮、实时编码等功能，使用 `Markdown` 语法来快速制作 PPT 的工具。
 
 ### 功能
 * 📝 [Markdown 支持](https://cn.sli.dev/guide/syntax.html) —— 使用你最喜欢的编辑器和工作流编写 `Markdown` 文件
@@ -85,14 +88,14 @@ slidev
 
 **注意**：`Slidev` 会读取位于项目根目录的 `slides.md` 文件，并将其转换为幻灯片。每当你修改 `Markdown` 文件，幻灯片的内容都会立刻随之更新。
 
-## 开始使用
+### 开始使用
 幻灯片通过 一个 **markdown** 文件 编写而成（默认会使用 **./slides.md**）。
 
 你可以像平时编写 `markdown` 一样使用 [`Markdown` 的相关特性](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)。
 
 **注意**：使用以下例子时，遇到例子中带有代码块的，直接将代码块的注释去掉即可。
 
-### 分隔幻灯片
+#### 分隔幻灯片
 使用 `---` 添加分隔符来分隔你的幻灯片。
 ```
 ## Slidev
@@ -115,7 +118,7 @@ console.log('Hello, World!')
 ```
 <img src="./images/make-markdown-to-ppt/demo1.gif">
 
-### 扉页及布局
+#### 扉页及布局
 可以通过将分隔符转换为 [扉页块 (front matter)](https://jekyllrb.com/docs/front-matter/)，为每张幻灯片指定布局 (layout) 和其他元数据。每个扉页信息都**以分隔符 --- 开始，以另一个分隔符 --- 结束**。两个分隔符之间的文本是 `YAML` 格式的数据对象。
 
 ```
@@ -149,7 +152,7 @@ console.log('Hello, World!')
 ```
 <img src="./images/make-markdown-to-ppt/demo2.gif">
 
-### 代码块
+#### 代码块
 我们可以使用 `Markdown` 风格的代码块，使得代码高亮。支持 [Prism](http://prismjs.com/) 和 [Shiki](https://github.com/shikijs/shiki) 作为语法高亮器。
 ```
 // ```ts
@@ -184,7 +187,7 @@ function add(
 ```
 <img src="./images/make-markdown-to-ppt/demo3.gif">
 
-### 内联样式
+#### 内联样式
 可以在 `Markdown` 中直接使用 `<style>` 标签来覆盖当前幻灯片的样式。
 
 ```
@@ -217,7 +220,7 @@ blockquote {
 
 ![windi-css-demo](./images/make-markdown-to-ppt/windi-css-demo.png)
 
-### 静态资源
+#### 静态资源
 和编写 `Markdown` 的方式一样，你可以使用本地或远程的 `URL` 的图片。
 
 如果是远程资源，内置的 [vite-plugin-remote-assets](https://github.com/antfu/vite-plugin-remote-assets) 将在第一次运行时把它们缓存到磁盘中，即便是大图也能实现立即加载。
@@ -234,10 +237,7 @@ blockquote {
 ```
 
 
-
-
-
-
-
 ## 参考链接
 1. [Slidev 中文文档](https://cn.sli.dev/guide/)
+
+2. [用Slidev写个简单的ppt](https://juejin.cn/post/7085133046856450084)
