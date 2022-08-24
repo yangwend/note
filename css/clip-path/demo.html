@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clip-path demo</title>
+  </head>
+  <style>
+    .divOne {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: inset(2px 2px 20px 20px round 10px);
+    }
+    .divTwo {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: circle(40px at 50% 50%);
+    }
+    .divTwo1 {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: circle(40px at 0% 0%);
+    }
+    .divTwo2 {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: circle(40px at 20% 70%);
+    }
+    .divThree {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: ellipse(20px 40px at 50% 50%);
+    }
+    .divThree1 {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: ellipse(20px 40px at 10% 70%);
+    }
+    .divFour {
+      margin: 50px auto;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border: 1px solid #000;
+      clip-path: polygon(40px 0px, 0px 80px, 80px 80px);
+    }
+    .divFour1 {
+      margin: 50px auto;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: 1px solid #000;
+      /* 五角星 */
+      clip-path: polygon(
+        35px 40px,
+        50px 0,
+        65px 40px,
+        100px 40px,
+        70px 60px,
+        80px 100px,
+        50px 80px,
+        20px 100px,
+        30px 60px,
+        0px 40px
+      );
+    }
+  </style>
+  <body>
+    <div class="divOne"></div>
+    <div class="divTwo"></div>
+    <div class="divTwo1"></div>
+    <div class="divTwo2"></div>
+    <div class="divThree"></div>
+    <div class="divThree1"></div>
+    <div class="divFour"></div>
+    <div class="divFour1"></div>
+  </body>
+</html>
