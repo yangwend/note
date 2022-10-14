@@ -1,84 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fixed布局实现顶部置顶效果</title>
-  <style>
-    body {
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    .wrap {
-      width: 100%;
-      background: #f5f5f5;
-      min-height: 100vh;
-      padding: 160px 10px 12px;
-      position: relative;
-    }
-    .top {
-      background: #f5f5f5;
-      position: fixed;
-      top: 0;
-      left: 9px;
-      height: 160px;
-      z-index: 1;
-      padding-right: 10px;
-    }
-    .title {
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 35px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fixed布局实现顶部置顶效果</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .wrap {
+        width: 100%;
+        background: #f5f5f5;
+        min-height: 100vh;
+        padding: 160px 10px 50px;
+        position: relative;
+      }
+      .top {
+        background: #f5f5f5;
+        position: fixed;
+        top: 0;
+        left: 10px;
+        height: 160px;
+        z-index: 1;
+        padding-right: 10px;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 35px;
+      }
 
-    .desc {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 30px;
-    }  
-    .desc:last-child {
-      margin-bottom: 10px;
-    }
-    .main {
-      width: 100%;
-      background-color: #fff;
-      overflow: auto;
-    }
-    .box {
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 25px;
-      margin-bottom: 20px;
-      height: 300px;
-      text-align: center;
-      background-color: aqua;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="top">
-      <div class="title">我是需要置顶的内容</div>
-      <div class="desc">地址：广东省深圳市南山区讯美科技广场1栋13楼广东省深圳市南山区讯美科技广场1栋13楼</div>
-      <div class="desc">联系电话：18856235689</div>
-      <div class="desc">营业时间：8:00-20:00</div>
+      .desc {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 30px;
+      }
+      .desc:last-child {
+        margin-bottom: 10px;
+      }
+      .main {
+        width: 100%;
+        background-color: #fff;
+        overflow: auto;
+      }
+      .box {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        margin-bottom: 20px;
+        height: 300px;
+        text-align: center;
+        background-color: aqua;
+      }
+      .bottom {
+        background: #f5f5f5;
+        position: fixed;
+        bottom: 0;
+        left: 10px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        z-index: 1;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div class="title">我是需要置顶的内容</div>
+        <div class="desc">地址：广东省深圳市南山区讯美科技广场1栋13楼广东省深圳市南山区讯美科技广场1栋13楼</div>
+        <div class="desc">联系电话：18856235689</div>
+        <div class="desc">营业时间：8:00-20:00</div>
+      </div>
+      <div class="main">
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+        <div class="box">我是内容</div>
+      </div>
+      <div class="bottom">我是底部置底的内容</div>
     </div>
-    <div class="main">
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-      <div class="box">我是内容</div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
