@@ -185,6 +185,14 @@ onMounted(() => {
 
 如上所示，name 是一个数组，通过数组里面的值可以定位到 v-model:value 绑定的值，才不会报错。**注意注意**
 
+### `a-select` 组件如果小屏幕时选项和选中项鼠标悬浮没有提示文案
+
+1. 直接使用 `a-select` 标签，传值 `options` 和 `field-names`
+2. 使用 `a-select` 和 `a-select-option` 标签，则 `a-select-option` 上需要添加 `title` 属性，且此时选中项并不会有提示文案
+3. 如果是 `mode="multiple"`，好像不受影响。
+
+反正在开发时多注意下，对于文案比较长的，用方案 1 最好
+
 ### 参考链接
 
 1. [基于 Ant Design Vue 的下拉分页](https://www.cnblogs.com/Jessie-candy/p/16442976.html)
