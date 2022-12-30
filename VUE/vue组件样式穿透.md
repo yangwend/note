@@ -4,6 +4,7 @@
 1. `>>>`
 2. `/deep/`
 3. `::v-deep`
+4. `:deep()`
    
 ### `>>>`
 如果是使用 `css` 来开发，那我们可以直接使用 `>>>` 穿透修改。如果是使用 `sass/less` 的话，可能无法识别，这时就需要使用 `/deep/` 和 `::v-deep` 选择器。
@@ -53,9 +54,12 @@
 </style>
 ```
 
-`vue3` 的环境下，安装项目时选择了 `dart-sass`，这个不支持 `>>>` 和 `/deep/` 写法，只能使用 `::v-deep`。如果选择的是 `node-sass` 就不会有这个问题。
+### `:deep()`
+::v-deep usage as a combinator has been deprecated. Use :deep(<inner-selector>) instead.
 
-**强烈建议使用 `::v-deep`，更保险且编译速度更快。**
+`vue3` 的环境下，安装项目时选择了 `dart-sass`，这个不支持 `>>>` 和 `/deep/` 写法，只能使用 `::v-deep`。如果选择的是 `node-sass` 就不会有这个问题。新版本的 `vue3` 已经不支持 `::v-deep`写法了。
+
+**强烈建议使用 `:deep()`，更保险且编译速度更快。**
 
 ### 参考链接
 1. [了解 vue组件样式穿透 /deep/ ::v-deep ＞＞＞ 区别 ===](https://blog.csdn.net/weixin_58726419/article/details/120961244)
