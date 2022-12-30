@@ -57,7 +57,7 @@ const pageState = reactive<IPageState>({
 
 const setPageState = (value: Partial<IPageState>) => {
   Object.assign(pageState, value);
-}
+};
 
 const onSearch = debounce(async (val: string) => {
   setPageState({ keyword: val, list: [], pageNo: 1, pageSize: 20, totalPage: 1 });
@@ -121,16 +121,69 @@ onMounted(() => {
 
 此处注意，如果默认弹窗中选中的选项在下拉列表的接口请求中不会返回，则需要前端自己做处理，将默认项传入`a-select` 组件的数据源中。
 
-
 ### `a-tree` 组件双向绑定传值为 undefined 问题
+
 在开发过程中，使用到 `a-tree` 组件站是一个门店数。
 
 初始化的时候，我传入了一个 [undefined]，门店树选择有问题，这个可能是控件的坑，但是前端在开发过程中也应该避免这种传值出现。
 
 门店树渲染的时候，并不会因为门店编码不存在，就不展示某个门店，因此在选中某些门店后，需要做过滤空处理，防止出现上述情况，导致页面展示有问题。
 
-### 
+### form 报错：please transfer a valid name path to form item
 
+最近在做一个交互特别复杂的项目，大概是根据动态的数据源渲染成多组 form 表单，form 表单是一个数组，还有一些其他项构成，其中就存在多层嵌套循环展示。还可以新增和删除。
+
+在绑定 a-form-item 的时候，name 传值错误，导致控制台一直报错：please transfer a valid name path to form item。并且触发的 rules 规则校验也不对。着实困扰了一小段时间。
+
+后面究其原因：a-form-item 的 name 传值后，没有和数据输入框(input)绑定起来，导致表单规则校验一直报错。
+
+解决办法：
+根据 a-form-item 包裹的里面的 input 组件绑定的 v-model 的取值字段，从最上层去找路径。
+
+例如：
+
+```vue
+<template>
+  <a-form>
+    <div v-for="(item, index) in state.formData" :key="item.uuid">
+      <a-form-item :name="['formData', index, 'eventTime']">
+        <a-range-picker
+          size="middle"
+          allowClear
+          v-model:value="item.eventTime"
+          valueFormat="YYYY-MM-DD HH:mm:ss"
+          show-time
+        />
+      </a-form-item>
+      <table>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+        </colgroup>
+        <thead>
+          <th>列1</th>
+          <th>列2</th>
+          <th>列3</th>
+        </thead>
+        <tbody>
+          <tr v-for="(tableItem, tableIndex) in item.list" :key="tableItem.uuid">
+            <td>
+              <a-form-item :name="['formData', index, 'list', tableIndex, 'type']">
+                <a-input v-model:value="tableItem.type" />
+              </a-form-item>
+            </td>
+            <td>...</td>
+            <td>...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </a-form>
+</template>
+```
+
+如上所示，name 是一个数组，通过数组里面的值可以定位到 v-model:value 绑定的值，才不会报错。**注意注意**
 
 ### 参考链接
 
