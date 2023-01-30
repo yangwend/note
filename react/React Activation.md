@@ -1,1 +1,0 @@
-https://github.com/CJY0208/react-activation/blob/master/README_CN.md

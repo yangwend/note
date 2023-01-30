@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas to image</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    /**
+     * 合并多张图片，返回新的图片
+     * @param {Array} list 图片url数组
+     * @param {Number} cwidth 画布宽度 默认500
+     * @param {Number} cheight 画布高度 默认500
+     */
+    function mergeImgs1(list, cwidth = 500, cheight = 500) {
+      return new Promise((resolve, reject) => {
+        const baseList = [];
+
+        // 创建 canvas 节点并初始化
+        const canvas = document.createElement('canvas');
+        canvas.width = cwidth;
+        canvas.height = cheight * list.length;
+        const context = canvas.getContext('2d');
+
+        list.map((item, index) => {
+          const img = new Image();
+          img.src = item;
+          // 跨域
+          img.setAttribute('crossOrigin', 'Anonymous');
+          img.onload = () => {
+            context.drawImage(img, 0, cheight * index, cwidth, cheight);
+            const base64 = canvas.toDataURL('image/png');
+            baseList.push(base64);
+
+            if (baseList[list.length - 1]) {
+              console.log(baseList);
+              // 返回新的图片
+              resolve(baseList[list.length - 1]);
+            }
+          };
+        });
+      });
+    }
+
+    /**
+     * 合并多张图片，返回新的图片
+     * @param {Array} list 图片url数组
+     * @param {Number} cwidth 画布宽度 默认 window.innerWidth
+     * @param {Number} cheight 画布高度 默认 400
+     * 图片宽高大小可以自己改
+     */
+    function mergeImgs(list, cwidth = window.innerWidth, cheight = 400) {
+      return new Promise((resolve, reject) => {
+        const baseList = [];
+
+        // 创建 canvas 节点并初始化
+        const canvas = document.createElement('canvas');
+        canvas.width = cwidth;
+        canvas.height = cheight;
+        const context = canvas.getContext('2d');
+
+        list.map((item, index) => {
+          const img = new Image();
+          img.src = item;
+          // 跨域
+          img.setAttribute('crossOrigin', 'Anonymous');
+          img.onload = () => {
+            context.drawImage(
+              img,
+              (cwidth * index) / list.length,
+              (cheight * index) / list.length,
+              cwidth / list.length,
+              cheight / list.length
+            );
+            const base64 = canvas.toDataURL('image/png');
+            baseList.push(base64);
+
+            if (baseList[list.length - 1]) {
+              console.log(baseList);
+              // 返回新的图片
+              resolve(baseList[list.length - 1]);
+            }
+          };
+        });
+      });
+    }
+
+    const urlList = [
+      'https://snap.yifengx.com/YFX1326BqMdXsHyu/ssm-boss/ssm/goodsImage/5f56e27dbf961a0001bacfb3/CLOUD/major/6051611/6051611_a1.jpg',
+      'https://snap.yifengx.com/YFX1326BqMdXsHyu/ssm-boss/ssm/goodsImage/5f56e27dbf961a0001bacfb3/CLOUD/major/8014896/8014896_a1.jpg',
+      'https://snap.yifengx.com/YFX1326BqMdXsHyu/ssm-boss/ssm/goodsImage/5f56e27dbf961a0001bacfb3/CLOUD/major/6052086/6052086_a1.jpg',
+      'https://snap.yifengx.com/YFX1326BqMdXsHyu/ssm-boss/ssm/goodsImage/5f56e27dbf961a0001bacfb3/CLOUD/major/6051614/6051614_a1.jpg',
+      'https://snap.yifengx.com/YFX1326BqMdXsHyu/ssm-boss/ssm/goodsImage/5f56e27dbf961a0001bacfb3/CLOUD/major/8014931/8014931_a1.jpg',
+    ];
+    mergeImgs(urlList).then((base64) => {
+      const imgDom = document.createElement('img');
+      imgDom.src = base64;
+      document.body.appendChild(imgDom);
+    });
+  </script>
+</html>
