@@ -12,6 +12,18 @@
 
 git push -f origin develop
 
+### Recv failure: Connection was reset
+
+① 依次将如下两条语句复制到 git 中后，点击回车。
+
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
+② 从 Windows 搜索中输入打开 cmd，将 ipconfig/flushdns 复制，点击回车，清理 DNS 缓存，再尝试提交
+
 ### 参考链接
 
 1. [解决 fatal: refusing to merge unrelated histories](https://blog.51cto.com/laok8/2454524)
+2. [Recv failure: Connection was reset](https://blog.csdn.net/m0_69087087/article/details/128838186)
