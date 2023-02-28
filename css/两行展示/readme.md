@@ -33,3 +33,8 @@
 
 1. 需要检查一下是否设置了 `height`，去掉 `height` 设置
 2. 外框容器如果使用 `padding` 也会出现，如果需要设置距离可以使用 `margin` 属性或者在父元素上设置。
+
+### 参考链接
+
+1. [CSS WebKit 浏览器超过两行自动截断显示省略号](https://docsxyz.com/wiki/css/css-webkit-line-clamp)
+2. [超出隐藏使用了 -webkit-line-clamp: 2; 为什么第三行也展示出了一部分？](https://segmentfault.com/q/1010000042233810)
