@@ -17,8 +17,7 @@
       :not-found-content="pageState.loading ? undefined : null"
       placeholder="请选择会员日规则"
       @search="onSearch"
-      @popupScroll="onPopupScroll"
-    >
+      @popupScroll="onPopupScroll">
       <a-select-option v-for="item in pageState.list" :key="item.id">
         {{ `${item.activityCode}-${item.descriptions}` }}
       </a-select-option>
@@ -152,8 +151,7 @@ onMounted(() => {
           allowClear
           v-model:value="item.eventTime"
           valueFormat="YYYY-MM-DD HH:mm:ss"
-          show-time
-        />
+          show-time />
       </a-form-item>
       <table>
         <colgroup>
@@ -192,6 +190,20 @@ onMounted(() => {
 3. 如果是 `mode="multiple"`，好像不受影响。
 
 反正在开发时多注意下，对于文案比较长的，用方案 1 最好
+
+### vue.js 键入“{类：字符串; }“无法分配给类型”DetailedHTMLProps< HTMLDivElement>
+
+添加此选项可修复此问题。请参见此处：https://github.com/johnsoncodehk/volar/discussions/592  
+参考链接：https://www.saoniuhuo.com/question/detail-2313057.html
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "types": ["vite/client", "node"]
+  }
+}
+```
 
 ### 参考链接
 

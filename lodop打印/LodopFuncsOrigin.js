@@ -107,16 +107,16 @@ function checkOrTryHttp() {
 //==获取LODOP对象主过程,判断是否安装、需否升级:==
 function getLodop(oOBJECT, oEMBED) {
   var strFontTag = "<br><font color='#FF00FF'>打印控件";
-  var strLodopInstall = strFontTag + "未安装!点击这里<a href='install_lodop32.zip' target='_self'>执行安装</a>";
-  var strLodopUpdate = strFontTag + "需要升级!点击这里<a href='install_lodop32.zip' target='_self'>执行升级</a>";
-  var strLodop64Install = strFontTag + "未安装!点击这里<a href='install_lodop64.zip' target='_self'>执行安装</a>";
-  var strLodop64Update = strFontTag + "需要升级!点击这里<a href='install_lodop64.zip' target='_self'>执行升级</a>";
+  var strLodopInstall = strFontTag + "未安装!点击这里<a href='install_lodop32.exe' target='_self'>执行安装</a>";
+  var strLodopUpdate = strFontTag + "需要升级!点击这里<a href='install_lodop32.exe' target='_self'>执行升级</a>";
+  var strLodop64Install = strFontTag + "未安装!点击这里<a href='install_lodop64.exe' target='_self'>执行安装</a>";
+  var strLodop64Update = strFontTag + "需要升级!点击这里<a href='install_lodop64.exe' target='_self'>执行升级</a>";
   var strCLodopInstallA =
-    "<br><font color='#FF00FF'>Web打印服务CLodop未安装启动，点击这里<a href='CLodop_Setup_for_Win32NT.zip' target='_self'>下载执行安装</a>";
+    "<br><font color='#FF00FF'>Web打印服务CLodop未安装启动，点击这里<a href='CLodop_Setup_for_Win32NT.exe' target='_self'>下载执行安装</a>";
   var strCLodopInstallB =
     "<br>（若此前已安装过，可<a href='CLodop.protocol:setup' target='_self'>点这里直接再次启动</a>）";
   var strCLodopUpdate =
-    "<br><font color='#FF00FF'>Web打印服务CLodop需升级!点击这里<a href='CLodop_Setup_for_Win32NT.zip' target='_self'>执行升级</a>";
+    "<br><font color='#FF00FF'>Web打印服务CLodop需升级!点击这里<a href='CLodop_Setup_for_Win32NT.exe' target='_self'>执行升级</a>";
   var strLodop7FontTag = "<br><font color='#FF00FF'>Web打印服务Lodop7";
   var strLodop7HrefX86 =
     "点击这里<a href='Lodop7_Linux_X86_64.tar.gz' target='_self'>下载安装</a>(下载后解压，点击lodop文件开始执行)";
@@ -153,7 +153,7 @@ function getLodop(oOBJECT, oEMBED) {
       } else {
         if (isLinuxX86 && LODOP.CVERSION < '7.0.4.3') strAlertMessage = strLodop7Update_X86;
         else if (isLinuxARM && LODOP.CVERSION < '7.0.4.3') strAlertMessage = strLodop7Update_ARM;
-        else if (CLODOP.CVERSION < '6.5.6.7') strAlertMessage = strCLodopUpdate;
+        else if (CLODOP.CVERSION < '6.5.7.1') strAlertMessage = strCLodopUpdate;
 
         if (strAlertMessage) document.body.innerHTML = strAlertMessage + strInstallOK + document.body.innerHTML;
       }
@@ -185,12 +185,6 @@ function getLodop(oOBJECT, oEMBED) {
     }
     //===如下空白位置适合调用统一功能(如注册语句、语言选择等):=======================
 
-    LODOP.SET_LICENSES(
-      '',
-      '13528A153BAEE3A0254B9507DCDE2839',
-      'EDE92F75B6A3D917F65910',
-      'D60BC84D7CF2DE18156A6F88987304CB6D8'
-    );
     //===============================================================================
     return LODOP;
   } catch (err) {

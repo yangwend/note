@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sticky demo</title>
+    <style type="text/css">
+      #parent {
+        height: 2000px;
+      }
+
+      .myElement {
+        position: sticky;
+        top: -1px;
+      }
+
+      /* styles for when the header is in sticky mode */
+      .myElement.is-pinned {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="myElement">Hello!</div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const el = document.querySelector('.myElement');
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        e.target.classList.toggle('is-pinned', e.intersectionRatio < 1);
+        console.log('e.intersectionRatio->', e.intersectionRatio);
+      },
+      { threshold: 1.0 }
+      // { threshold: [1] },
+    );
+
+    // 使 IntersectionObserver 开始监听一个目标元素。
+    observer.observe(el);
+
+    // 使 IntersectionObserver 对象停止监听目标。
+    // observer.disconnect();
+  </script>
+</html>
