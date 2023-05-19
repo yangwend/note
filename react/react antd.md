@@ -100,4 +100,75 @@ scroll 设置为 `{{ x: 'max-conetnt', y: 300 }}` 后，x 设置失效。antd �
 }
 ```
 
-### 嘻嘻嘻
+### Form.Item 内有多个元素的方式如何布局加展示
+
+`<Form.Item name="field" />` 只会对它的直接子元素绑定表单功能，例如直接包裹了 `Input/Select`。如果控件前后还有一些文案或样式装点，或者一个表单项内有多个控件，你可以使用内嵌的 `Form.Item` 完成。你可以给 `Form.Item` 自定义 `style` 进行内联布局，或者添加 `noStyle` 作为纯粹的无样式绑定组件。
+
+参考：https://4x.ant.design/components/form-cn/#components-form-demo-validate-other
+
+![validate-other](./images/validate-other.png)
+
+```tsx
+import { Button, Form, Input, Select, Space, Tooltip, Typography } from 'antd';
+import React from 'react';
+
+const { Option } = Select;
+
+const App: React.FC = () => {
+  const onFinish = (values: any) => {
+    console.log('Received values of form: ', values);
+  };
+
+  return (
+    <Form name='complex-form' onFinish={onFinish} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
+      <Form.Item label='Username'>
+        <Space>
+          <Form.Item name='username' noStyle rules={[{ required: true, message: 'Username is required' }]}>
+            <Input style={{ width: 160 }} placeholder='Please input' />
+          </Form.Item>
+          <Tooltip title='Useful information'>
+            <Typography.Link href='#API'>Need Help?</Typography.Link>
+          </Tooltip>
+        </Space>
+      </Form.Item>
+      <Form.Item label='Address'>
+        <Input.Group compact>
+          <Form.Item
+            name={['address', 'province']}
+            noStyle
+            rules={[{ required: true, message: 'Province is required' }]}>
+            <Select placeholder='Select province'>
+              <Option value='Zhejiang'>Zhejiang</Option>
+              <Option value='Jiangsu'>Jiangsu</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item name={['address', 'street']} noStyle rules={[{ required: true, message: 'Street is required' }]}>
+            <Input style={{ width: '50%' }} placeholder='Input street' />
+          </Form.Item>
+        </Input.Group>
+      </Form.Item>
+      <Form.Item label='BirthDate' style={{ marginBottom: 0 }}>
+        <Form.Item
+          name='year'
+          rules={[{ required: true }]}
+          style={{ display: 'inline-block', width: 'calc(50% - 8px)' }}>
+          <Input placeholder='Input birth year' />
+        </Form.Item>
+        <Form.Item
+          name='month'
+          rules={[{ required: true }]}
+          style={{ display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 8px' }}>
+          <Input placeholder='Input birth month' />
+        </Form.Item>
+      </Form.Item>
+      <Form.Item label=' ' colon={false}>
+        <Button type='primary' htmlType='submit'>
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
+  );
+};
+
+export default App;
+```

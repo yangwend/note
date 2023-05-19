@@ -1,0 +1,15 @@
+{
+  "name": "my-first-parcel-project",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "immutability-helper": "^3.1.1"
+  }
+}
