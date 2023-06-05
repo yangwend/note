@@ -16,75 +16,133 @@
    ```
 2. 新建 crypto.ts 文件，封装自定义加密和解密方法，导出
 
-   ```ts
-   import CryptoJS from 'crypto-js';
+```ts
+import CryptoJS from 'crypto-js';
 
-   // 这是密钥，非常重要，可以是后台获取，或者是前后台约定好，注意保护
-   // 默认的 KEY 与 iv 与后端保持一致，不采用后端传值密钥。
-   const KEY = CryptoJS.enc.Utf8.parse('aaDJL2d9DfhLZO0z'); // 密钥
-   const IV = CryptoJS.enc.Utf8.parse('412ADDSSFA342442'); // 偏移量
+// 这是密钥，非常重要，可以是后台获取，或者是前后台约定好，注意保护
+// 默认的 KEY 与 iv 与后端保持一致，暂不采用后端传值密钥。
+const KEY = CryptoJS.enc.Utf8.parse('aaDJL2d9DfhLZO0z'); // 密钥
+const IV = CryptoJS.enc.Utf8.parse('412ADDSSFA342442'); // 偏移量
 
-   export default class CryptoUtils {
-     /**
-      * @description AES 加密
-      * @author yangwen
-      * @static
-      * @param {string} word
-      * @param {string} [keyStr]
-      * @param {string} [ivStr]
-      * @memberof CryptoUtils
-      */
-     static encrypt = (word: string, keyStr?: string, ivStr?: string) => {
-       let key = KEY;
-       let iv = IV;
+export default class CryptoUtils {
+  /**
+   * @description AES 加密
+   * @author yangwen
+   * @static
+   * @param {string} word
+   * @param {string} [keyStr]
+   * @param {string} [ivStr]
+   * @memberof CryptoUtils
+   */
+  static aesEncrypt = (word: string, keyStr?: string, ivStr?: string) => {
+    let key = KEY;
+    let iv = IV;
 
-       if (keyStr && ivStr) {
-         key = CryptoJS.enc.Utf8.parse(keyStr);
-         iv = CryptoJS.enc.Utf8.parse(ivStr);
-       }
+    if (keyStr && ivStr) {
+      key = CryptoJS.enc.Utf8.parse(keyStr);
+      iv = CryptoJS.enc.Utf8.parse(ivStr);
+    }
 
-       const srcs = CryptoJS.enc.Utf8.parse(word);
-       const encrypted = CryptoJS.AES.encrypt(srcs, key, {
-         iv: iv,
-         mode: CryptoJS.mode.CBC,
-         padding: CryptoJS.pad.ZeroPadding,
-       });
+    const encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(word), key, {
+      iv,
+      padding: CryptoJS.pad.ZeroPadding,
+      mode: CryptoJS.mode.CBC,
+    });
+    return encrypted.toString();
+  };
 
-       return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
-     };
+  /**
+   * @description AES 解密
+   * @author yangwen
+   * @static
+   * @param {string} word
+   * @param {string} [keyStr]
+   * @param {string} [ivStr]
+   * @memberof CryptoUtils
+   */
+  static aesDecrypt = (word: string, keyStr?: string, ivStr?: string) => {
+    let key = KEY;
+    let iv = IV;
 
-     /**
-      * @description AES 解密
-      * @author yangwen
-      * @static
-      * @param {string} word
-      * @param {string} [keyStr]
-      * @param {string} [ivStr]
-      * @memberof CryptoUtils
-      */
-     static decrypt = (word: string, keyStr?: string, ivStr?: string) => {
-       let key = KEY;
-       let iv = IV;
+    if (keyStr && ivStr) {
+      key = CryptoJS.enc.Utf8.parse(keyStr);
+      iv = CryptoJS.enc.Utf8.parse(ivStr);
+    }
 
-       if (keyStr && ivStr) {
-         key = CryptoJS.enc.Utf8.parse(keyStr);
-         iv = CryptoJS.enc.Utf8.parse(ivStr);
-       }
+    const decrypted = CryptoJS.AES.decrypt(word.toString(), key, {
+      iv,
+      padding: CryptoJS.pad.ZeroPadding,
+      mode: CryptoJS.mode.CBC,
+    });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+  };
+}
+```
 
-       const base64 = CryptoJS.enc.Base64.parse(word);
-       const src = CryptoJS.enc.Base64.stringify(base64);
+或者（需要和后台一一对应）
 
-       const decrypt = CryptoJS.AES.decrypt(src, key, {
-         iv: iv,
-         mode: CryptoJS.mode.CBC,
-         padding: CryptoJS.pad.ZeroPadding,
-       });
+```ts
+import CryptoJS from 'crypto-js';
 
-       const decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
-       return decryptedStr.toString();
-     };
-   }
-   ```
+// 这是密钥，非常重要，可以是后台获取，或者是前后台约定好，注意保护
+// 默认的 KEY 与 iv 与后端保持一致，暂不采用后端传值密钥
+const KEY = CryptoJS.enc.Utf8.parse('aaDJL2d9DfhLZO0z'); // 密钥
+const IV = CryptoJS.enc.Utf8.parse('412ADDSSFA342442'); // 偏移量
+
+export default class CryptoUtils {
+  /**
+   * @description AES 加密
+   * @author yangwen
+   * @static
+   * @param {string} word
+   * @param {string} [keyStr]
+   * @param {string} [ivStr]
+   * @memberof CryptoUtils
+   */
+  static aesEncrypt = (word: string, keyStr?: string, ivStr?: string) => {
+    let key = KEY;
+    let iv = IV;
+
+    if (keyStr && ivStr) {
+      key = CryptoJS.enc.Utf8.parse(keyStr);
+      iv = CryptoJS.enc.Utf8.parse(ivStr);
+    }
+
+    const encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(word), key, {
+      iv,
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC,
+    });
+    return encrypted.toString();
+  };
+
+  /**
+   * @description AES 解密
+   * @author yangwen
+   * @static
+   * @param {string} word
+   * @param {string} [keyStr]
+   * @param {string} [ivStr]
+   * @memberof CryptoUtils
+   */
+  static aesDecrypt = (word: string, keyStr?: string, ivStr?: string) => {
+    let key = KEY;
+    let iv = IV;
+
+    if (keyStr && ivStr) {
+      key = CryptoJS.enc.Utf8.parse(keyStr);
+      iv = CryptoJS.enc.Utf8.parse(ivStr);
+    }
+
+    const decrypted = CryptoJS.AES.decrypt(word.toString(), key, {
+      iv,
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC,
+    });
+    return decrypted.toString(CryptoJS.enc.Utf8);
+  };
+}
+```
 
 3. 引入使用，如下：
 
@@ -93,13 +151,13 @@
    import CryptoUtils from './crypto.ts';
 
    // 使用方式
-   Encrypt(JSON.stringify(config.data)); //加密
+   CryptoUtils.aesEncrypt(JSON.stringify(config.data)); //加密
    // 密码加密
-   this.formLogin.password = Encrypt(JSON.stringify(this.formLogin.password));
+   this.formLogin.password = CryptoUtils.aesEncrypt(JSON.stringify(this.formLogin.password));
 
-   JSON.parse(Decrypt(response.data)); //解密
+   JSON.parse(CryptoUtils.aesDecrypt(response.data)); //解密
    // 密码解密
-   this.formLogin.password = JSON.parse(Decrypt(this.getCookie('password')));
+   this.formLogin.password = JSON.parse(CryptoUtils.aesDecrypt(this.getCookie('password')));
    ```
 
 ### 参考链接
@@ -107,3 +165,4 @@
 1. [前端使用 AES 密码加密、解密](https://blog.csdn.net/weixin_65793170/article/details/128238297)
 2. [前端如何理解 AES 加解密](https://zhuanlan.zhihu.com/p/543366122?utm_id=0)
 3. [解决前端如何使用插件 crypto-js 进行 AES 加密方式数据加密](https://blog.csdn.net/zy21131437/article/details/128528713)
+4. [前后端配合使用 AES/CBC/PKCS7Padding 实现加解密数据（crypto-js、bouncycastle-java）](https://www.cnblogs.com/zero-cnblogs/p/15827620.html)
