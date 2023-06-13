@@ -23,7 +23,18 @@ git config --global --unset https.proxy
 
 ② 从 Windows 搜索中输入打开 cmd，将 ipconfig/flushdns 复制，点击回车，清理 DNS 缓存，再尝试提交
 
+### fatal: unable to access ‘https://github.com/.......‘: OpenSSL SSL_read: Connec
+
+产生原因：一般是这是因为服务器的 SSL 证书没有经过第三方机构的签署，所以才报错
+解除 ssl 验证后，再次 git 即可
+解决办法输入此条 git 命令：
+
+```bash
+git config --global http.sslVerify "false"
+```
+
 ### 参考链接
 
 1. [解决 fatal: refusing to merge unrelated histories](https://blog.51cto.com/laok8/2454524)
 2. [Recv failure: Connection was reset](https://blog.csdn.net/m0_69087087/article/details/128838186)
+3. [git push 代码到远程仓库，报错解决：fatal: unable to access ‘https://github.com/.......‘: OpenSSL SSL_read: Connec](https://blog.csdn.net/cubejava/article/details/120631396)
