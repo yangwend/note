@@ -106,6 +106,7 @@ Chromium 内核浏览器，除 chrome 外，还包括 edge、opera、safari、�
 /* 滑块背景色 */
 ::-webkit-scrollbar-thumb {
   background: #fbefb5;
+  border-radius: 10px;
 }
 /* 其余相关样式设置跟滑块一个背景色 */
 ::-webkit-scrollbar,

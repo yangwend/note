@@ -23,6 +23,9 @@ git config --global --unset https.proxy
 
 ② 从 Windows 搜索中输入打开 cmd，将 ipconfig/flushdns 复制，点击回车，清理 DNS 缓存，再尝试提交
 
+③ 移除旧的 origin ：git remote remove origin；再重新建立新的 origin ： git remote add origin http://github.com/×××；
+重新 push 就可以了
+
 ### fatal: unable to access ‘https://github.com/.......‘: OpenSSL SSL_read: Connec
 
 产生原因：一般是这是因为服务器的 SSL 证书没有经过第三方机构的签署，所以才报错
