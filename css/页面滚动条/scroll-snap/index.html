@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="description" content="Scroll Snap 模拟 Swipe 轮播效果 » 张鑫旭-鑫空间-鑫生活" />
+    <meta name="description" content="web前端学习demo实例页面之Scroll Snap 模拟 Swipe 轮播效果" />
+    <meta name="keywords" content="css, demo, Scroll Snap, 滚动, 轮播" />
+    <link rel="stylesheet" href="./demo.css" type="text/css" />
+    <link rel="stylesheet" href="./snap-swiper.css" />
+    <style>
+      .snap-swiper-image {
+        height: inherit;
+      }
+    </style>
+  </head>
+
+  <body class="M">
+    <div id="main">
+      <h1>Scroll Snap 模拟 Swipe 轮播效果实例页面</h1>
+      <div id="body" class="light">
+        <div id="content" class="show">
+          <h3>效果：</h3>
+          <div class="demo">
+            <div id="swiperX"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./snap-swiper.js"></script>
+    <script>
+      var imageList = [
+        {
+          href: '##',
+          src: 'https://bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/03e82cf8c48480cd2a4972e3e312f32d.jpg',
+          alt: '内容1',
+        },
+        {
+          href: '##',
+          src: 'https://bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/44210830e86e9bab7af00a98fcd02d83.jpg',
+          alt: '内容2',
+        },
+        {
+          href: '##',
+          src: 'https://bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/d2e93dead4b760eb2385709f42f3aec7.jpg',
+          alt: '内容3',
+        },
+      ];
+
+      new SnapSwiper({
+        imageList,
+        el: '#swiperX',
+      });
+    </script>
+  </body>
+</html>
