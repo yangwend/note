@@ -36,6 +36,33 @@ git config --global --unset https.proxy
 git config --global http.sslVerify "false"
 ```
 
+### 设置 ssh 和 git 代理
+
+1. .ssh/config
+   ```
+   Host github.com
+    Hostname github.com
+    ServerAliveInterval 55
+    ForwardAgent yes
+    ProxyCommand "D:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:10808 %h %p
+   ```
+2. .gitconfig
+   ```
+   [core]
+   	editor = \"D:\\Program Files\\Microsoft VS Code\\bin\\code\" --wait
+   [user]
+   	name = xxx
+   	email = xxx.com
+   [http "https://github.com"]
+   proxy = http://127.0.0.1:10808
+   [https "https://github.com"]
+   proxy = http://127.0.0.1:10808
+   [credential]
+   helper = store
+   [pull]
+   rebase = false
+   ```
+
 ### 参考链接
 
 1. [解决 fatal: refusing to merge unrelated histories](https://blog.51cto.com/laok8/2454524)
