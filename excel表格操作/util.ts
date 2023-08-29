@@ -58,6 +58,7 @@ export function exportExcel(headers: any[], data: any[], fileName = '益丰记�
 
 /**
  * @description excel 导出
+ * 参考：https://blog.51cto.com/u_15301829/4835563
  * @author yangwen
  * @param {{
  *   headers: {
@@ -105,16 +106,22 @@ export const exportExcel1 = ({
   for (let index = 0; index < data.length; index++) {
     parseData.push(headerParseData.map((_item) => data[index][_item]));
   }
+  // 创建book
   const workbook = XLSX.utils.book_new();
+  // json 转 sheet
   const sheet = XLSX.utils.json_to_sheet(parseData, {
     skipHeader: true,
   });
+  sheet['!cols'] = [];
   // 修改列宽度
   currColWidths.forEach((width, index) => {
-    if (sheet['!cols'] && sheet['!cols'][index]) {
-      sheet['!cols'][index].wpx = width.wpx;
+    if (!sheet['!cols']![index]) {
+      sheet['!cols']![index] = { wpx: width.wpx };
+    } else {
+      sheet['!cols']![index].wpx = width.wpx;
     }
   });
+  // sheet 写入 book
   XLSX.utils.book_append_sheet(workbook, sheet, 'sheet1');
 
   // 导出 Excel
