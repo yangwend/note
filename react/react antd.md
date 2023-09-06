@@ -172,3 +172,31 @@ const App: React.FC = () => {
 
 export default App;
 ```
+
+### Checkbox 组件中的 indeterminate 状态(全选、半选)
+
+```tsx
+<Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checked}>
+  全选
+</Checkbox>
+```
+
+Checkbox 有三种状态全选(显示的'√')，选中部分(显示的'-')，全不选(空)
+
+| checked | indeterminate | 效果 |
+| ------- | ------------- | ---- |
+| true    | true          | 半选 |
+| true    | false         | 全选 |
+| false   | true          | 半选 |
+| false   | false         | 空   |
+
+总结：
+
+1. 只要 indeterminate 属性为 true，选择框均为半选状态
+2. indeterminate 属性为 false 时，选择框样式以 checked 属性为主
+3. indeterminate 属性其实就是添加名为 “is-indeterminate” 的 css 类
+
+### 全局相关
+
+1. src/global.less：约定的全局样式文件，自动引入
+2. src/global.tsx：约定的全局 js 文件，自动引入，可以在这里加入 polyfill
