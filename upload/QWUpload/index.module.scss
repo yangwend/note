@@ -1,0 +1,48 @@
+.upload {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  width: 100%;
+
+  .fileItem {
+    flex: none;
+    padding-bottom: 12px;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &Cell {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 2px;
+      overflow: unset;
+    }
+
+    &Img {
+      position: relative;
+      width: 70px;
+      height: 70px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    &Del {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: url('/assets/images/common/icon_close.svg') 0 0 / 16px 16px no-repeat;
+    }
+  }
+
+  .addItem {
+    .fileItemCell {
+      border-radius: 0;
+    }
+  }
+}

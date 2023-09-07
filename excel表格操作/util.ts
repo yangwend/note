@@ -16,7 +16,7 @@ const widthMap = [
   { wpx: 300 },
   { wpx: 300 },
 ];
-export function exportExcel(headers: any[], data: any[], fileName = '益丰记录表.xlsx', width: any[] = widthMap) {
+export function exportExcel(headers: any[], data: any[], fileName = '下载数据.xlsx', width: any[] = widthMap) {
   const _headers = headers
     .map((item, i) =>
       Object.assign({}, { key: item.key, title: item.title, position: String.fromCharCode(65 + i) + 1 })
