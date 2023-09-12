@@ -1,13 +1,18 @@
 export default class ToolUtils {
   /**
    * @description 判断是否支持 webp 格式
+   * https://zhuanlan.zhihu.com/p/70519620/
    * @author yangwen
    * @static
    * @memberof ToolUtils
    */
   static checkWebpSupport = () => {
-    const isWebp = window.document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
-    return isWebp;
+    try {
+      const isWebp = window.document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      return isWebp;
+    } catch (err) {
+      return false;
+    }
   };
 
   /**
