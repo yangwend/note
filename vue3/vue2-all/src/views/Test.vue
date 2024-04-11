@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       count: 0,
-      html: `<p><span>w4rwrwrew</span><img src="https://static.yyfax.com/group1/M00/00/4F/wKgKGl7Q8bSAC1LtAAan1kt_mpw272.png" width="600" height="300"></p>`
+      html: `<p><span>w4rwrwrew</span><img src="https://xxx.com/group1/M00/00/4F/wKgKGl7Q8bSAC1LtAAan1kt_mpw272.png" width="600" height="300"></p>`
     };
   }
 };

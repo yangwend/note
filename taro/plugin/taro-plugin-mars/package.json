@@ -22,14 +22,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://codeup.aliyun.com/yifeng/plugin/taro-plugin-mars.git"
+    "url": "https://codeup.aliyun.com/xxx/plugin/taro-plugin-mars.git"
   },
   "keywords": [
     "Taro"
   ],
   "author": "luckyadam",
   "license": "MIT",
-  "homepage": "https://codeup.aliyun.com/yifeng/plugin/taro-plugin-mars#readme",
+  "homepage": "https://codeup.aliyun.com/xxx/plugin/taro-plugin-mars#readme",
   "publishConfig": {
     "access": "public"
   },

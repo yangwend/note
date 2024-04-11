@@ -53,7 +53,7 @@ if (needCLodop()) {
     src2 = 'http://localhost:18000/CLodopfuncs.js?priority=1';
   }
 
-  // src1 = 'http://yfselfhost.pharmacyyf.com:18000/CLodopfuncs.js?priority=2';
+  // src1 = 'http://xxx:18000/CLodopfuncs.js?priority=2';
   // src1 = 'https://127.0.0.1:5573/CLodopfuncs.js?priority=1';
 
   var head = document.head || document.getElementsByTagName('head')[0] || document.documentElement;
@@ -130,7 +130,10 @@ function getLodop(callback, oOBJECT, oEMBED) {
             }*/
       if (!LODOP) {
         callback(
-          strCLodopInstall_1 + (CLodopIsLocal ? strCLodopInstall_2 : '') + strCLodopInstall_3 + strCLodopInstall_4
+          strCLodopInstall_1 +
+            (CLodopIsLocal ? strCLodopInstall_2 : '') +
+            strCLodopInstall_3 +
+            strCLodopInstall_4
         );
         return;
       } else {

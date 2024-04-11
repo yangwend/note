@@ -29,7 +29,7 @@ Uncaught ReferenceError: Cannot access 'useStore' before initialization
 ```ts
 import Vue from 'vue';
 import axios from 'axios';
-import base62 from 'base62-yf';
+import base62 from 'base62';
 const store = CommonStore();
 // ...
 ```

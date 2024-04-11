@@ -10,7 +10,6 @@ interface ICity {
 
 /**
  * @description 根据特定城市/区获取对应的省市区数组
- * https://openx.yifengx.com/china.region.json
  * @param {*} cityList 所有的省市区列表
  * @param {*} city 特定城市
  * @returns
