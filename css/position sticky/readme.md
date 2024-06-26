@@ -38,7 +38,7 @@
 
 ### 参考链接
 
-1. [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
+1. [css position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
 2. [带阴影的 CSS Sticky](https://zhuanlan.zhihu.com/p/81249133)
 3. [IntersectionObserver MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API)
 4. [How to Detect When a Sticky Element Gets Pinned](https://davidwalsh.name/detect-sticky)
