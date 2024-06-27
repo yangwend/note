@@ -1,0 +1,150 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
+@import '@/assets/styles/mixin';
+
+.file {
+  font-size: 14px;
+  color: #197bff;
+
+  &Icon {
+    margin-left: 2px;
+    font-size: 14px;
+  }
+}
+
+.fileIsLandscape {
+  font-size: 4.667vh !important;
+
+  .fileIcon {
+    font-size: 4.667vh !important;
+  }
+}
+
+.checkIcon {
+  font-size: 15px;
+  color: #3d464d;
+}
+
+.checkIconIsLandscape {
+  font-size: 5vh !important;
+}
+
+.buttonGroup {
+  width: 80px;
+
+  .operateBtn {
+    width: 80px;
+    height: 28px;
+    border-radius: 100px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .operateTopBtn {
+    border-color: #197bff;
+    color: #197bff;
+  }
+
+  .operateBottomBtn {
+    margin-top: 8px;
+  }
+}
+
+.buttonGroupIsLandscape {
+  width: 26.667vh !important;
+
+  .operateBtn {
+    width: 26.667vh !important;
+    height: 9.333vh !important;
+    font-size: 4.333vh !important;
+    line-height: 0.5;
+  }
+
+  .operateBottomBtn {
+    margin-top: 2.667vh !important;
+  }
+}
+
+.table {
+  // 39 + 8
+  max-height: calc(100vh - 47px);
+  max-height: calc(100vh - 47px - constant(safe-area-inset-bottom));
+  max-height: calc(100vh - 47px - env(safe-area-inset-bottom));
+}
+
+.tableWithBottom {
+  // 39 + 8 + 90
+  max-height: calc(100vh - 137px);
+  max-height: calc(100vh - 137px - constant(safe-area-inset-bottom));
+  max-height: calc(100vh - 137px - env(safe-area-inset-bottom));
+}
+
+.empty {
+  // 39 + 8
+  height: calc(100vh - 47px);
+  height: calc(100vh - 47px - constant(safe-area-inset-bottom));
+  height: calc(100vh - 47px - env(safe-area-inset-bottom));
+}
+
+.emptyWithBottom {
+  // 39 + 8 + 90
+  height: calc(100vh - 137px);
+  height: calc(100vh - 137px - constant(safe-area-inset-bottom));
+  height: calc(100vh - 137px - env(safe-area-inset-bottom));
+}
+
+@media screen and (orientation: landscape) {
+  .file {
+    font-size: 4.667vh !important;
+
+    .fileIcon {
+      font-size: 4.667vh !important;
+    }
+  }
+
+  .checkIcon {
+    font-size: 5vh !important;
+  }
+
+  .buttonGroup {
+    width: 26.667vh !important;
+
+    .operateBtn {
+      width: 26.667vh !important;
+      height: 9.333vh !important;
+      font-size: 4.333vh !important;
+      line-height: 0.5;
+    }
+
+    .operateBottomBtn {
+      margin-top: 2.667vh !important;
+    }
+  }
+
+  .table {
+    // 39 + 8
+    max-height: calc(100vh - 15.667vh) !important;
+    max-height: calc(100vh - 15.667vh - constant(safe-area-inset-bottom)) !important;
+    max-height: calc(100vh - 15.667vh - env(safe-area-inset-bottom)) !important;
+  }
+
+  .tableWithBottom {
+    // 39 + 8 + 36
+    max-height: calc(100vh - 27.667vh) !important;
+    max-height: calc(100vh - 27.667vh - constant(safe-area-inset-bottom)) !important;
+    max-height: calc(100vh - 27.667vh - env(safe-area-inset-bottom)) !important;
+  }
+
+  .empty {
+    // 39 + 8
+    height: calc(100vh - 15.667vh) !important;
+    height: calc(100vh - 15.667vh - constant(safe-area-inset-bottom)) !important;
+    height: calc(100vh - 15.667vh - env(safe-area-inset-bottom)) !important;
+  }
+
+  .emptyWithBottom {
+    // 39 + 8 + 36
+    height: calc(100vh - 27.667vh) !important;
+    height: calc(100vh - 27.667vh - constant(safe-area-inset-bottom)) !important;
+    height: calc(100vh - 27.667vh - env(safe-area-inset-bottom)) !important;
+  }
+}

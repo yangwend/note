@@ -1,0 +1,17 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
+@import '@/assets/styles/mixin';
+
+.table {
+  // 竖屏时，由于主动做了旋转，故高度需要使用 vw 来表达
+  max-height: 100vw;
+
+  // max-height: calc(100vh - constant(safe-area-inset-bottom));
+  // max-height: calc(100vh - env(safe-area-inset-bottom));
+}
+
+@media screen and (orientation: landscape) {
+  .table {
+    // 横屏时，高度就是用vh来表达
+    max-height: 100vh;
+  }
+}

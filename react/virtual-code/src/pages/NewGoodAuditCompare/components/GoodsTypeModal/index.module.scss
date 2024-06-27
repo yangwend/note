@@ -1,0 +1,92 @@
+.modal {
+  :global {
+    .adm-center-popup-wrap {
+      width: 280px;
+      max-width: 280px;
+
+      .adm-center-popup-body.adm-modal-body {
+        padding-top: 12px;
+        border-radius: 4px;
+        background: #fff;
+
+        .adm-modal-content {
+          padding: 0;
+          overflow-y: hidden;
+        }
+
+        .adm-modal-footer-empty {
+          height: 0;
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: 0;
+
+    .title {
+      margin-bottom: 8px;
+      font-size: 18px;
+      text-align: center;
+      color: #000;
+    }
+
+    .form {
+      width: 100%;
+      padding: 0 8px 8px;
+
+      :global {
+        --border-top: none;
+        --border-inner: none;
+        --border-bottom: none;
+
+        .adm-list-item-content-main {
+          padding: 8px 0;
+        }
+      }
+
+      .picker {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        padding: 0 5px 0 10px;
+        border-radius: 4px;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: left;
+        color: #a9a9a9;
+        background-color: rgb(245 246 250 / 100%);
+      }
+    }
+
+    .btnGroup {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 47px;
+      border-top: 1px solid #f2f2f2;
+      font-size: 18px;
+      line-height: 47px;
+      text-align: center;
+
+      .btnLeft {
+        width: 50%;
+        border-right: 1px solid #f2f2f2;
+        height: 100%;
+        color: #333;
+      }
+
+      .btnRight {
+        width: 50%;
+        height: 100%;
+        color: #55aff4;
+      }
+    }
+  }
+
+  .mask {
+    background: rgb(0 0 0 / 50%) !important;
+  }
+}

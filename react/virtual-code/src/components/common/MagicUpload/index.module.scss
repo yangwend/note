@@ -1,0 +1,32 @@
+.upload {
+  :global {
+    .adm-image-uploader-cell {
+      overflow: unset;
+
+      &-image {
+        border-radius: 2px;
+      }
+
+      &-delete {
+        top: -7px;
+        right: -7px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: url('/assets/images/common/icon_close.svg') 0 0 / 16px 16px no-repeat;
+
+        .adm-image-uploader-cell-delete-icon {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.uploadTip {
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: #999;
+}

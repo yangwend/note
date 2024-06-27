@@ -1,0 +1,162 @@
+/* stylelint-disable selector-no-vendor-prefix */
+// @font-face {
+//     font-family: "dinfont";
+//     src: url('./fonts/DIN_Medium.woff') format('woff');
+// }
+
+* {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+// *, :after, :before {
+//     font-family: Microsoft Yahei, Helvetica Neue, Arial, Helvetica, sans-serif;
+// }
+input {
+  padding: 0;
+  border: none; // 安卓手机上input有line-height将导致placeholder偏移
+  font-size: 16px;
+  line-height: normal;
+  background-color: transparent;
+  appearance: none;
+}
+
+body,
+p,
+ul,
+button {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  // position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // bottom: 0;
+}
+
+button {
+  display: block;
+  border: none;
+  color: inherit;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+#root * {
+  outline: none; // 移除手机上点击元素时的灰色背景
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+}
+
+label {
+  line-height: 1;
+}
+
+ul,
+div {
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    background: transparent;
+  }
+}
+
+img {
+  max-width: 100%;
+
+  // 如果设置 pointer-events: none; 则 Image 组件的 onClick 事件将无法触发
+}
+/**
+* Correct the cursor style of increment and decrement buttons in Chrome.
+*/
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+* 1. Correct the odd appearance in Chrome and Safari.
+* 2. Correct the outline style in Safari.
+*/
+[type='search'] {
+  appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+/**
+* Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+*/
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
+  appearance: none;
+}
+/**
+* 1. Correct the inability to style clickable types in iOS and Safari.
+* 2. Change font properties to `inherit` in Safari.
+*/
+::-webkit-file-upload-button {
+  appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  -webkit-font-smoothing: antialiased;
+
+  // font-family: -apple-system-font, Helvetica Neue, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+}
+
+::-webkit-input-placeholder {
+  font-weight: 400;
+  /* WebKit browsers，webkit内核浏览器 */
+  font-size: 14px;
+  font-family: 'PingFang SC-Regular', 'PingFang SC';
+  line-height: 20px;
+  color: #ccc;
+}
+
+::-moz-placeholder {
+  font-weight: 400;
+  /* Mozilla Firefox 19+ */
+  font-size: 14px;
+  font-family: 'PingFang SC-Regular', 'PingFang SC';
+  line-height: 20px;
+  color: #ccc;
+}
+
+::-ms-input-placeholder {
+  font-weight: 400;
+  /* Internet Explorer 10+ */
+  font-size: 14px;
+  font-family: 'PingFang SC-Regular', 'PingFang SC';
+  line-height: 20px;
+  color: #ccc;
+}

@@ -1,0 +1,224 @@
+// css module 中font-face不能放在global里面
+@font-face {
+  font-family: iconfont;
+
+  //   src: url('./fonts/iconfont.eot?t=1517966101755'); /* IE9*/
+  //   src: url('./fonts/iconfont.eot?t=1517966101755#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  //   src: url('./fonts/iconfont.ttf?t=1517966101755') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  //   url('./fonts/iconfont.svg?t=1517966101755#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('./fonts/iconfont.woff') format('woff');
+}
+
+:global {
+  [class*='icon-']::before,
+  [class^='icon-']::before {
+    font-style: normal;
+    font-family: iconfont !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-clear::before {
+    content: '\e606';
+  }
+
+  .icon-down::before {
+    content: '\e654';
+  }
+
+  .icon-evaluatestar::before {
+    content: '\e655';
+  }
+
+  .icon-delet::before {
+    content: '\e656';
+  }
+
+  .icon-edit::before {
+    content: '\e657';
+  }
+
+  .icon-location::before {
+    content: '\e658';
+  }
+
+  .icon-collect::before {
+    content: '\e659';
+  }
+
+  .icon-exchangegift::before {
+    content: '\e65a';
+  }
+
+  .icon-feedback::before {
+    content: '\e65b';
+  }
+
+  .icon-logistics::before {
+    content: '\e65c';
+  }
+
+  .icon-mea::before {
+    content: '\e65d';
+  }
+
+  .icon-meb::before {
+    content: '\e65e';
+  }
+
+  .icon-myadress::before {
+    content: '\e65f';
+  }
+
+  .icon-myfavorite::before {
+    content: '\e660';
+  }
+
+  .icon-MyRating::before {
+    content: '\e661';
+  }
+
+  .icon-ordercompletion::before {
+    content: '\e662';
+  }
+
+  .icon-onsale::before {
+    content: '\e663';
+  }
+
+  .icon-obligation::before {
+    content: '\e664';
+  }
+
+  .icon-order::before {
+    content: '\e665';
+  }
+
+  .icon-QRcode::before {
+    content: '\e666';
+  }
+
+  .icon-prescriptionmedicin::before {
+    content: '\e667';
+  }
+
+  .icon-Pinkage::before {
+    content: '\e668';
+  }
+
+  .icon-r::before {
+    content: '\e669';
+  }
+
+  .icon-search::before {
+    content: '\e66a';
+  }
+
+  .icon-select::before {
+    content: '\e66b';
+  }
+
+  .icon-sendthegoods::before {
+    content: '\e66c';
+  }
+
+  .icon-service::before {
+    content: '\e66d';
+  }
+
+  .icon-shoppingcar::before {
+    content: '\e66e';
+  }
+
+  .icon-shoppingcar-add::before {
+    content: '\e66f';
+  }
+
+  .icon-shoppingcar-del::before {
+    content: '\e670';
+  }
+
+  .icon-shppingcara::before {
+    content: '\e671';
+  }
+
+  .icon-shppingcarb::before {
+    content: '\e672';
+  }
+
+  .icon-store::before {
+    content: '\e673';
+  }
+
+  .icon-time::before {
+    content: '\e674';
+  }
+
+  .icon-to::before {
+    content: '\e675';
+  }
+
+  .icon-unfold::before {
+    content: '\e676';
+  }
+
+  .icon-unselect::before {
+    content: '\e677';
+  }
+
+  .icon-up::before {
+    content: '\e678';
+  }
+
+  .icon-waitforreceiving::before {
+    content: '\e679';
+  }
+
+  .icon-WeChatPay::before {
+    content: '\e67a';
+  }
+
+  .icon-xxx::before {
+    content: '\e67b';
+  }
+
+  .icon-xxx::before {
+    content: '\e67c';
+  }
+
+  .icon-add::before {
+    content: '\e67d';
+  }
+
+  .icon-Alipay::before {
+    content: '\e67e';
+  }
+
+  .icon-backtotop::before {
+    content: '\e67f';
+  }
+
+  .icon-box::before {
+    content: '\e680';
+  }
+
+  .icon-classifya::before {
+    content: '\e681';
+  }
+
+  .icon-classifyb::before {
+    content: '\e682';
+  }
+
+  .icon-co::before {
+    content: '\e612';
+  }
+
+  .icon-num::before {
+    content: '\e613';
+  }
+
+  .icon-close::before {
+    content: '\e614';
+  }
+}

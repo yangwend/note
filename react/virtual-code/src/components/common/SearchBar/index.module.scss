@@ -1,0 +1,112 @@
+/* stylelint-disable selector-no-vendor-prefix */
+.searchWrap {
+  display: flex;
+  padding: 10px 15px;
+  border-bottom: 1px solid #f2f2f2;
+  background: #fff;
+
+  .inputWrap {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 8px;
+    background: #f5f6fa;
+
+    .searchIcon {
+      font-size: 22.5px;
+      color: #b3b6bb;
+    }
+  }
+
+  .input {
+    flex: 1;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #b3b6bb;
+
+    :global {
+      .adm-input-element {
+        font-weight: 400;
+        font-size: 13px;
+
+        &::-webkit-input-placeholder {
+          font-size: 13px;
+        }
+
+        &::-moz-placeholder {
+          font-size: 13px;
+        }
+
+        &::-ms-input-placeholder {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .scanImage {
+    height: 18px;
+    margin-left: 10px;
+  }
+
+  .searchBtn {
+    padding-left: 10px;
+    font-size: 15px;
+    line-height: 40px;
+    color: #197bff;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .searchWrap {
+    // 以 300 为基准
+    padding: 3.333vh 5vh !important;
+
+    .inputWrap {
+      height: 13.333vh !important;
+      padding: 0 3.333vh !important;
+
+      .searchIcon {
+        font-size: 7.5vh !important;
+      }
+    }
+
+    .input {
+      padding-left: 3.333vh !important;
+      font-size: 4.333vh !important;
+
+      :global {
+        .adm-input-element {
+          font-size: 4.333vh !important;
+
+          &::-webkit-input-placeholder {
+            font-size: 4.333vh !important;
+          }
+
+          &::-moz-placeholder {
+            font-size: 4.333vh !important;
+          }
+
+          &::-ms-input-placeholder {
+            font-size: 4.333vh !important;
+          }
+        }
+      }
+    }
+
+    .scanImage {
+      height: 6vh !important;
+      margin-left: 3.333vh !important;
+    }
+
+    .searchBtn {
+      padding-left: 3.333vh !important;
+      font-size: 5vh !important;
+      line-height: 13.333vh !important;
+    }
+  }
+}

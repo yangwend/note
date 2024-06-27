@@ -1,0 +1,43 @@
+@import '../../../assets/styles/mixin';
+
+.fullScreenCenter {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  p {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: PingFangTC-Regular, PingFangTC;
+    line-height: 21px;
+    color: #666;
+  }
+}
+
+.container {
+  height: 100%;
+}
+
+.loadingWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.defaultImg {
+  width: 196px;
+  height: 154px;
+  margin: 0 auto;
+}
+
+.emptyImg {
+  max-width: 340px;
+  max-height: 340px;
+}

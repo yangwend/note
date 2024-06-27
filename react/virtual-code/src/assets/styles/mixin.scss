@@ -1,0 +1,428 @@
+/* stylelint-disable media-feature-name-no-unknown */
+/* stylelint-disable scss/at-else-closing-brace-space-after */
+/* stylelint-disable scss/at-else-closing-brace-newline-after */
+/* stylelint-disable scss/at-if-closing-brace-space-after */
+/* stylelint-disable scss/at-if-closing-brace-newline-after */
+@charset "utf-8";
+
+$browser-default-font-size: 30 !default;
+
+@function rem($px) {
+  @return $px / $browser-default-font-size * 1rem;
+}
+
+// ----------------------------------------------------------------------------- //
+@mixin clearfix {
+  &::before,
+  &::after {
+    display: table;
+    content: ' ';
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// Sizing
+// -----------------------------------------------------------------------------
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+// add scrollableX & scrollableY
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Text
+// -----------------------------------------------------------------------------
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Line clamp
+// http://dropshado.ws/post/1015351370/webkit-line-clamp
+@mixin line-clamp($lines: 2, $line-height: 1.3em) {
+  display: -webkit-box;
+  max-height: $line-height * $lines;
+  overflow: hidden;
+  line-height: $line-height;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}
+
+// Form
+// -----------------------------------------------------------------------------
+
+// Disable OS-level styles
+@mixin no-appearance {
+  appearance: none;
+}
+
+// Shape
+// -----------------------------------------------------------------------------
+/// CSS Triangle
+/// Creates a CSS triangle, which can be used for dropdown arrows, popup tails, and more.
+/// Use this mixin inside a `&::before` or `&::after` selector, to attach the triangle to an existing element.
+///
+/// @param {number} $triangle-size - Width of the triangle.
+/// @param {color} $triangle-color - Color of the triangle.
+/// @param {keyword} $triangle-direction - Direction the triangle points. Can be `top`, `right`, `bottom`, or `left`.
+@mixin css-triangle($triangle-size, $triangle-color, $triangle-direction) {
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $triangle-size;
+  content: '';
+
+  @if $triangle-direction == top {
+    border-color: $triangle-color transparent transparent transparent;
+    border-top-style: solid;
+  }
+
+  @if $triangle-direction == bottom {
+    border-color: transparent transparent $triangle-color transparent;
+    border-bottom-style: solid;
+  }
+
+  @if $triangle-direction == left {
+    border-color: transparent transparent transparent $triangle-color;
+    border-left-style: solid;
+  }
+
+  @if $triangle-direction == right {
+    border-color: transparent $triangle-color transparent transparent;
+    border-right-style: solid;
+  }
+}
+
+// Retina hairline
+// @see https://gist.github.com/w0rm/c0dd4b7aed71acc03900
+// @see http://dieulot.net/css-retina-hairline
+// -----------------------------------------------------------------------------
+$rl-pseudo-element: (
+  top: before,
+  right: after,
+  bottom: after,
+  left: before,
+);
+
+@mixin rl-get-size($position) {
+  @if $position == top or $position == bottom {
+    @include size(100%, 1px);
+  } @else {
+    @include size(1px, 100%);
+  }
+}
+
+// simulate a 1px border on retina screens
+@mixin rl-get-scale($position) {
+  @if $position == top or $position == bottom {
+    @extend %retina-line-v-scale;
+  } @else {
+    @extend %retina-line-h-scale;
+  }
+}
+
+// @param {top|right|bottom|left} $position - line position
+// @param {before|after} $element - pseudo element
+// @param {String} $color - border color
+@mixin retina-line($position: top, $element: before, $color: #d8d8d8) {
+  position: relative;
+
+  $transform-origin-map: (
+    top: 50% 0,
+    right: 100% 50%,
+    bottom: 50% 100%,
+    left: 0 50%,
+  );
+
+  &:#{$element} {
+    position: absolute;
+    z-index: 15;
+    display: block;
+    box-sizing: content-box;
+    background-color: transparent; // $color;
+    transform-origin: map_get($transform-origin-map, $position);
+    content: '';
+
+    @if $position == top or $position == left {
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 0;
+    } @else if $position == right {
+      top: 0;
+      right: 0;
+      bottom: auto;
+      left: auto;
+    } @else if $position == bottom {
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+    }
+
+    @include rl-get-size($position);
+    @include rl-get-scale($position);
+
+    // fixes Android rending: 1px width scale(0.5) not work well on Android
+    border-#{$position}: 1px solid $color;
+  }
+}
+
+@mixin retina-line-color($element, $color) {
+  &:#{$element} {
+    border-color: $color;
+  }
+}
+
+@mixin retina-line-remove($element) {
+  &:#{$element} {
+    display: none;
+  }
+}
+
+// Animation
+// -----------------------------------------------------------------------------
+
+@mixin force-hardware-acceleration {
+  transform: translateZ(0);
+  perspective: 1000;
+  backface-visibility: hidden;
+}
+
+// ----------------------------------------------------------------------------- //
+
+@mixin flex-shrink($fs) {
+  flex: 0 $fs auto;
+  flex-shrink: $fs;
+}
+
+@mixin justify-content($jc) {
+  -webkit-box-pack: $jc;
+  -ms-flex-pack: $jc;
+  justify-content: $jc;
+}
+
+@mixin align-items($ai) {
+  -webkit-box-align: $ai;
+  -ms-flex-align: $ai;
+  align-items: $ai;
+}
+
+@mixin align-content($ai) {
+  -ms-flex-line-pack: $ai;
+  align-content: $ai;
+}
+
+@mixin align-self($ai) {
+  -ms-flex-item-align: $ai;
+  align-self: $ai;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'iphone4' {
+    @media (device-width: 320px) and (device-height: 480px) and (min-device-pixel-ratio: 2) {
+      @content;
+    }
+  } @else if $breakpoint == 'iphone5' {
+    @media (device-width: 320px) and (device-height: 568px) and (min-device-pixel-ratio: 2) {
+      @content;
+    }
+  }
+
+  // todo iphone6 未生效
+  @else if $breakpoint == 'iphone6' {
+    @media (device-width: 375px) and (device-height: 627px) and (min-device-pixel-ratio: 2) {
+      @content;
+    }
+  } @else if $breakpoint == 'plus' {
+    @media (device-width: 414px) and (min-height: 736px) and (min-device-pixel-ratio: 3) {
+      @content;
+    }
+  }
+}
+/* Safari 5.1 - 6.0 */ /* Opera 11.1 - 12.0 */ /* Firefox 3.6 - 15 */
+@mixin linear-gradient($color1: #fd797d, $color2: #fc5a7b) {
+  background: linear-gradient($color1, $color2); /* 标准的语法 */
+}
+
+@mixin flex($num: 1) {
+  -moz-box-flex: $num;
+  flex: $num;
+}
+
+@mixin flex-box() {
+  display: flex;
+}
+
+@mixin hairline($position: top, $color: #d9d9d9) {
+  border-#{$position}: 1px solid #{$color};
+}
+
+// 不换行
+.flex-wrap-nowrap {
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  flex-wrap: nowrap;
+}
+
+// 换行，第一行在上方。
+.flex-wrap {
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  flex-wrap: wrap;
+}
+
+.justify-content-flex-start {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.justify-content-flex-end {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.justify-content-space-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.align-items-flex-start {
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.align-items-flex-end {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.scrollable {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.clearfix {
+  &::before,
+  &::after {
+    display: table;
+    content: ' ';
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.floatLf {
+  float: left;
+  display: block;
+}
+
+.floatRg {
+  float: left;
+  display: block;
+}
+
+.normal-btn {
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'PingFang SC-Medium', 'PingFang SC';
+  -webkit-tap-highlight-color: transparent;
+
+  // 去掉按钮底部的黑底
+  &::after,
+  &::before {
+    border-radius: 4px;
+  }
+}
+
+.default-btn {
+  width: 100%;
+  height: 28px;
+  padding: 0;
+  border-radius: 14px;
+  font-weight: 400;
+  font-size: 13px;
+  font-family: 'PingFang SC-Regular', 'PingFang SC';
+  -webkit-tap-highlight-color: transparent;
+
+  // 去掉按钮底部的黑底
+  &::after,
+  &::before {
+    border-radius: 14px;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-break {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #efeff3;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+  content: '';
+}
+
+.border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #efeff3;
+  transform: scaleY(0.5);
+  transform-origin: 0 0;
+  content: '';
+}

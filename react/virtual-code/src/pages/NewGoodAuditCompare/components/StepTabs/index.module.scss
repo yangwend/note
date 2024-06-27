@@ -1,0 +1,52 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
+.tabs {
+  padding-top: 44px;
+
+  :global {
+    .adm-tabs-header {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-bottom: 6px;
+      border-bottom: none;
+      background-color: #fff;
+
+      .adm-tabs-tab-list {
+        .adm-tabs-tab-line {
+          height: 2px;
+          border-radius: 4px;
+        }
+
+        .adm-tabs-tab-wrapper-stretch {
+          flex: unset;
+        }
+
+        .adm-tabs-tab {
+          padding: 9px 0;
+          font-size: 14px;
+          line-height: 20px;
+
+          &.adm-tabs-tab-active {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .adm-tabs-content {
+      padding: 0;
+      background: #fff;
+    }
+  }
+}
+
+.wrap {
+  height: calc(100vh - 88px);
+  height: calc(100vh - 88px - constant(safe-area-inset-bottom));
+  height: calc(100vh - 88px - env(safe-area-inset-bottom));
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: #fff;
+}

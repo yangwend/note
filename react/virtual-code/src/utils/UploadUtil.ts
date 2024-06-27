@@ -24,19 +24,23 @@ export default class UploadUtil {
     try {
       // 设置 uuid + 后缀 作为文件名
       const nameList = file.name.split('.');
-      const result = await UploadService.loadOssSignatureApi({
+      const result = await UploadService.loadSignatureApi({
         fileName: `${nameList[0] || ''}-${ToolUtil.uuidGen()}.${
           nameList[nameList.length - 1] || ''
         }`,
       });
-      const formdata = new FormData();
-      formdata.append('name', file.name);
-      formdata.append('key', result.key);
-      formdata.append('policy', result.policy);
-      formdata.append('OSSAccessKeyId', result.accessId);
-      formdata.append('signature', result.signature);
-      formdata.append('file', file);
-      await UploadService.ossFileUploadApi({ url: result.host, formData: formdata });
+      if (result.status === -1) {
+        throw new Error(result.message);
+      }
+      const formData = new FormData();
+      formData.append('2323', result.data.accessId);
+      formData.append('2323', result.data.policy);
+      formData.append('2323', result.data.signature);
+      formData.append('232', file.name);
+      formData.append('232', result.data.key);
+      formData.append('2323', result.data.expire);
+      formData.append('2323', file);
+      await UploadService.FileUploadApi({ url: result.host, formData: formData });
       return { url: result.url };
     } catch (error) {
       return { url: '' };
@@ -72,13 +76,13 @@ export default class UploadUtil {
   };
 
   /**
-   * @description 通过 serverId 获取最终的 oss 地址
+   * @description 通过 serverId 获取最终的 zzz 地址（todo，此为营运支持组南哥那边的接口）
    * @author yangwen
    * @static
    * @param {string} serverId
    * @memberof UploadUtil
    */
-  static uploadImgToOss1 = async (serverId: string): Promise<string> => {
+  static uploadImgTozzz1 = async (serverId: string): Promise<string> => {
     try {
       const url: string = await UploadService.uploadByMediaId(serverId);
       console.log(`url=`, url);
@@ -89,22 +93,21 @@ export default class UploadUtil {
   };
 
   /**
-   * @description 通过 serverId 获取最终的 oss 地址
+   * @description 通过 serverId 获取最终的 zzz 地址
    * @author yangwen
    * @static
    * @param {string} serverId
    * @memberof UploadUtil
    */
-  static uploadImgToOss = async (serverId: string): Promise<string> => {
+  static uploadImgTozzz = async (serverId: string): Promise<string> => {
     try {
       const base64Str = await CommonService.getImage(serverId);
       console.log('base64Str->', base64Str);
       if (base64Str) {
-        const newFile = ImageUtil.dataURItoFile(`data:image/jpeg;base64,${base64Str}`, `xxx.jpeg`);
-        // const file = ImageUtils.dataURLtoFile(
-        //   `data:image/png;base64,${base64Str}`,
-        //   `xxx.png`,
-        // );
+        const newFile = ImageUtil.dataURItoFile(
+          `data:image/jpeg;base64,${base64Str}`,
+          `goods-center-${ToolUtil.uuidGen()}.jpeg`
+        );
         console.log(`图片大小为-->${newFile.size / 1024 / 1024}M`);
         const res = await UploadUtil.normalUpload(newFile);
         if (!res.url) {
@@ -130,7 +133,7 @@ export default class UploadUtil {
     return new Promise((resolve, reject) => {
       wx.chooseImage({
         count,
-        sizeType: ['compressed'], // 指定压缩图
+        sizeType: ['compressed'], // 指定压缩图 todo 此处可能需要改为原图
         sourceType: ['album'], // 指定来源为相册
         success: (res: {
           sourceType: string; // weixin album camera
@@ -147,6 +150,41 @@ export default class UploadUtil {
         },
         cancel: () => {
           console.log('取消上传');
+        },
+      });
+    });
+  };
+
+  /**
+   * @description 扫码
+   * @author yangwen
+   * @static
+   * @memberof UploadUtil
+   */
+  static scan = async (): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      wx.scanQRCode({
+        desc: 'scanQRCode desc',
+        needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+        scanType: ['barCode'], // 可以指定扫二维码还是一维码，默认二者都有
+        success(res: { resultStr?: string }) {
+          const result = res.resultStr; // 当 needResult 为 1 时返回处理结果
+          if (result) {
+            resolve(result);
+          }
+          resolve('');
+        },
+        error(err: any) {
+          if (err.errMsg.indexOf('function_not_exist') > 0) {
+            Toast.show({
+              icon: 'success',
+              content: '版本过低请升级',
+            });
+          }
+          reject(err);
+        },
+        cancel(err: any) {
+          reject(err);
         },
       });
     });
@@ -194,7 +232,7 @@ export default class UploadUtil {
       );
       console.log(`serverIds=`, serverIds);
       const urls: string[] = await Promise.all(
-        serverIds.map((serverId: string) => UploadUtil.uploadImgToOss(serverId))
+        serverIds.map((serverId: string) => UploadUtil.uploadImgT(serverId))
       );
       console.log(`urls=`, urls);
       Toast.clear();

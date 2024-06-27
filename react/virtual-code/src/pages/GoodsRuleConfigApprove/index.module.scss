@@ -1,0 +1,395 @@
+/* stylelint-disable selector-no-vendor-prefix */
+/* stylelint-disable declaration-block-no-duplicate-properties */
+@import '@/assets/styles/mixin';
+
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow-y: unset;
+  background-color: #f5f6fa;
+
+  :global {
+    .adm-ellipsis {
+      a {
+        color: #197bff;
+      }
+    }
+  }
+
+  .main {
+    .tabs {
+      padding-top: 39px;
+
+      :global {
+        .adm-tabs-header {
+          position: fixed;
+          z-index: 500; // 比 FixedTable 里面的 300 要大
+          top: 0;
+          left: 0;
+          width: 100%;
+
+          .adm-tabs-tab-list {
+            background-color: #fff;
+
+            .adm-tabs-tab-line {
+              height: 2px;
+              border-radius: 4px;
+              background: #197bff;
+            }
+
+            .adm-tabs-tab-wrapper-stretch {
+              flex: unset;
+            }
+
+            .adm-tabs-tab {
+              padding: 9px 0;
+              font-size: 14px;
+              line-height: 20px;
+
+              &.adm-tabs-tab-active {
+                font-weight: 500;
+                color: #197bff;
+              }
+            }
+          }
+        }
+
+        .adm-tabs-content {
+          // 39 + 8
+          min-height: calc(100vh - 47px);
+          min-height: calc(100vh - 47px - constant(safe-area-inset-bottom));
+          min-height: calc(100vh - 47px - env(safe-area-inset-bottom));
+          padding: 8px 0 0;
+          background: #f5f6fa;
+        }
+      }
+    }
+
+    .flowChart {
+      width: 100%;
+
+      // 39 + 8
+      height: calc(100vh - 47px);
+      height: calc(100vh - 47px - constant(safe-area-inset-bottom));
+      height: calc(100vh - 47px - env(safe-area-inset-bottom));
+      border: none;
+      overflow: auto;
+    }
+  }
+
+  .mainWithBottom {
+    .tabs {
+      :global {
+        .adm-tabs-content {
+          // 39 + 8 + 90
+          min-height: calc(100vh - 137px);
+          min-height: calc(100vh - 137px - constant(safe-area-inset-bottom));
+          min-height: calc(100vh - 137px - env(safe-area-inset-bottom));
+        }
+      }
+    }
+
+    &.mainIsLandscape {
+      .tabs {
+        :global {
+          .adm-tabs-content {
+            // 39 + 8 + 36
+            min-height: calc(100vh - 83px);
+            min-height: calc(100vh - 83px - constant(safe-area-inset-bottom));
+            min-height: calc(100vh - 83px - env(safe-area-inset-bottom));
+          }
+        }
+      }
+    }
+  }
+}
+
+.bottom {
+  position: fixed;
+  z-index: 500; // 比 FixedTable 里面的 300 要大
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 90px;
+  height: calc(90px + constant(safe-area-inset-bottom));
+  height: calc(90px + env(safe-area-inset-bottom));
+  padding: 0 12px;
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid rgb(0 0 0 / 8%);
+  background-color: #fff;
+
+  .approveArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 0 4px;
+
+    .leftBtn {
+      width: 110px;
+      height: 40px;
+      border-color: #197bff;
+      font-size: 14px;
+      color: #197bff;
+    }
+
+    .rightBtn {
+      width: 230px;
+      height: 40px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #197bff;
+    }
+  }
+
+  .remarkArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .remarkInput {
+      width: calc(100% - 110px);
+      height: 40px;
+      padding-left: 5px;
+      border: 1px solid #e3e3e3;
+      border-radius: 4px;
+      line-height: 30px;
+
+      :global {
+        .adm-input-element {
+          font-size: 15px;
+
+          &::-webkit-input-placeholder {
+            font-size: 15px;
+          }
+
+          &::-moz-placeholder {
+            font-size: 15px;
+          }
+
+          &::-ms-input-placeholder {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    .submitBtn {
+      width: 100px;
+      height: 40px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #197bff;
+    }
+  }
+}
+
+.mainIsLandscape {
+  .bottom {
+    flex-direction: unset;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    height: calc(36px + constant(safe-area-inset-bottom));
+    height: calc(36px + env(safe-area-inset-bottom));
+    padding: 0 20px;
+
+    .approveArea {
+      justify-content: flex-start;
+
+      .leftBtn {
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      .rightBtn {
+        width: 150px;
+        height: 30px;
+        margin-left: 10px;
+        font-size: 13px;
+        line-height: 1;
+      }
+    }
+
+    .remarkArea {
+      justify-content: flex-end;
+
+      .remarkInput {
+        width: calc(100vw - 450px);
+        height: 30px;
+        line-height: 26px;
+      }
+
+      .submitBtn {
+        height: 30px;
+        margin-left: 10px;
+        font-size: 13px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+:global {
+  .adm-image-viewer-image-wrapper img {
+    max-height: 90%;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .wrap {
+    // 处理横屏时左侧的刘海
+    padding-left: 0;
+    padding-left: calc(0 + constant(safe-area-inset-left));
+    padding-left: calc(0 + env(safe-area-inset-left));
+
+    .main {
+      .tabs {
+        padding-top: 13vh !important;
+
+        :global {
+          .adm-tabs-header {
+            // 处理横屏时左侧的刘海
+            left: 0;
+            left: calc(0 + constant(safe-area-inset-left));
+            left: calc(0 + env(safe-area-inset-left));
+            width: 100%;
+            width: calc(100% - constant(safe-area-inset-left));
+            width: calc(100% - env(safe-area-inset-left));
+
+            .adm-tabs-tab-list {
+              .adm-tabs-tab-line {
+                height: 0.667vh !important;
+                border-radius: 1.333vh !important;
+              }
+
+              .adm-tabs-tab {
+                padding: 3vh 0 !important;
+                font-size: 4.667vh !important;
+                line-height: 6.667vh !important;
+              }
+            }
+          }
+
+          .adm-tabs-content {
+            // 39 + 8
+            min-height: calc(100vh - 15.667vh) !important;
+            min-height: calc(100vh - 15.667vh - constant(safe-area-inset-bottom)) !important;
+            min-height: calc(100vh - 15.667vh - env(safe-area-inset-bottom)) !important;
+            padding: 2.667vh 0 0 !important;
+          }
+        }
+      }
+
+      .flowChart {
+        // 39 + 8
+        min-height: calc(100vh - 15.667vh) !important;
+        min-height: calc(100vh - 15.667vh - constant(safe-area-inset-bottom)) !important;
+        min-height: calc(100vh - 15.667vh - env(safe-area-inset-bottom)) !important;
+      }
+    }
+
+    .mainWithBottom {
+      .tabs {
+        :global {
+          .adm-tabs-content {
+            // 39 + 8 + 36
+            min-height: calc(100vh - 27.667vh) !important;
+            min-height: calc(100vh - 27.667vh - constant(safe-area-inset-bottom)) !important;
+            min-height: calc(100vh - 27.667vh - env(safe-area-inset-bottom)) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    // 处理横屏时左侧的刘海
+    left: 0;
+    left: calc(0 + constant(safe-area-inset-left));
+    left: calc(0 + env(safe-area-inset-left));
+    width: 100%;
+    width: calc(100% - constant(safe-area-inset-left));
+    width: calc(100% - env(safe-area-inset-left));
+    height: 12vh !important;
+    height: calc(12vh + constant(safe-area-inset-bottom)) !important;
+    height: calc(12vh + env(safe-area-inset-bottom)) !important;
+    padding: 0 2.998vw !important;
+
+    .approveArea {
+      .leftBtn {
+        width: 14.992vw !important;
+        height: 10vh !important;
+        font-size: 4.333vh !important;
+      }
+
+      .rightBtn {
+        width: 22.488vw !important;
+        height: 10vh !important;
+        margin-left: 1.499vw !important;
+        font-size: 4.333vh !important;
+      }
+    }
+
+    .remarkArea {
+      .remarkInput {
+        width: calc(100vw - 67.466vw) !important;
+        height: 10vh !important;
+        line-height: 8.667vh !important;
+
+        :global {
+          .adm-input-element {
+            font-size: 5vh !important;
+
+            &::-webkit-input-placeholder {
+              font-size: 5vh !important;
+            }
+
+            &::-moz-placeholder {
+              font-size: 5vh !important;
+            }
+
+            &::-ms-input-placeholder {
+              font-size: 5vh !important;
+            }
+          }
+        }
+      }
+
+      .submitBtn {
+        height: 10vh !important;
+        margin-left: 1.499vw !important;
+        font-size: 4.333vh !important;
+      }
+    }
+  }
+
+  :global {
+    .adm-mask,
+    .adm-mask-aria-button {
+      // 处理横屏时左侧的刘海
+      left: 0;
+      left: calc(0 + constant(safe-area-inset-left));
+      left: calc(0 + env(safe-area-inset-left));
+      width: 100%;
+      width: calc(100% - constant(safe-area-inset-left));
+      width: calc(100% - env(safe-area-inset-left));
+    }
+
+    .adm-popup-body-position-bottom {
+      // 处理横屏时左侧的刘海
+      left: 0;
+      left: calc(0 + constant(safe-area-inset-left));
+      left: calc(0 + env(safe-area-inset-left));
+      width: 100%;
+      width: calc(100% - constant(safe-area-inset-left));
+      width: calc(100% - env(safe-area-inset-left));
+    }
+  }
+}

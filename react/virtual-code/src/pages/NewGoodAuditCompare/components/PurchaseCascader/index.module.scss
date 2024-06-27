@@ -1,0 +1,39 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+@import '@/assets/styles/mixin';
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .desc {
+    max-width: 75%;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei';
+    color: #3d464d;
+
+    &Empty {
+      font-weight: normal;
+      color: #a9a9a9;
+    }
+
+    @extend .word-break;
+  }
+
+  .btnGroup {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .closeBtn {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+
+    .editBtn {
+      font-size: 16px;
+    }
+  }
+}

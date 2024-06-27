@@ -1,0 +1,60 @@
+.picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 0 5px 0 10px;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 22px;
+  text-align: left;
+  color: #3d464d;
+  background-color: rgb(245 246 250 / 100%);
+
+  .rightIcon {
+    font-size: 16px;
+  }
+
+  &Empty {
+    font-weight: normal;
+    color: #a9a9a9;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 16px;
+  text-align: center;
+
+  &Left {
+    width: 72px;
+    color: #333;
+  }
+
+  &Middle {
+    font-size: 18px;
+    color: #000;
+  }
+
+  &Right {
+    width: 72px;
+    color: #55aff4;
+  }
+}
+
+.checkListContainer {
+  width: 100%;
+  height: 300px;
+  padding: 0 10px;
+  overflow-y: auto;
+}
+
+.myCheckList {
+  --border-top: 0;
+  --border-bottom: 0;
+}

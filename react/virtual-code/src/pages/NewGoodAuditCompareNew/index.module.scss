@@ -1,0 +1,58 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
+@import '@/assets/styles/mixin';
+
+// 解决iPhone7下横屏后字体变大的问题
+@media screen and (max-device-width: 320px) {
+  body {
+    text-size-adjust: 100%;
+  }
+}
+
+@media screen and (max-device-width: 480px) {
+  body {
+    text-size-adjust: 100%;
+  }
+}
+
+@media only screen and (min-device-pixel-ratio: 2) {
+  body {
+    text-size-adjust: 100%;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  /* 竖屏时将页面做旋转 */
+  body {
+    transform: rotateZ(90deg) translateY(-100%);
+    transform-origin: 0 0;
+  }
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow-y: unset;
+  background: #fff;
+}
+
+.main {
+  // 竖屏时，由于主动做了旋转，故高度需要使用 vw 来表达
+  height: 100vw;
+
+  // height: calc(100vh - constant(safe-area-inset-bottom));
+  // height: calc(100vh - env(safe-area-inset-bottom));
+}
+
+@media screen and (orientation: landscape) {
+  .wrap {
+    // 处理横屏时左侧的刘海
+    padding-left: 0;
+    padding-left: calc(0 + constant(safe-area-inset-left));
+    padding-left: calc(0 + env(safe-area-inset-left));
+  }
+
+  .main {
+    // 横屏时，高度就是用vh来表达
+    height: 100vh;
+  }
+}
