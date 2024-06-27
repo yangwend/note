@@ -1,0 +1,108 @@
+.goodsListContent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+.iphoneX {
+  height: calc(100vh - 34px);
+}
+
+.dropMenu {
+  display: flex;
+  align-items: center;
+  height: 40px;
+
+  span {
+    margin-right: 4.5px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'PingFang SC';
+    color: #262626;
+  }
+
+  .line {
+    width: 0;
+    height: 18px;
+    margin-left: 8px;
+    border: 0.5px solid #ccc;
+    border-radius: 0;
+    opacity: 100%;
+  }
+}
+
+.goodList {
+  flex: 1;
+  padding: 10px 15px;
+  overflow: auto;
+  background: #f5f6fa;
+
+  .goodsItem {
+    position: relative;
+    padding: 12px 10px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #fff;
+
+    .listTop {
+      padding-bottom: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: 'PingFang SC';
+      line-height: 22px;
+      color: #161616;
+    }
+
+    .list {
+      display: flex;
+      padding-bottom: 8px;
+      font-weight: 400;
+      font-size: 13px;
+      font-family: 'PingFang SC';
+      line-height: 18px;
+      color: #262626;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      .item {
+        flex: 1;
+      }
+
+      .itemTitle {
+        min-width: max-content;
+        color: #595959;
+      }
+    }
+
+    .listWithChild {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .noMore {
+    padding-bottom: 9px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #ccc;
+  }
+
+  .empty {
+    padding-top: 150px;
+    text-align: center;
+
+    img {
+      width: 225px;
+    }
+
+    .emptyText {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #262626;
+    }
+  }
+}
